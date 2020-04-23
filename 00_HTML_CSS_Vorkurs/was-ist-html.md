@@ -2,11 +2,11 @@
 
 ## Inhalt
 
-* [Was ist HTML?](#was-ist-html?)
+* [Was ist HTML?](#was-ist-html)
 * [Aufbau einer HTML-Datei](#aufbei-einer-html-datei)
-* [Der Browser & Standards](#der-browser-&-standards)
-* [IDs & Klassen](#ids-&-klassen)
-* [Block- & Inline-Elemente](#block--&-inline-elemente)
+* [Der Browser & Standards](#der-browser--standards)
+* [IDs & Klassen](#ids--klassen)
+* [Block- & Inline-Elemente](#block---inline-elemente)
 * [Neue Elemente](#neue-elemente)
 
 ## Setup
@@ -66,7 +66,7 @@ Abschliessend kommt der Endtag, dieser startet wieder mit einem `<` gefolgt von 
 
 #### Void Elemente
 
-Es gibt auch so genannte void elements. Diese haben keinen Inhalt und der Endtag ist daher implizit und muss nicht angegeben werden.
+Es gibt auch sogenannte void elements. Diese haben keinen Inhalt und der Endtag ist daher implizit und muss nicht angegeben werden.
 
 ```html
 <!-- Generelle Syntax -->
@@ -97,7 +97,7 @@ Liste von void-elements: https://html.spec.whatwg.org/#void-elements
 > **Das Wichtigste in Kürze**
 >  
 > * Elemente haben normalerweise einen Starttag, einen Inhalt und einen Endtag
-> * Die Ausnahme sind so genannte void-elements. Diese haben keinen Inhalt und daher auch keinen expliziten Endtag
+> * Die Ausnahme sind sogenannte void-elements. Diese haben keinen Inhalt und daher auch keinen expliziten Endtag
 > * Elemente können optional einen oder mehrere Attribute haben
 
 ## Aufbei einer HTML-Datei
@@ -122,7 +122,7 @@ HTML-Dateien haben einen gewissen Grundaufbau, damit der Browser genau weiss, wa
 
 * Der **Doctype** sagt dem Browser, welchen HTML-Standard dieser benutzen soll, um das Dokument anzuzeigen.
 * `<html>` ist das Root-Element des Dokuments
-* Im `<head>` stehen **Metainformationen**. Diese werden **nicht angezeigt**, sondern sind nur Informationen für Browser und Roboter die diese auslesen.
+* Im `<head>` stehen **Metainformationen**. Diese werden **nicht angezeigt**, sondern sind nur Informationen für Browser und Roboter, die diese auslesen.
 * Im `<body>` seht der Inhalt der Page. Elemente innerhalb des Bodys werden dem User angezeigt.
 
 ### Infos zum `<html>`
@@ -145,7 +145,7 @@ Die Sprache der Website sollte auf dem `<html>`-Element angegeben werden, damit 
 ### Infos zum `<head>`
 
 * Das `<titel>`-Element ist das Einzgie, welches required ist
-* Der Head beinhaltet vor allem Metainformation
+* Der Head beinhaltet vor allem Metainformationen
 * Darin befinden sich z.B. Verlinkungen von CSS-Dateien, JavaScript-Dateien oder auch Informationen für Roboter (Google, Facebook, Twitter usw.)
 
 <details>
@@ -297,7 +297,7 @@ Folgendes sollte im `<head>`als **minimum** drin sein (abgesehen vom mandatory `
 * [Documentation auf MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)
 * [Practical Guide](https://htmlhead.dev/)
 
-> **Das Wichtigste in Kürze** 👇
+> **Das Wichtigste in Kürze**
 >  
 > * Ein HTML-Dokument beinhaltet einen Doctype, das `<html>`-Element und darin den `<head>` und den `<body>`
 > * Im `<head>` ist das `<title>`-Element required, ansonsten stehen im Head vor allem Metainformationen
@@ -309,6 +309,8 @@ Folgendes sollte im `<head>`als **minimum** drin sein (abgesehen vom mandatory `
 
 - [ ] Füge ein HTML-Grundgerüst ein
 - [ ] Wir bilden ein kleine Todo App. Du kannst einen passenden `<title>` einfügen
+
+Zeit: ~ 5 min
 
 **Solution**: [https://codesandbox.io/s/eemf9](https://codesandbox.io/s/eemf9)
 
@@ -392,7 +394,7 @@ Da Browser alle ein bisschen anders funktionieren, oder zum Teil gar sehr alt si
 
 **Nativ**
 
-Beim nativen testen, wird die zu testende Page auf 'echten' Geräten aufgerufen, und manuell getestet.
+Beim nativen testen, wird die zu testende Page auf 'echten' Geräten aufgerufen und manuell getestet.
 
 **Virtualisiert** _(nicht empfohlen, veraltet)_
 
@@ -400,12 +402,12 @@ VM für verschiedene IE-Versionen: https://developer.microsoft.com/en-us/microso
 
 **Remote (nativ und virtualisiert)**
 
-Externe Dienste um deine Page auf verschiedensten Geräten zu testen.
+Externe Dienste, um deine Page auf verschiedensten Geräten zu testen
 
 * [Browserstack (empfohlen)](https://www.browserstack.com/)
 * [Sourcelabs](https://saucelabs.com/)
 
-> **Note:** Bevor ihr ein Projekt startet, überlegt euch gut, welche Browser unterstütz werden sollten, einen älteren Browser im nachhinein zu unterstützen ist meist mit grossen Aufwänden verbunden.
+> **Note:** Bevor ihr ein Projekt startet, überlegt euch gut, welche Browser unterstützt werden sollten. Einen älteren Browser im Nachhinein zu unterstützen ist meist mit sehr grossem Aufwand verbunden.
 
 ## IDs & Klassen
 
@@ -415,7 +417,7 @@ IDs und Klassen können auf jedes HTML-Element gesetzt werden. Sie dienen zur Id
 
 * Können auf jedes Element mit dem id-Attribut gesetzt werden, sind aber überall optional
 * Werden zur Identifikation von Elementen benutzt (z.B. um ein bestimmtes Element im JavaScript anzusteuern, oder um es mit CSS zu stylen)
-* Dürfen jeweils nur einmal in einen HTML-Dokument vorkommen.
+* Dürfen jeweils nur einmal in einen HTML-Dokument vorkommen
 
 **Beispiel**
 
@@ -445,7 +447,7 @@ IDs und Klassen können auf jedes HTML-Element gesetzt werden. Sie dienen zur Id
 
 ## Block- & Inline-Elemente
 
-HTML-Elementen unterscheiden sich grundsätzlich in zwei Typen: in Block- und Inline-Elemente.
+HTML-Elemente unterscheiden sich grundsätzlich in zwei Typen: in Block- und Inline-Elemente.
 
 ### Block-Element
 
@@ -475,7 +477,7 @@ HTML-Elementen unterscheiden sich grundsätzlich in zwei Typen: in Block- und In
 
 ### Inline Element
 
-* Inline-Elemente besetzen nur den Platz der benötigt wird
+* Inline-Elemente besetzen nur den Platz, der benötigt wird
 * Aufeinanderfolgende Inline-Elemente werden daher nebeneinander dargestellt
 
 ```html
@@ -554,7 +556,7 @@ Zeit: ~ 15 min
   <summary>Bilder</summary>
 
 * Bilder haben zwei Attribute welche benötigt werden `src` und `alt`
-* Der `src`-Attribut beinhaltet den Pfad zu der zu anzeigenden Bilddatei. Diese kann sowohl relativ (vom HTML-Dokument aus), oder mit einem absoluten Pfad referenziert werden (z.B. https://www.hsr.ch/someimage.jpg)
+* Der `src`-Attribut beinhaltet den Pfad zur anzuzeigenden Bilddatei. Diese kann sowohl relativ (vom HTML-Dokument aus), oder mit einem absoluten Pfad referenziert werden (z.B. https://www.hsr.ch/someimage.jpg)
 * Der `alt`-Attribut wird dem User gezeigt, wenn das Bild nicht geladen werden kann. Dieser dient ebenfalls als Informationen für Suchmaschinen und Screenreader
 
 **Beispiel**
@@ -577,9 +579,9 @@ Zeit: ~ 15 min
 <details>
   <summary>Listen</summary>
 
-* Es gibt ungeordnete Listen `<ul>` (am häuffigsten verwendet) und geordnete Listen `<ol>`
+* Es gibt ungeordnete Listen `<ul>` (am häufigsten verwendet) und geordnete Listen `<ol>`
 * Die einzelnen Listeneinträge sind in beiden Fällen `<li>`
-* `<li>` sind die einzigen Elemente die direkt innerhalb von `<ul>` oder `<ol>` benutzt werden dürfen
+* `<li>` sind die einzigen Elemente, die direkt innerhalb von `<ul>` oder `<ol>` benutzt werden dürfen
 * Navigationen sind fast immer mit `<ul>` erstellt, da diese von Suchmaschinen und Screenreaders gut erkannt werden.
 
 **Beispiel**
@@ -634,7 +636,7 @@ Zeit: ~ 15 min
 
 ## Neue Elemente
 
-HTML5 bietet viele neue Elemente die den Browser vor allem mit Semantischen Informationen füttern. Dies ist speziell gut für Suchmaschinen und um eine bessere Accessibility zu erzielen.
+HTML5 bietet viele neue Elemente, die den Browser vor allem mit semantischen Informationen füttern. Dies ist speziell gut für Suchmaschinen und um eine bessere Accessibility zu erzielen.
 
 Zu den meistbenutzen Elementen gehören:
 
@@ -653,10 +655,10 @@ Beschreibungen der Elemente unter: [https://developer.mozilla.org/en-US/docs/Web
 Öffne diese [**CodeSandbox**](https://codesandbox.io/s/2spun) als Startpunkt.
 
 - [ ] Strukturiere die Seite mit den neuen HTML5-Elementen
-  - [ ] Nutze mindestens 4 der oben gelisteten Elementen
+  - [ ] Nutze mindestens 4 der oben gelisteten Elemente
   - [ ] Strukturiere Deine Page so, wie es für Dich am meisten Sinn ergibt
 
-  Tipp: Du kannst Dir auch den Quellcode einer beliebigen Page anschauen, und dort die Struktur analysieren  
+  Tipp: Du kannst Dir auch den Quellcode einer beliebigen Page anschauen und dort die Struktur analysieren  
   Hilfestellung und Beschreibungen zu den Elementen unter: https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning
 
 Zeit: ~ 10 min

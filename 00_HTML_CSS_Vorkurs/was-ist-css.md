@@ -2,13 +2,13 @@
 
 ## Inhalt
 
-* [Was ist CSS?](#was-ist-css?)
+* [Was ist CSS?](#was-ist-css)
 * [Implementation von CSS](#implementation-von-css)
 * [CSS Selektoren](#css-selektoren)
 * [CSS Einheiten](#css-einheiten)
 * [Die Kaskade](#die-kaskade)
 * [Farben](#farben)
-* [Box-Model, Margins und Paddings](#box-model,-margins-und-paddings)
+* [Box-Model, Margins und Paddings](#box-model-margins-und-paddings)
 
 ## Setup
 
@@ -67,7 +67,7 @@ Source: [http://vetbossel.in/beginner-tutorial-website/css/css_syntax.html](http
 
 **Demo** 🤯
 
-- [Inline CSS](https://codesandbox.io/s/css-demo-inline-sv3nq)
+- [Inline CSS](https://codesandbox.io/s/sv3nq)
 
 ### Embedded CSS
 
@@ -96,7 +96,7 @@ Source: [http://vetbossel.in/beginner-tutorial-website/css/css_syntax.html](http
 
 **Demo** 🤯
 
-- [Embedded CSS](https://codesandbox.io/s/css-demo-embedded-6xw6i)
+- [Embedded CSS](https://codesandbox.io/s/6xw6i)
 
 ### External CSS
 
@@ -130,7 +130,7 @@ h1 {
 
 **Demo** 🤯
 
-- [External CSS](https://codesandbox.io/s/css-demo-external-qk383)
+- [External CSS](https://codesandbox.io/s/qk383)
 
 ## CSS Selektoren
 
@@ -190,7 +190,7 @@ Der **Attributselektor** wählt Elemente aufgrund deren Attribute und auch deren
 [attribute] { /* ... */ }
 ```
 
-> **Note:** Dieser Selektor ist sehr mächtig, bitte schaut euch noch die Zusätzlichen Informationen auf MDN an: https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors
+> **Note:** Dieser Selektor ist sehr mächtig, bitte schaut euch noch die zusätzlichen Informationen auf MDN an: https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors
 
 **Demo** 🤯
 
@@ -198,7 +198,7 @@ Der **Attributselektor** wählt Elemente aufgrund deren Attribute und auch deren
 
 ### Kombinatoren
 
-Kombinatoren werden genutzt, um spezifischere Selektoren zu schreiben
+Kombinatoren werden genutzt, um spezifischere Selektoren zu schreiben.
 
 #### Descendant
 
@@ -225,7 +225,7 @@ Damit diese Deklarationen auf ein Element angewendet werden, muss dieses Element
 
 **Demo** 🤯
 
-- [Descendant](https://codesandbox.io/s/css-demo-descendant-qpe27)
+- [Descendant](https://codesandbox.io/s/qpe27)
 
 #### Child
 
@@ -251,12 +251,12 @@ Die beiden Elemente müssen direkt ineinander verschachtelt sein. Falls dazwisch
 
 **Demo** 🤯
 
-- [Child](https://codesandbox.io/s/css-demo-child-qfshe)
+- [Child](https://codesandbox.io/s/qfshe)
 
 #### Adjacent sibling
 
 Der **Adjacent sibling** Kombinator ist die Nutzung von zwei Grundlegenden Selektoren, getrennt durch ein `+`.  
-Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a`, direkt ein Element mit der Klasse `b` folgt.  
+Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a` direkt ein Element mit der Klasse `b` folgt.  
 
 **Beispiel**
 
@@ -279,7 +279,7 @@ Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a`, di
 
 **Demo** 🤯
 
-- [Adjacent sibling](https://codesandbox.io/s/css-demo-adjacent-sibling-qc41u)
+- [Adjacent sibling](https://codesandbox.io/s/qc41u)
 
 #### General sibling
 
@@ -314,7 +314,7 @@ Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a` ein
 
 **Demo** 🤯
 
-- [General sibling](https://codesandbox.io/s/css-demo-general-sibling-4kugp)
+- [General sibling](https://codesandbox.io/s/4kugp)
 
 ### Pseudoklassen
 
@@ -396,7 +396,7 @@ Zeit: ~ TODO
 
 ### Absolute Einheiten
 
-Absolute Einheiten sind wie der Name bereits sagt: "Absolut". Das bedeutet, egal wo diese Einheiten genutzt werden, sie immer unbeeinträchtigt von anderen Werten sind.
+Absolute Einheiten sind wie der Name bereits sagt: "Absolut". Das bedeutet, egal wo diese Einheiten genutzt werden, sie sind immer unbeeinträchtigt von anderen Werten.
 
 **Einheiten**
 
@@ -460,7 +460,7 @@ Zeit: ~ TODO
 
 ## Die Kaskade
 
-Die Kaskade in CSS regelt eingentlich nur, welche Deklarationen wirklich angewendet werden.
+Die Kaskade in CSS regelt eigentlich nur, welche Deklarationen wirklich angewendet werden.
 Dies ist vor allem dann wichtig zu verstehen, wenn verschiedene Selektoren das gleiche Element identifizieren und die gleichen Properties überschreiben.
 
 Dabei gibt es vor allem drei Kriterien:
@@ -478,7 +478,7 @@ Reihenfolge der angewandten Deklarationen:
 3. **Author CSS** &rightarrow; Von der Website geliefertes CSS
 
 Zusätzlich gibt es aber noch `!important`.  
-Mit dem `!important` flag auf einer CSS-Property, kann eine Deklaration nur noch durch eine andere Deklaration mit `!important` überschrieben werden.
+Mit dem `!important` flag auf einer CSS-Property kann eine Deklaration nur noch durch eine andere Deklaration mit `!important` überschrieben werden.
 
 **Beispiel**
 
@@ -505,7 +505,7 @@ Dass der User mit `!important` die Deklarationen des Author CSS überschreiben k
 
 ### Specificity/Spezifität
 
-Die Spezifität ist eine Nummer, die anhand des Selektors berechnet wird. Desto höher die Spezifität ist, desto eher werden die Deklarationen angewendet die innerhalb eines Selektors angegeben sind. Dies macht es aber auch schwerer die Deklarationen zu überschreiben.
+Die Spezifität ist eine Nummer, die anhand des Selektors berechnet wird. Je höher die Spezifität ist, desto eher werden die Deklarationen angewendet, die innerhalb eines Selektors angegeben sind. Dies macht es aber auch schwerer die Deklarationen zu überschreiben.
 
 1. Inline styles (höchste Spezifität)
 2. IDs
@@ -553,7 +553,7 @@ a[href="./home.html"] {}
 ### Source order
 
 Schlussendlich kommt es noch auf die Reihenfolge an.  
-Wenn die **Wichtigkeit** und die **Spezifität** gleich sind, gilt die Deklaration welche zuletzt deklariert wurde.
+Wenn die **Wichtigkeit** und die **Spezifität** gleich sind, gilt die Deklaration, welche zuletzt deklariert wurde.
 
 **Beispiele**
 
@@ -585,7 +585,7 @@ In CSS können Farben verschieden deklariert werden:
 * `RGB`: Farben bei denen spezifische Farbwerte für die Grundfarben Rot, Grün und Blau angegeben werden.
 * `Hexadezimal`: Farben bei denen spezifische Farbwerte für die Grundfarben Rot, Grün und Blau angegeben werden.
 
-Es gibt noch weitere Farbtypen, welche aber praktisch nie verwendet.
+Es gibt noch weitere Farbtypen, welche aber praktisch nie verwendet werden.
 
 ### Farbname
 
