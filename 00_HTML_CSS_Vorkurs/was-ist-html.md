@@ -3,7 +3,7 @@
 ## Inhalt
 
 * [Was ist HTML?](#was-ist-html?)
-* [Aufbei einer HTML-Datei](#aufbei-einer-html-datei)
+* [Aufbau einer HTML-Datei](#aufbei-einer-html-datei)
 * [Der Browser & Standards](#der-browser-&-standards)
 * [IDs & Klassen](#ids-&-klassen)
 * [Block- & Inline-Elemente](#block--&-inline-elemente)
@@ -15,7 +15,7 @@ Für Übungen nutzen wir die folgende **CodeSandbox** als Startpunkt:
 
 **[https://codesandbox.io/s/eemf9](https://codesandbox.io/s/eemf9)**
 
-Die Übungen bauen immer aufeinander auf, aber keine Angst, für den Fall, dass mal bei einer Übung etwas nicht klappen sollte, gibts bei jeder Übung einen Link zur CodeSandbox mit dem aktuellen Stand.
+Die Übungen bauen immer aufeinander auf. Aber keine Angst! Für den Fall, dass bei einer Übung etwas nicht klappen sollte, gibts bei jeder Übung einen Link zur CodeSandbox mit dem aktuellen Stand.
 
 ## Was ist HTML?
 
@@ -35,14 +35,14 @@ Die Übungen bauen immer aufeinander auf, aber keine Angst, für den Fall, dass 
     Die index.html-Datei wird automatisch angezeigt
   * http://www.something.com/about.html  
     &rightarrow; http://www.something.com/about.html  
-    Hier verweisen wir explizit auf eine Seite, diese wird dann angezeigt
+    Hier verweisen wir explizit auf eine Seite, diese wird angezeigt wenn wir diese Seite aufrufen
   * Das Verhalten kann in den Servereinstellungen angepasst werden
 
 ### Syntax
 
 Offizielle Spezifikation: [https://www.w3.org/TR/2011/WD-html-markup-20110405/syntax.html#syntax-elements](https://www.w3.org/TR/2011/WD-html-markup-20110405/syntax.html#syntax-elements)
 
-Elemente starten mit einem `<` gefolgt vom **Tagnamen**. Anschlissend kommen *optionale* **Attribute** and deren Values. Das Ende des Starttags ist mit einem `>` gekennzeichnet.  
+Elemente starten mit einem `<` gefolgt vom **Tagnamen**. Anschliessend kommen *optionale* **Attribute** und deren Values. Das Ende des Starttags ist mit einem `>` gekennzeichnet.  
 Danach kommt der **Inhalt** des Elementes.  
 Abschliessend kommt der Endtag, dieser startet wieder mit einem `<` gefolgt von einem `/` und dem **Tagnamen**, danach wird dieser geschlossen mit einem `>`
 
@@ -66,7 +66,7 @@ Abschliessend kommt der Endtag, dieser startet wieder mit einem `<` gefolgt von 
 
 #### Void Elemente
 
-Es gibt auch so genannte void elements, diese haben keinen Inhalt und der Endtag ist daher implizit und muss nich angegeben werden.
+Es gibt auch so genannte void elements. Diese haben keinen Inhalt und der Endtag ist daher implizit und muss nicht angegeben werden.
 
 ```html
 <!-- Generelle Syntax -->
@@ -96,8 +96,8 @@ Liste von void-elements: https://html.spec.whatwg.org/#void-elements
 
 > **Das Wichtigste in Kürze**
 >  
-> * Element haben normalerweise einen Starttag, einen Inhalt und einen Endtag
-> * Die Ausnahme sind so genannte void-elements, diese haben keinen Inhalt, und daher auch keinen expliziten Endtag
+> * Elemente haben normalerweise einen Starttag, einen Inhalt und einen Endtag
+> * Die Ausnahme sind so genannte void-elements. Diese haben keinen Inhalt und daher auch keinen expliziten Endtag
 > * Elemente können optional einen oder mehrere Attribute haben
 
 ## Aufbei einer HTML-Datei
@@ -120,9 +120,9 @@ HTML-Dateien haben einen gewissen Grundaufbau, damit der Browser genau weiss, wa
 </html> 
 ```
 
-* Der **Doctype** sagt dem Browser, welchn HTML-Standard dieser benutztn soll, um das Dokument anzuzeigen.
+* Der **Doctype** sagt dem Browser, welchen HTML-Standard dieser benutzen soll, um das Dokument anzuzeigen.
 * `<html>` ist das Root-Element des Dokuments
-* Im `<head>` stehen **Metainformationen**, diese werden **nicht angezeigt**, sondern sind nur für Browser und Roboter die diese auslesen information.
+* Im `<head>` stehen **Metainformationen**. Diese werden **nicht angezeigt**, sondern sind nur Informationen für Browser und Roboter die diese auslesen.
 * Im `<body>` seht der Inhalt der Page. Elemente innerhalb des Bodys werden dem User angezeigt.
 
 ### Infos zum `<html>`
@@ -144,7 +144,7 @@ Die Sprache der Website sollte auf dem `<html>`-Element angegeben werden, damit 
 
 ### Infos zum `<head>`
 
-* Das `<titel>`-Element ist das einzgie, welches required ist
+* Das `<titel>`-Element ist das Einzgie, welches required ist
 * Der Head beinhaltet vor allem Metainformation
 * Darin befinden sich z.B. Verlinkungen von CSS-Dateien, JavaScript-Dateien oder auch Informationen für Roboter (Google, Facebook, Twitter usw.)
 
@@ -299,7 +299,7 @@ Folgendes sollte im `<head>`als **minimum** drin sein (abgesehen vom mandatory `
 
 > **Das Wichtigste in Kürze** 👇
 >  
-> * Ein HTML-Dokument beinhaltet einen Doctype, ein HTML-Element und darin noch den `<head>` und den `<body>`
+> * Ein HTML-Dokument beinhaltet einen Doctype, das `<html>`-Element und darin den `<head>` und den `<body>`
 > * Im `<head>` ist das `<title>`-Element required, ansonsten stehen im Head vor allem Metainformationen
 > * Im `<body>` ist der Inhalt der Page angegeben, welche der User sehen kann
 
@@ -308,7 +308,7 @@ Folgendes sollte im `<head>`als **minimum** drin sein (abgesehen vom mandatory `
 Öffne diese [**CodeSandbox**](https://codesandbox.io/s/rrcjw) als Startpunkt.
 
 - [ ] Füge ein HTML-Grundgerüst ein
-- [ ] Wir bilden ein kleine Todo App, Du kannst daher einen passenden `<title>` einfügen
+- [ ] Wir bilden ein kleine Todo App. Du kannst einen passenden `<title>` einfügen
 
 **Solution**: [https://codesandbox.io/s/eemf9](https://codesandbox.io/s/eemf9)
 
@@ -317,7 +317,7 @@ Folgendes sollte im `<head>`als **minimum** drin sein (abgesehen vom mandatory `
 > Standards... how boring 🥱
 
 Der Browser rendert das ganze HTML, es ist best Friend und gleichzeitig der Endgegner aller Frontendler.  
-Dabei gibt es nicht nur Edge und Chrome, sondern ja auch noch andere. Jeder Browserhersteller (Browservendor) hat natürlich seine eigenen Auffassungen wie er was am besten umsetzen kann. Damit aber unsere Page gleich aussieht im Chrome, sowie im Safari, müssen **Standards** her.
+Dabei gibt es nicht nur Edge und Chrome, sondern noch andere. Jeder Browserhersteller (Browservendor) hat natürlich seine eigenen Auffassungen, wie er was am besten umsetzen kann. Damit aber unsere Page gleich aussieht im Chrome, sowie im Safari, werden **Standards** benötigt.
 
 Die aktuelle Browserlandschaft der meistbenutzten Browser sieht so aus:
 
@@ -339,7 +339,7 @@ Die aktuelle Browserlandschaft der meistbenutzten Browser sieht so aus:
 * iOS
   * Safari
 
-> **Note:** Dies ist keine vollständige Liste, sondern listet nur die am meist benutzten
+> **Note:** Dies ist keine vollständige Liste, sondern beinhaltet nur die meist genutzten
 
 <details>
   <summary>Browserentwicklung der letzten 10 Jahre</summary>
@@ -361,7 +361,7 @@ Source: [https://gs.statcounter.com/browser-market-share#monthly-200901-202003](
 >  
 > Leading the web to its full potential
 
-[WHATWG](https://whatwg.org/) ist eine vereinigung von Browservendors wie Google, Apple, Mozilla und Opera mit einer eigenen Spezifikation.
+[WHATWG](https://whatwg.org/) ist eine Vereinigung von Browservendors wie Google, Apple, Mozilla und Opera mit einer eigenen Spezifikation.
 Die W3C übernimmt die Spezifikation der WHATWG grösstenteils in die offizielle Spezifikation.
 
 **Geschichte**
@@ -400,7 +400,7 @@ VM für verschiedene IE-Versionen: https://developer.microsoft.com/en-us/microso
 
 **Remote (nativ und virtualisiert)**
 
-Externe Dienste um deine Page auf verschiedensten Geräten zu test.
+Externe Dienste um deine Page auf verschiedensten Geräten zu testen.
 
 * [Browserstack (empfohlen)](https://www.browserstack.com/)
 * [Sourcelabs](https://saucelabs.com/)
@@ -409,12 +409,12 @@ Externe Dienste um deine Page auf verschiedensten Geräten zu test.
 
 ## IDs & Klassen
 
-IDs und Klassen können auf jedem HTML-Element gesetzt werden. Sie dienen zur Identifikation und das Styling von Elementen.
+IDs und Klassen können auf jedes HTML-Element gesetzt werden. Sie dienen zur Identifikation und dem Styling von Elementen.
 
 ### IDs
 
-* Können auf jedem Element mit dem id-Attribut gesetzt werden, sind aber überall optional
-* Werden zur Identifikation von Elementen benutzt (z.B. um eine bestimmtes Element im JavaScript anzusteuern, oder um es mit CSS zu stylen)
+* Können auf jedes Element mit dem id-Attribut gesetzt werden, sind aber überall optional
+* Werden zur Identifikation von Elementen benutzt (z.B. um ein bestimmtes Element im JavaScript anzusteuern, oder um es mit CSS zu stylen)
 * Dürfen jeweils nur einmal in einen HTML-Dokument vorkommen.
 
 **Beispiel**
@@ -430,7 +430,7 @@ IDs und Klassen können auf jedem HTML-Element gesetzt werden. Sie dienen zur Id
 
 * Können auf jedem Element mit dem class-Attribut gesetzt werden, sind aber überall optional
 * Klassen werden fürs Styling bevorzugt
-* Es können mehrere Klassen auf ein Element angewandt werden, diese sind mit einem Leerzeichen getrennt
+* Es können mehrere Klassen auf ein Element angewandt werden, diese sind mit einem Leerzeichen zu trennen
 
 **Beispiel**
 
@@ -445,7 +445,7 @@ IDs und Klassen können auf jedem HTML-Element gesetzt werden. Sie dienen zur Id
 
 ## Block- & Inline-Elemente
 
-Bei HTML-Elementen unterscheiden sich diese grundsätzlich in zwei typen, die einen sind Block-Elemente, die anderen sind Inline-Elemente.
+HTML-Elementen unterscheiden sich grundsätzlich in zwei Typen: in Block- und Inline-Elemente.
 
 ### Block-Element
 
@@ -502,12 +502,12 @@ Bei HTML-Elementen unterscheiden sich diese grundsätzlich in zwei typen, die ei
 
 Öffne diese [**CodeSandbox**](https://codesandbox.io/s/html-und-css-basics-eemf9) als Startpunkt.
 
-- [ ] Erstelle als erstes eine zweite seite `about.html`
+- [ ] Erstelle als erstes eine zweite Seite `about.html`
 - [ ] Füge auf der `index.html` einen Link ein auf `about.html`
 - [ ] Füge nun auf der `about.html` einen Link ein, sodass man wieder zur Startseite kommt
-- [ ] Füge bei beiden Seiten einen `<h1>` ein mit einem passenden Titel
-- [ ] Schreibe auf der `about.html` einen kurzen Paragraphen über Dich selbst, und füge ein Bild ein.  
-  Du kannst dafür das vorhandene `avatar.jpg` nutzen, oder selbst ein Bild per Drag & Drop hochladen und dieses einbinden
+- [ ] Füge bei beiden Seiten einen `<h1>` mit einem passenden Titel ein
+- [ ] Schreibe auf der `about.html` einen kurzen Paragraphen über Dich selbst und füge ein Bild ein.  
+  Du kannst dafür das vorhandene `avatar.jpg` nutzen oder selbst ein Bild per Drag & Drop hochladen und dieses einbinden
 - [ ] Füge auf beiden Seiten einen Fussbereich ein, wo Du dein &copy; platzieren kannst
 - [ ] Passe deine Navigation so an, dass auf jeder Seite alle Navigationslinks vorhanden sind. Zeige die Navigationspunkt als Liste `<ul>` an
 

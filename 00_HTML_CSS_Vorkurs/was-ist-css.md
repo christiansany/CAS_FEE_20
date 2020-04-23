@@ -16,7 +16,7 @@ Für Übungen nutzen wir die folgende **CodeSandbox** als Startpunkt:
 
 **[https://codesandbox.io/s/f01xs](https://codesandbox.io/s/f01xs)**
 
-Die Übungen bauen immer aufeinander auf, aber keine Angst, für den Fall, dass mal bei einer Übung etwas nicht klappen sollte, gibts bei jeder Übung einen Link zur CodeSandbox mit dem aktuellen Stand.
+Die Übungen bauen immer aufeinander auf. Aber keine Angst! Für den Fall, dass bei einer Übung etwas nicht klappt, gibts bei jeder Übung einen Link zur CodeSandbox mit dem aktuellen Stand.
 
 ## Was ist CSS?
 
@@ -40,7 +40,7 @@ Die Übungen bauen immer aufeinander auf, aber keine Angst, für den Fall, dass 
 Source: [http://vetbossel.in/beginner-tutorial-website/css/css_syntax.html](http://vetbossel.in/beginner-tutorial-website/css/css_syntax.html)
 
 * Der **Selektor** identifiziert HTML-Elemente, auf welchen die **Deklarationen** angewendet werden sollen.
-* Danach folg der **Deklarationsblock**, darin befinden sich eine oder mehrere **Deklarationen**
+* Danach folgt der **Deklarationsblock**, darin befinden sich eine oder mehrere **Deklarationen**
 * Eine Deklaration besteht aus einer **Property** und einer **Value**, getrennt mit einem **Doppelpunkt**
 * Mehrere **Deklarationen** sind durch einen **Strichpunkt** getrennt
 
@@ -52,7 +52,7 @@ Source: [http://vetbossel.in/beginner-tutorial-website/css/css_syntax.html](http
 
 ### Inline CSS
 
-* Styles werden direkt aufs Element geschrieben, Selektor wird daher nicht benötigt
+* Styles werden direkt aufs Element geschrieben, ein Selektor wird daher nicht benötigt
 * Sehr mühsame Maintenance
 * Unterstützen keine Queries (`@media`/`@supports`)
 * Können von _aussen_ nur mit !important überschrieben werden
@@ -138,7 +138,7 @@ h1 {
 
 #### Typenselektor
 
-Der **Typenselektor** wählt alle Elemente aus, die auf den angegeben _Tag_ matchen.
+Der **Typenselektor** wählt alle Elemente aus, die auf den angegebenen _Tag_ matchen.
 
 **Beispiel**
 
@@ -148,7 +148,7 @@ p { /* ... */ }
 
 #### Klassenselektor
 
-Der **Klassenselektor** wählt alle Elemente aus, die auf die angegeben _Klasse_ matchen.
+Der **Klassenselektor** wählt alle Elemente aus, welche auf die angegebene _Klasse_ matchen.
 
 **Beispiel**
 
@@ -158,8 +158,8 @@ Der **Klassenselektor** wählt alle Elemente aus, die auf die angegeben _Klasse_
 
 #### ID-Selektor
 
-Der **ID-Selektor** wählt das Elemente aus, die auf die angegeben _ID_ matcht.
-Zu beachten ist, dass IDs inerhalb eines HTML-Dokuments nur einmal vorkommen darch, daher gelten die Deklarationen hierbei nur für maximal ein Element.
+Der **ID-Selektor** wählt das Elemente aus, welches auf die angegebene _ID_ matcht.
+Zu beachten ist, dass IDs innerhalb eines HTML-Dokuments nur einmal vorkommen dürfen. Daher gelten die Deklarationen nur für maximal ein Element.
 
 **Beispiel**
 
@@ -170,7 +170,7 @@ Zu beachten ist, dass IDs inerhalb eines HTML-Dokuments nur einmal vorkommen dar
 #### Universalselektor
 
 Der **Universalselektor** wählt alle Elemente aus.  
-Dieser Selektor ist grundsätzlich so wenig wie nötig zu gebrauchen. Da dieser jedes Element anspricht macht es diesen sehr _langsam_.
+Dieser Selektor ist grundsätzlich so wenig wie nötig zu gebrauchen. Da dieser jedes Element anspricht, macht es diesen sehr _langsam_ im Vergleich mit anderen Selektoren.
 
 **Beispiel**
 
@@ -180,7 +180,7 @@ Dieser Selektor ist grundsätzlich so wenig wie nötig zu gebrauchen. Da dieser 
 
 #### Attributselektor
 
-Der **Attributselektor** wählt Elemente aufgrund deren Attribute und auch deren Values aus
+Der **Attributselektor** wählt Elemente aufgrund deren Attribute und auch deren Values aus.
 
 **Beispiele**
 
@@ -198,7 +198,7 @@ Der **Attributselektor** wählt Elemente aufgrund deren Attribute und auch deren
 
 ### Kombinatoren
 
-Kombinatoren werden genutzt, um geziehltere/genauere Selectoren zu schreiben
+Kombinatoren werden genutzt, um spezifischere Selektoren zu schreiben
 
 #### Descendant
 
@@ -206,7 +206,7 @@ Der **Descendant** Kombinator ist die Nutzung von zwei Grundlegenden Selektoren 
 
 **Beispiel**
 
-Damit diese Deklarationen auf ein Element angewendet werden, muss dieses Element die Klasse `b` haben, und ein Eltern-Element muss die Klasse `a` haben.
+Damit diese Deklarationen auf ein Element angewendet werden, muss dieses Element die Klasse `b` haben und _ein_ Eltern-Element muss die Klasse `a` haben.
 
 ```css
 /* CSS */
@@ -230,7 +230,7 @@ Damit diese Deklarationen auf ein Element angewendet werden, muss dieses Element
 #### Child
 
 Der **Descendant** Kombinator ist die Nutzung von zwei Grundlegenden Selektoren getrennt durch ein `>`.  
-Die beinden Elemente müssen direkt einand verschachtelt sein. Falls dazwischen noch ein anderes Element ist, werden die Deklarationen nicht angewendet.
+Die beiden Elemente müssen direkt ineinander verschachtelt sein. Falls dazwischen noch ein anderes Element ist, werden die Deklarationen nicht angewendet.
 
 **Beispiel**
 
@@ -255,8 +255,8 @@ Die beinden Elemente müssen direkt einand verschachtelt sein. Falls dazwischen 
 
 #### Adjacent sibling
 
-Der **Adjacent sibling** Kombinator ist die Nutzung von zwei Grundlegenden Selektoren getrennt durch ein `+`.  
-Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a`, direkt danach ein Element mit der Klasse `b` folgt.  
+Der **Adjacent sibling** Kombinator ist die Nutzung von zwei Grundlegenden Selektoren, getrennt durch ein `+`.  
+Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a`, direkt ein Element mit der Klasse `b` folgt.  
 
 **Beispiel**
 
@@ -283,8 +283,8 @@ Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a`, di
 
 #### General sibling
 
-Der **General sibling** Kombinator ist die Nutzung von zwei Grundlegenden Selektoren getrennt durch ein `~`.  
-Die Deklarationen werden angewendet, wenn auf das Element mit der Klasse `a`, danach einem Element mit der Klasse `b` folgt (dieses muss aber nicht direkt danach folgen).
+Der **General sibling** Kombinator ist die Nutzung von zwei Grundlegenden Selektoren, getrennt durch ein `~`.  
+Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a` ein Element mit der Klasse `b` folgt (dieses muss aber nicht direkt danach folgen).
 
 **Beispiel**
 
@@ -318,7 +318,7 @@ Die Deklarationen werden angewendet, wenn auf das Element mit der Klasse `a`, da
 
 ### Pseudoklassen
 
-Pseudoklassen in CSS sind Schlüsselbegriffe, welche hinter einen Selektor gestellt werden um einen besonderen Zustand abzufragen. Selektor und Pseudoklassen sind durch einen Doppelpunkt getrennt.  
+Pseudoklassen in CSS sind Schlüsselbegriffe, welche hinter einen Selektor gestellt werden, um einen besonderen Zustand abzufragen. Selektor und Pseudoklassen sind durch einen Doppelpunkt getrennt.  
 Liste aller Pseudoklassen: https://developer.mozilla.org/de/docs/Web/CSS/Pseudo-classes
 
 **Beispiele**
@@ -396,7 +396,7 @@ Zeit: ~ TODO
 
 ### Absolute Einheiten
 
-Absolute Einheiten sind wie der Name bereits sagt: "Absolut". Dies heisst, dass egal wo diese Einheiten genutzt werden, diese sind immer unbeeinträchtigt, von anderen Werten.
+Absolute Einheiten sind wie der Name bereits sagt: "Absolut". Das bedeutet, egal wo diese Einheiten genutzt werden, sie immer unbeeinträchtigt von anderen Werten sind.
 
 **Einheiten**
 
@@ -424,18 +424,18 @@ p {
 
 ### Relative Einheiten
 
-Relative Einheiten sind immer abhängig von einem Wert, der auf einem anderen Element bereits deklariert wurde (z.B. wenn `width: 50%;` deklariert wird, entspricht die Breite des Elementes 50% des Eltern-Element).
+Relative Einheiten sind immer abhängig von einem Wert, der auf einem anderen Element bereits deklariert wurde (z.B. wenn `width: 50%;` deklariert wird, entspricht die Breite des Elementes 50% des Eltern-Elements).
 
 **Einheiten**
 
 `%` &rightarrow; Relativ zum Eltern-Element
 `em` &rightarrow; Relativ zur eigenen `font-size`, oder zur `font-size` vom Eltern-Element  
 `rem` &rightarrow; Relativ zur `font-size` vom Root-Element `<html>` <sup>[1](#foot-relative-values-rem)</sup>  
-`vw` &rightarrow; Relativ zur Vierport-Breite <sup>[2](#foot-relative-values-viewport)</sup>  
+`vw` &rightarrow; Relativ zur Viewport-Breite <sup>[2](#foot-relative-values-viewport)</sup>  
 `vh` &rightarrow; Relativ zur Viewport-Höhe <sup>[2](#foot-relative-values-viewport)</sup>  
 
 <sup><a name="foot-relative-values-rem">1</a></sup> Per default ist die `font-size` auf dem `<html>`-Element auf `16px`eingestellt. Daher entspricht `1rem` = `16px` (nur per Default-Einstellung)  
-<sup><a name="foot-relative-values-viewport">2</a></sup> Der Viewport ist der Sichtbare Ausschnitt einer Website
+<sup><a name="foot-relative-values-viewport">2</a></sup> Der Viewport ist der sichtbare Ausschnitt einer Website
 
 **Beispiel**
 
@@ -449,7 +449,7 @@ p {
 
 ### Practice 🔥
 
-Absolute & Relative Einheiten kennenlernen
+Absolute & Relative Einheiten kennenlernen.
 Öffne diese [**CodeSandbox**](TODO) als Startpunkt.
 
 - [ ] TODO
@@ -461,7 +461,7 @@ Zeit: ~ TODO
 ## Die Kaskade
 
 Die Kaskade in CSS regelt eingentlich nur, welche Deklarationen wirklich angewendet werden.
-Dies ist vor allem dann wichtig zu verstehen, wenn verschiedene Selektoren das gleiche Element identifizieren, und die gleichen Properties überschreiben.
+Dies ist vor allem dann wichtig zu verstehen, wenn verschiedene Selektoren das gleiche Element identifizieren und die gleichen Properties überschreiben.
 
 Dabei gibt es vor allem drei Kriterien:
 
@@ -505,7 +505,7 @@ Dass der User mit `!important` die Deklarationen des Author CSS überschreiben k
 
 ### Specificity/Spezifität
 
-Die Spezifität ist eine Nummer, die anhand des Selektors berechnet wird. Desto höher die Spezifität, desto eher werden die Deklarationen angewendet, die innerhalb des Selektors angegeben sind. Dies mahct es aber auch schwerer die Deklarationen zu überschreiben.
+Die Spezifität ist eine Nummer, die anhand des Selektors berechnet wird. Desto höher die Spezifität ist, desto eher werden die Deklarationen angewendet die innerhalb eines Selektors angegeben sind. Dies macht es aber auch schwerer die Deklarationen zu überschreiben.
 
 1. Inline styles (höchste Spezifität)
 2. IDs
@@ -543,7 +543,7 @@ h1:not(.someclass) {}
 a[href="./home.html"] {}
 ```
 
-> **Note:** Wenn immer möglich, die Spezifität sehr gering halten, damit Deklarationen einfach überschrieben werden können
+> **Note:** Wenn immer möglich die Spezifität sehr gering halten, damit Deklarationen einfach überschrieben werden können
 
 **Hilfreiche Links**
 
@@ -552,8 +552,8 @@ a[href="./home.html"] {}
 
 ### Source order
 
-Schlusendlich kommts dann noch noch auf die Reihenfolge an.  
-Wenn die **Wichtigkeit** und die **Spezifität** gleich ist, gilt die Deklaration welhe später deklariert wird.
+Schlussendlich kommt es noch auf die Reihenfolge an.  
+Wenn die **Wichtigkeit** und die **Spezifität** gleich sind, gilt die Deklaration welche zuletzt deklariert wurde.
 
 **Beispiele**
 
@@ -582,15 +582,15 @@ p {
 
 In CSS können Farben verschieden deklariert werden:
 * `Farbname`: Browser unterstützen eine fixe Anzahl an vordefinierten Farben
-* `RGB`: Farben bei denen Spezifische Farbwerte für die Grundfarben Rot, Grün und Blau angegeben werden.
-* `Hexadezimal`: Farben bei denen Spezifische Farbwerte für die Grundfarben Rot, Grün und Blau angegeben werden.
+* `RGB`: Farben bei denen spezifische Farbwerte für die Grundfarben Rot, Grün und Blau angegeben werden.
+* `Hexadezimal`: Farben bei denen spezifische Farbwerte für die Grundfarben Rot, Grün und Blau angegeben werden.
 
-Es gibt noch weitere Farbtypen, werden aber fast nie bzw. gar nie verwendet.
+Es gibt noch weitere Farbtypen, welche aber praktisch nie verwendet.
 
 ### Farbname
 
 * Werden von jedem Browser unterstützt
-* Unflexibel: Farbwerte sind fix, und können nicht angepasst werden
+* Unflexibel: Farbwerte sind fix und können nicht angepasst werden
 
 **Beispiele**
 
@@ -603,11 +603,11 @@ p {
 
 ### RGB
 
-* Drei Grundfarben (jeweils 0 - 255), repräsentieren einen Farbwert
+* Drei Grundfarben (jeweils 0 - 255), welche jeweils einen Farbwert repräsentieren
 * Angaben entsprechen der Intensität der jeweiligen Grundfarbe  
   0 &rightarrow; Kein Licht  
   255 &rightarrow; Volles Licht
-* Farben werden dann vermischt um die angezeigte Farbe zu erhalten
+* Farben werden dann _vermischt_, um die angezeigte Farbe zu erhalten
 
 **Beispiele**
 
@@ -651,7 +651,7 @@ Zeit: ~ 5 TODO
 
 * Jede Box hat einen **Content-Bereich** und optionales umgebendes padding, border und margin
 * Der Content-Bereich wird über `height` und `width` beeinflusst
-* `padding` und `border` werden standardmässig zu Breite und Höhe hinzugerechnet
+* `padding` und `border` werden standardmässig zur Breite und Höhe hinzugerechnet
 * Mit `box-sizing: border-box;` kann dieses Verhalten verändert werden
 * Das Box-Model wird für jedes Element innerhalb der Dev-Tools angezeigt
 
