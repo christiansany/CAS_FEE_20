@@ -517,7 +517,7 @@ HTML-Elemente unterscheiden sich grundsätzlich in zwei Typen: in Block- und Inl
 
 Zeit: ~ 15 min
 
-**Solution:** [https://codesandbox.io/s/practice-html-solution-1-2spun](https://codesandbox.io/s/practice-html-solution-1-2spun)
+**Solution:** [https://codesandbox.io/s/2spun](https://codesandbox.io/s/2spun)
 
 ### Infos zu den benutzten Elementen
 

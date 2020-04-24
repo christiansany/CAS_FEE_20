@@ -1,0 +1,23 @@
+{
+  "name": "cas_fee_20",
+  "version": "1.0.0",
+  "description": "* [00_HTML_CSS_Vorkurs](./00_HTML_CSS_Vorkurs/README.md)",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christiansany/CAS_FEE_20.git"
+  },
+  "author": "Christian Sany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christiansany/CAS_FEE_20/issues"
+  },
+  "homepage": "https://github.com/christiansany/CAS_FEE_20#readme",
+  "dependencies": {
+    "md-to-pdf": "^3.1.0"
+  }
+}
