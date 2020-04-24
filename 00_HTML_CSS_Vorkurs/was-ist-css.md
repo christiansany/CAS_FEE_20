@@ -336,7 +336,7 @@ li {
   margin-bottom: 1em;
 }
 
-li:last-child {
+li:first-child {
   margin-bottom: 0;
 }
 
@@ -384,13 +384,21 @@ input::placeholder {
 
 ### Practice 🔥
 
-Öffne diese [**CodeSandbox**](TODO) als Startpunkt.
+Öffne diese [**CodeSandbox**](https://codesandbox.io/s/f01xs) als Startpunkt.
 
-- [ ] TODO
+- [ ] Setze die Schriftgrösse aller `h1` auf 20px
+- [ ] Der erste Buchstaben von den `h1`, sollte Schriftgrösse 30px haben
+- [ ] Entferne die Browserstyles auf der `<ul>`, welche für die Navigation genutzt wird
+- [ ] Die Navigationslinks sollten nicht untereinander stehen, sondern nebeneinander (nutze dafür die `display` property)
+- [ ] Die Navigationslinks sollten ein bisschen abstand zu einander erhalten, nutze dafür `margin` auf den `<li>`
+- [ ] Die Naviagtionslinks sollten jeweils vor ihrem einen Text noch ein `>` haben.
+- [ ] Setze die Breite des Bildes (auf der About-Seite) auf _maximal_ 200px
 
-Zeit: ~ TODO
+  Benutze als Hilfestellung diese Liste von einer Übersicht aller [CSS-Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
 
-**Solution:** TODO
+Zeit: ~ 10 min
+
+**Solution:** [https://codesandbox.io/s/ciw8t](https://codesandbox.io/s/ciw8t)
 
 ## CSS Einheiten
 
@@ -441,7 +449,14 @@ Relative Einheiten sind immer abhängig von einem Wert, der auf einem anderen El
 
 ```css
 p {
-  TODO
+  width: 50%; /* 50% der Breite des Elternelements */
+  font-size: 2rem; /* Entspricht 16px * 2 = 32px */
+  margin-bottom: 1.5em; /* Entspricht 32px * 1.5 = 48px */
+}
+
+div {
+  height: 50vh; /* Entspricht 50% der Viewport-Höhe */
+  width: 50vw; /* Entspricht 50% der Viewport-Breite */
 }
 ```
 
@@ -450,13 +465,17 @@ p {
 ### Practice 🔥
 
 Absolute & Relative Einheiten kennenlernen.
-Öffne diese [**CodeSandbox**](TODO) als Startpunkt.
+Öffne diese [**CodeSandbox**](https://codesandbox.io/s/ciw8t) als Startpunkt.
 
-- [ ] TODO
+- [ ] Passe die Schriftgrösse der `h1` an, sodass diese gleichgross sind, aber in `rem` angegeben sind
+- [ ] Setze die `magin-bottom` der `h1` auf `1.4em`, und finde mit den Dev-Tools heraus, wie gross diese jetzt sind
+- [ ] Setze die Breite des Avatars auf `50vw` &rightarrow; Wie verhält sich das Bild wenn du das Browserfenster kleiner und grösser machst?
+- [ ] Erstelle auf der Home-Seite ein `<div>` und setzte die Breite und Höhe auf `50vw`, respektive `50vh`, und schaue wie sich das div verändert, wenn Du den Browser kleiner und grösser machst (geb dem div noch eine `background-color: rgba(0, 0, 0, .4)`, damit man es auch sieht)
+- [ ] Erstelle in diesem div ein weiteres `<div>` und setze dort eine Breite und Höhe in `%`, und schau wie sich dieses Verhaltet
 
-Zeit: ~ TODO
+Zeit: ~ 5 min
 
-**Solution:** TODO
+**Solution:** [https://codesandbox.io/s/ycdcv](https://codesandbox.io/s/ycdcv)
 
 ## Die Kaskade
 
@@ -578,6 +597,69 @@ p {
 }
 ```
 
+### Vererbung
+
+Deklarationen können teilweise auch vererbt werden. Grundsätzlich gibt es viele Orte, wo dies sinn macht.
+
+Beispiele von vererbten Deklarationen:
+
+* `font-family`
+* `font-weight`
+* `color`
+* etc...
+
+Beispiele von _nicht_ vererbten Deklarationen:
+
+* `margin`
+* `padding`
+* `width`
+* `height`
+* `background`
+* etc...
+
+Hier die Liste von allen CSS-Properties: [https://developer.mozilla.org/en-US/docs/Web/CSS/Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+
+**Beispiele**
+
+```css
+/* CSS */
+p {
+  font-family: 'Arial', sans-serif;
+}
+```
+
+```html
+<!-- HTML -->
+<p>Hier wird die Schriftfamilie angewendet, <span>und hier auch, da diese vererbt wird</span>.</p>
+```
+
+Eine Vererbung kann auch geziehlt forciert werden mit der value `inherit`:
+
+```css
+/* CSS */
+div {
+  padding: 10px;
+}
+
+p {
+  padding: inherit;
+}
+```
+
+```html
+<!-- HTML -->
+<div>
+  <!-- Der Paragraph erbt das padding, auch wenn dies normalerweise nciht vererbt würde -->
+  <p>Hier wird die Schriftfamilie angewendet, und hier auch, da diese vererbt wird.</p>
+</div>
+```
+
+> **Das Wichtigste in Kürze**
+>  
+> * Die **Wichtigkeit**, die **Spezifität** und die **Reihenfolge** im Source-Code sind entscheidend, ob eine Deklaration angewendet wird, oder nicht
+> * Deklarationen können teilweise vererbt werden
+> * Liste mit allen [CSS-Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+
 ## Farben
 
 In CSS können Farben verschieden deklariert werden:
@@ -637,13 +719,16 @@ p {
 ```
 ### Practice 🔥
 
-Öffne diese [**CodeSandbox**](TODO) als Startpunkt.
+Öffne diese [**CodeSandbox**](https://codesandbox.io/s/ycdcv) als Startpunkt.
 
-- [ ] TODO
+- [ ] Füge den `h1` einen schwarzen `border-bottom` hinzu. Benutze dazu einen Hexadezimalen Shorthand
+- [ ] Die Navigationslinks sollten die Farbe `blue` haben, und wenn man mit der Maus darüber fährt, sollten sie `teal` werden
+- [ ] Setze die Schriftfamilie auf 'Arial'. Die Property soltle für alle Elemente vererbt werden.
+- [ ] Die Textfarbe für alle Elemente sollte per Default auf auf ein sehr dunkles Grau gesetzt werden. Benutze dazu einen RGB-Angabe.
 
-Zeit: ~ 5 TODO
+Zeit: ~ 5 min
 
-**Solution:** TODO
+**Solution:** [https://codesandbox.io/s/wsd5z](https://codesandbox.io/s/wsd5z)
 
 ## Box-Model, Margins und Paddings
 
@@ -654,13 +739,8 @@ Zeit: ~ 5 TODO
 * `padding` und `border` werden standardmässig zur Breite und Höhe hinzugerechnet
 * Mit `box-sizing: border-box;` kann dieses Verhalten verändert werden
 * Das Box-Model wird für jedes Element innerhalb der Dev-Tools angezeigt
+* Das Box-Model verhält sich ein bisschen anders bei Inline-Elementen als bei Block-Elementen
 
-### Practice 🔥
+**Demo** 🤯
 
-Öffne diese [**CodeSandbox**](TODO) als Startpunkt.
-
-- [ ] TODO
-
-Zeit: ~ TODO
-
-**Solution:** TODO
+- [Box-Model](https://codesandbox.io/s/d3w0h)
