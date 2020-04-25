@@ -55,7 +55,7 @@ Source: [http://vetbossel.in/beginner-tutorial-website/css/css_syntax.html](http
 * Styles werden direkt aufs Element geschrieben, ein Selektor wird daher nicht benötigt
 * Sehr mühsame Maintenance
 * Unterstützen keine Queries (`@media`/`@supports`)
-* Können von _aussen_ nur mit !important überschrieben werden
+* Können von _aussen_ nur mit `!important` überschrieben werden
 
 **Beispiel**
 

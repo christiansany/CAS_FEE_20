@@ -400,7 +400,7 @@ Beim nativen testen, wird die zu testende Page auf 'echten' Geräten aufgerufen 
 
 VM für verschiedene IE-Versionen: https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
 
-**Remote (nativ und virtualisiert)**
+**Remote** _(nativ und virtualisiert)_
 
 Externe Dienste, um deine Page auf verschiedensten Geräten zu testen
 
@@ -515,7 +515,7 @@ HTML-Elemente unterscheiden sich grundsätzlich in zwei Typen: in Block- und Inl
 
   Hilfestellung und Spezifikation der benutzten Tags unter https://www.w3schools.com/html/html_blocks.asp
 
-Zeit: ~ 15 min
+Zeit: ~ 20 min
 
 **Solution:** [https://codesandbox.io/s/2spun](https://codesandbox.io/s/2spun)
 
@@ -661,6 +661,6 @@ Beschreibungen der Elemente unter: [https://developer.mozilla.org/en-US/docs/Web
   Tipp: Du kannst Dir auch den Quellcode einer beliebigen Page anschauen und dort die Struktur analysieren  
   Hilfestellung und Beschreibungen zu den Elementen unter: https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning
 
-Zeit: ~ 10 min
+Zeit: ~ 5 min
 
 **Solution:** [https://codesandbox.io/s/f01xs](https://codesandbox.io/s/f01xs)
