@@ -229,7 +229,7 @@ Damit diese Deklarationen auf ein Element angewendet werden, muss dieses Element
 
 #### Child
 
-Der **Descendant** Kombinator ist die Nutzung von zwei Grundlegenden Selektoren getrennt durch ein `>`.  
+Der **Child** Kombinator ist die Nutzung von zwei Grundlegenden Selektoren getrennt durch ein `>`.  
 Die beiden Elemente müssen direkt ineinander verschachtelt sein. Falls dazwischen noch ein anderes Element ist, werden die Deklarationen nicht angewendet.
 
 **Beispiel**
