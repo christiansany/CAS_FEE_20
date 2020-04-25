@@ -7,4 +7,7 @@ Der Unterricht ist unterteilt in zwei Blöcke:
 
 ## Noch was zum lesen
 
-E-Book: https://ebookcentral.proquest.com/lib/fh-ostschweiz/detail.action?docID=5412749 (leider nur im HSR VPN aufrufbar)
+Learning Web Design
+
+* OriginalLink: https://www.learningwebdesign.com/
+* HSR Intranet: https://ebookcentral.proquest.com/lib/fh-ostschweiz/detail.action?docID=5412749

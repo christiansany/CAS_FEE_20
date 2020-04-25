@@ -669,6 +669,8 @@ In CSS können Farben verschieden deklariert werden:
 
 Es gibt noch weitere Farbtypen, welche aber praktisch nie verwendet werden.
 
+Weitere Farbtypen sind `hsl()`, `hsla()`, `color()`
+
 ### Farbname
 
 * Werden von jedem Browser unterstützt
@@ -689,15 +691,28 @@ p {
 * Angaben entsprechen der Intensität der jeweiligen Grundfarbe  
   0 &rightarrow; Kein Licht  
   255 &rightarrow; Volles Licht
+* Die Farbwerte können auch in `%` angegeben werden
 * Farben werden dann _vermischt_, um die angezeigte Farbe zu erhalten
+* Mit `rgba()` kann ein Alpha-Kanal hizugefügt werden, und die Farbe wird transparent
 
 **Beispiele**
 
 ```css
 p {
   color: rgb(255, 0, 0); /* Rot */
+  color: rgb(100%, 0, 0); /* Rot */
   background-color: rgb(100, 100, 100); /* Grau */
   border: 1px solid rgb(0, 0, 0); /* Schwarz */
+
+  /* Neue Syntax */
+  color: rgb(255 0 0); /* Rot */
+  color: rgb(100% 0 0); /* Rot */
+  background-color: rgb(100 100 100); /* Grau */
+  border: 1px solid rgb(0 0 0); /* Schwarz */
+  /* Spec: https://www.w3.org/TR/css-color-4/#propdef-color */
+
+  /* Alpha Channel */
+  color: rgba(255, 0, 0, .5); /* Rot mit 50% Deckkraft */
 }
 ```
 
@@ -740,6 +755,8 @@ Zeit: ~ 5 min
 * Mit `box-sizing: border-box;` kann dieses Verhalten verändert werden
 * Das Box-Model wird für jedes Element innerhalb der Dev-Tools angezeigt
 * Das Box-Model verhält sich ein bisschen anders bei Inline-Elementen als bei Block-Elementen
+
+> **Note:** Margins sind nicht teil des Elementes und sind daher durchsichtig im Browser (z.B. werden Hintergrundfarben nicht auf diesen Teil angewendet).
 
 **Demo** 🤯
 
