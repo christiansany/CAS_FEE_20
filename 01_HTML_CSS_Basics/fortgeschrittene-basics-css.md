@@ -681,7 +681,7 @@ a {
   color: blue;
   opacity: 1;
 
-  /* transition: <property> <duration> [<timing-function>]; */    
+  /* transition: <property> <duration> [<timing-function>]; */
   transition: color .3s ease, opacity 1s;
 }
 
@@ -749,7 +749,7 @@ animation-delay: 2s;
 
 **Demo** 🤯
 
-- [Keyframe-Animation](https://codesandbox.io/s/TODO)
+- [Keyframe-Animation](https://codesandbox.io/s/flhrz)
 
 **Hilfreiche Links**
 
@@ -759,10 +759,12 @@ animation-delay: 2s;
 
 ### Practice 🔥
 
-Öffne diese [**CodeSandbox**](TODO) als Startpunkt.
+Öffne diese [**CodeSandbox**](https://codesandbox.io/s/scy0o) als Startpunkt.
 
-- [ ] TODO
+- [ ] Die Navigationslinks sollten eine Transition erhalten, damit der Wechsel der `color` beim Hover animiert wird
+  - [ ] Verwende bei der Transition eine Timingfunktion, sodass die Transition schnell beginnt und langsam ausklingt. Nutze dafür ein Hilfstool wie https://cubic-bezier.com/
+- [ ] Passe den Send-Button des Formulars an, sodass der Hintergrund des Buttons abwechslungsweise in verschiedenen Regenbogenfarben gezeigt wird
 
-Zeit: ~ 15 min
+Zeit: ~ 10 min
 
-**Solution**: [TODO](TODO)
+**Solution**: [https://codesandbox.io/s/3i6kc](https://codesandbox.io/s/3i6kc)
