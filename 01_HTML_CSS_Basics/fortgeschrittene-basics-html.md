@@ -57,7 +57,7 @@ Die Datenverarbeitung passiert anschliessend auf dem Server mit einer serverseit
 * Das `<label>` wird genutzt, um ein Eingabefeld zu benennen.
 * Die Verknüpfung von einem Label und einem Eingabefeld geschieht über das `for`-Attribut. Dieses muss den gleichen Wert wie das `id`-Attribut des Eingabefeldes besitzen
 * Eine Verknüpfung kann auch erzielt werden, indem das Eingabefeld innerhalb des `<label>`-Elementes platziert wird. Somit ist das `for`-Attribut obsolet
-* Beim Klick auf das Label, wird das Eingabefeld fokusiert
+* Beim Klick auf das Label wird das Eingabefeld fokussiert
 
 **Beispiel**
 
@@ -76,9 +76,9 @@ Die Datenverarbeitung passiert anschliessend auf dem Server mit einer serverseit
 
 Das `<input>`-Element ist das meistgenutzte Eingabefeld.
 
-Spezielle Attribtue für Formularfelder:
+Spezielle Attribute für Formularfelder:
 * `name`: Unter dem `name` wird das Formular an den Server übermittelt
-* `type`: Definiert um was für ein Inputfeld es sich handelt
+* `type`: Definiert, um was für ein Inputfeld es sich handelt
   * `text`: Default type und passend für Texteingaben
   * `number`: Ermöglicht nur Zahleneingaben
   * `email`: Validiert auf eine E-Mail-Adresse
@@ -123,8 +123,8 @@ Spezielle Attribtue für Formularfelder:
 
 * `type="checkbox"` ermöglicht Radiofelder
 * Ermöglicht, dass von mehreren Optionen nur eine ausgewählt werden kann
-* Nur die Value des Radiofeldes, welches beim senden ausgewählt ist, wird an den Server übermittelt
-* Radiofelder die eine Gruppe bilden, müssen das gleiche `name`-Attribut besitzen
+* Nur die Value des Radiofeldes, welches beim Senden ausgewählt ist, wird an den Server übermittelt
+* Radiofelder, die eine Gruppe bilden, müssen das gleiche `name`-Attribut besitzen
 
 **Beispiele**
 

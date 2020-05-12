@@ -28,7 +28,7 @@ Die Übungen bauen immer aufeinander auf. Aber keine Angst! Für den Fall, dass 
 
 ## Flexbox & CSS Grid
 
-Bei einem normalen Layout mit Block-Elementen sind alle Elemente untereinander, da Block-Elemente immer 100% der verfügbaren Breite einnehmen. Dies ist natürlich nicht immer gewünscht. Damit wir Block-Elemente nebeneinander darstellen können oder das Verhalten von Inline-Elementen anpassen möchten, gibts Flexbox (`display: flex;`) und CSS Grid (`display: grid;`).  
+Bei einem normalen Layout mit Block-Elementen sind alle Elemente untereinander, da Block-Elemente immer 100% der verfügbaren Breite einnehmen. Dies ist natürlich nicht immer gewünscht. Damit wir Block-Elemente nebeneinander darstellen können oder wenn wir das Verhalten von Inline-Elementen anpassen möchten, gibts Flexbox (`display: flex;`) und CSS Grid (`display: grid;`).  
 
 ![Complex Layout Example](./assets/post-subpage.png)
 
@@ -204,7 +204,7 @@ Hier eine kleine Demo wie die Properties zusammen funktionieren.
 
 #### Browser Support
 
-* Bei IE11 muss bei `flex-direction: column;` aufgepasst werden. Dort kann es zu Bugs kommen, wenn man mit `flex-grow`, `flex-shrink` und einer `flex-basis` welche nicht `auto` ist arbeiten will.
+* Bei IE11 muss bei `flex-direction: column;` aufgepasst werden. Dort kann es zu Bugs kommen, wenn man mit `flex-grow`, `flex-shrink` und einer `flex-basis`, welche nicht `auto` ist, arbeiten will.
 
 ![Flexbox Browser Support](./assets/flexbox-browser-support.png)
 
@@ -235,7 +235,7 @@ Für mehr Informationen, bitte die folgenden hilfreichen Links beachten.
 
 #### Template Columns
 
-Mit `grid-template-columns` können wir deklarieren, wieviele Spalten unser Grid hat und wie breit diese sein sollen. Mögliche Angaben sind nicht nur alle normalen Weitenangaben wie `px`, `%`, `auto`, etc., sondern auch eine neue Breitenangabe `fr` &rightarrow; Fraction. Es gibt aber auch spezielle funktionen wie `minmax()` und `repeat()`.
+Mit `grid-template-columns` können wir deklarieren, wieviele Spalten unser Grid hat und wie breit diese sein sollen. Mögliche Angaben sind nicht nur alle normalen Weitenangaben wie `px`, `%`, `auto`, etc., sondern auch eine neue Breitenangabe `fr` &rightarrow; Fraction. Es gibt aber auch spezielle Funktionen wie `minmax()` und `repeat()`.
 
 ```css
 .container {
@@ -270,7 +270,7 @@ Mit `grid-template-rows` können wir die Höhen der Rows steuern. Dies funktioni
 
 #### Row / Column Start und Ende
 
-* Bestimmt wo ein Grid-Child beginnt und endet (column & row)
+* Bestimmt, wo ein Grid-Child beginnt und endet (column & row)
 * Die Position des Grid-Child ist unabhängig von der Reihenfolge im HTML
 
 ```css
@@ -319,7 +319,7 @@ Mit `grid-template-rows` können wir die Höhen der Rows steuern. Dies funktioni
 
 #### Grid Areas
 
-* Eine übersichtliche alternative zu einzelnen `grid-column`/`grid-row` Deklaration
+* Eine übersichtliche Alternative zu einzelnen `grid-column`/`grid-row` Deklarationen
 * Grid Areas werden auf dem Grid-Container deklariert
 * Grid-Child-Elemente können anschliessend die `grid-area`-Property nutzen
 
@@ -388,7 +388,7 @@ Dazu gibt es verschiedene Implementierungsmöglichkeiten:
 * JavaScript
   * `FontFace` Web API
 
-Custom Fonts werden unter anderem von verschiedenen Anbietern geliefert.
+Custom Fonts werden unter anderem von den folgenden Anbietern geliefert:
 
 * [https://fonts.google.com/](https://fonts.google.com/)
 * [https://fonts.adobe.com/typekit](https://fonts.adobe.com/typekit)
@@ -415,7 +415,7 @@ body {
 }
 ```
 
-Nicht alle Browser funktionieren gleich. Damit wir eine Deklaration haben, welche von allen aktuellen Browsern unterstütz wird, müssen wir verschiedene Schriftformate angeben.
+Nicht alle Browser funktionieren gleich. Damit wir eine Deklaration haben, welche von allen aktuellen Browsern unterstützt wird, müssen wir verschiedene Schriftformate angeben.
 
 ```css
 @font-face {
@@ -575,7 +575,7 @@ Damit können Redundanzen im CSS verhindert werden.
 ### Scope
 
 Variablen können im Root definiert werden, somit sind diese global verfügbar.  
-Sie können aber auch innerhalb eines Selektors definiert werden, dadurch erhaltet die Variabel auch nur innerhalb des Selektors den vergebenen Wert.
+Sie können aber auch innerhalb eines Selektors definiert werden, dadurch erhält die Variable auch nur innerhalb des Selektors den vergebenen Wert.
 
 **Beispiele**
 
@@ -621,7 +621,7 @@ p {
 Öffne diese [**CodeSandbox**](https://codesandbox.io/s/i3nb9) als Startpunkt.
 
 - [ ] Erstelle zwei CSS Variablen um eine Farbe für einen Background und eine Color zu speichern
-- [ ] Verwende die Variablen im `body { ... }` damit deine App eine custom `background-color` und eine custom `color` erhalten
+- [ ] Verwende die Variablen im `body { ... }` damit deine App eine custom `background-color` und eine custom `color` erhält
 - [ ] Erstelle einen Button, welcher dem `<body>` beim Klick eine neue Klasse `dark-theme` hinzufügt, bzw. beim nächsten Klick wieder entfernt
 - [ ] Passe dein CSS nun so an, dass wenn diese Klasse auf dem Body ist, sich `background-color` und `color` deiner App anpassen, indem Du die CSS Variablen überschreibst
 
@@ -642,11 +642,11 @@ Zeit: ~ 15 min
 
 ## Motion, Transitions und Animationen
 
-Mit Animationen können mehrere Sachen erziehlt werden:
+Mit Animationen können mehrere Sachen erzielt werden:
 
 * **Informativ**: Informationen können besser wiedergegeben werden
 * **Fokus**: Der Fokus des Users kann auf ein gezieltes Element gezogen werden
-* **Epxressiv**: Aktionen des Users können unterstrichen werden, damit dieser ein Feedback zu seinen Aktionen erhaltet
+* **Epxressiv**: Aktionen des Users können unterstrichen werden, damit dieser ein Feedback zu seinen Aktionen erhält
 
 Im Web gibt es zwei Möglichkeiten wie Elemente animiert werden können:
 
@@ -700,7 +700,7 @@ a:hover {
 * Kann komplexe Animationen mit mehreren Schritten abbilden
 * Kann sich wiederholen oder auch pausiert werden
 * Sind mächtiger und flexibler als Transitions, aber auch komplizierter in der Nutzung
-* Eignen sich um mit JavaScript getriggert zu werden (z.B. das hinzufügen einer Klasse im DOM)
+* Eignen sich, um mit JavaScript getriggert zu werden (z.B. das hinzufügen einer Klasse im DOM)
 
 **Beispiele**
 
