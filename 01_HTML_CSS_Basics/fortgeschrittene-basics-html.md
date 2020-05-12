@@ -25,7 +25,7 @@ Die Übungen bauen immer aufeinander auf. Aber keine Angst! Für den Fall, dass 
 ## Formulare und Eingabefelder
 
 Formulare werden genutzt, um Daten oder auch Dateien zu übermitteln.  
-Die Datenverarbeitung passiert dann auf dem Server mti einer serverseitigen Programmiersprache wie PHP, Python, JavaScript usw.
+Die Datenverarbeitung passiert anschliessend auf dem Server mit einer serverseitigen Programmiersprache wie PHP, Python, JavaScript usw.
 
 ### Aufbau
 
@@ -34,7 +34,7 @@ Die Datenverarbeitung passiert dann auf dem Server mti einer serverseitigen Prog
 * `method` definiert die verwendete Methode:
   * `GET` (verwendbar für “nicht sichere” Daten)
   * `POST` (immer verwendbar)
-* Mit einem `<button>` von `type="submit"` kann man das Formular abschicken und die Daten werden anschliessend übermittelt
+* Mit einem `<button>` von `type="submit"` kann das Formular abgeschickt und die Daten anschliessend übermittelt werden
 
 **Beispiel**
 
@@ -55,8 +55,8 @@ Die Datenverarbeitung passiert dann auf dem Server mti einer serverseitigen Prog
 ### Label
 
 * Das `<label>` wird genutzt, um ein Eingabefeld zu benennen.
-* Die Verknüpfung von einem Label und einem Eingabefeld geschieht über das `for`-Attribut. Dieser muss den gleichen Wert wie das `id`-Attribut des Eingabefeldes besitzen
-* Eine Verknüpfung kann auch erziehlt werden, indem man das Eingabefeld innerhalb des `<label>`-Elementes platziert, somit ist das `for`-Attribut obsolet
+* Die Verknüpfung von einem Label und einem Eingabefeld geschieht über das `for`-Attribut. Dieses muss den gleichen Wert wie das `id`-Attribut des Eingabefeldes besitzen
+* Eine Verknüpfung kann auch erzielt werden, indem das Eingabefeld innerhalb des `<label>`-Elementes platziert wird. Somit ist das `for`-Attribut obsolet
 * Beim Klick auf das Label, wird das Eingabefeld fokusiert
 
 **Beispiel**
@@ -74,20 +74,21 @@ Die Datenverarbeitung passiert dann auf dem Server mti einer serverseitigen Prog
 
 ### Input
 
-Das `<input>`-Element ist das meistgenutzte Eingabefeld
+Das `<input>`-Element ist das meistgenutzte Eingabefeld.
+
 Spezielle Attribtue für Formularfelder:
 * `name`: Unter dem `name` wird das Formular an den Server übermittelt
-* `type`: Definiert um was es sich für ein Inputfeld handelt
+* `type`: Definiert um was für ein Inputfeld es sich handelt
   * `text`: Default type und passend für Texteingaben
   * `number`: Ermöglicht nur Zahleneingaben
   * `email`: Validiert auf eine E-Mail-Adresse
-  * `date`: Zeit einen Datepicker an, und formatiert die Value in einem bestimmten Format
+  * `date`: Zeigt einen Datepicker an und formatiert die Value in einem bestimmten Format
   * `radio`:
   * `checkbox`:
   * etc ... https://www.w3schools.com/tags/att_input_type.asp
 * Per `value`-Attribut kann das Inputfeld vorabgefüllt werden
-* Per `placehodler`-Attribut kann ein temporärer Wert angezeigt werden, solande das Inputfeld *leer* ist
-* Mit dem `required`-Attribut, kann man ein Feld als Pflichtfeld kennzeichnen, das Formular kann anschliessend nicht mehr verschickt werden, solange dieses Feld nicht ausgefüllt ist
+* Per `placeholder`-Attribut kann ein temporärer Wert angezeigt werden, solange das Inputfeld *leer* ist
+* Mit dem `required`-Attribut, kann ein Feld als Pflichtfeld gekennzeichnet werden. Das Formular kann anschliessend nicht mehr verschickt werden, solange dieses Feld nicht ausgefüllt ist
 
 **Beispiel**
 
@@ -121,9 +122,9 @@ Spezielle Attribtue für Formularfelder:
 ### Radio
 
 * `type="checkbox"` ermöglicht Radiofelder
-* Ermöglicht, dass von mehreren Optionen nur eine ausgefählt werden kann
-* Nur die Value des Radiofeldes welches beim senden ausgewählt ist, wird an den Server übermittelt
-* Radiofelder die eine Gruppe bilden, müssen den gleichen `name`-Attribut besitzen
+* Ermöglicht, dass von mehreren Optionen nur eine ausgewählt werden kann
+* Nur die Value des Radiofeldes, welches beim senden ausgewählt ist, wird an den Server übermittelt
+* Radiofelder die eine Gruppe bilden, müssen das gleiche `name`-Attribut besitzen
 
 **Beispiele**
 
@@ -152,7 +153,7 @@ Spezielle Attribtue für Formularfelder:
 
 ### Textarea
 
-Textareas eignen sich für grössere Fliesstexte wie eine Beschreibung oder eine Mitteilung bei einem Kontaktformular.
+Textareas eignen sich für grössere Fliesstexte, wie eine Beschreibung oder eine Mitteilung bei einem Kontaktformular.
 
 * Höhe und Breite kann entweder mit `cols="x"` und `rows="y"`, oder per CSS gesetzt werden
 * Textareas sind keine **Void-Elements** und der Inhalt wird zwischen Anfangs- und Schluss-Tag geschrieben
@@ -194,10 +195,10 @@ Mehr zu Formularen/Eingabefeldern und deren Funktionen unter:
 
 - [ ] Fügt das JavaScript von der Startsandbox bei euch ein (falls eine eigene Codesandbox verwendet wird)
 - [ ] Erstelle ein Formular mit vier Feldern
-  - [ ] Ein Titelfeld, vergib dem Feld die `id="title"`
-  - [ ] Eine Textarea für die Beschreibung, vergib dem Feld die `id="description"`
-  - [ ] Ein Selectfeld mit 5 Optionen, um die Wichtigkeit zu setzen (1-5), vergib dem Feld die `id="importance"`
-  - [ ] Ein Datumsfeld, damit wir ein Duedate setzen können, vergib dem Feld die `id="duedate"`
+  - [ ] Ein Titelfeld. Vergib dem Feld die `id="title"`
+  - [ ] Eine Textarea für die Beschreibung. Vergib dem Feld die `id="description"`
+  - [ ] Ein Selectfeld mit 5 Optionen, um die Wichtigkeit zu setzen (1-5). Vergib dem Feld die `id="importance"`
+  - [ ] Ein Datumsfeld, damit wir ein Duedate setzen können. Vergib dem Feld die `id="duedate"`
 - [ ] Vergib dem Formular die `id="form"`
 - [ ] Füge noch einen Submitbutton hinzu und schaue was passiert, wenn Du das Formular abschickst
 

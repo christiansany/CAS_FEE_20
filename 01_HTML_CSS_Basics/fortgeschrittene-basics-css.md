@@ -28,16 +28,16 @@ Die Übungen bauen immer aufeinander auf. Aber keine Angst! Für den Fall, dass 
 
 ## Flexbox & CSS Grid
 
-Bei einem Normalen Layout mit Block-Elementen sind alle Elemente untereinander, da Block-Elemente immer 100% der ferfügbaren Breite einnehmen. Dies ist natürlich nicht immer gewünscht. Damit wir Block-Elemente nebeneinander darstellen können, oder auch einfach das Verhalten von Inline-Elementen anpassen möchten, gibts Flexbox (`display: flex;`) und CSS Grid (`display: grid;`).  
+Bei einem normalen Layout mit Block-Elementen sind alle Elemente untereinander, da Block-Elemente immer 100% der verfügbaren Breite einnehmen. Dies ist natürlich nicht immer gewünscht. Damit wir Block-Elemente nebeneinander darstellen können oder das Verhalten von Inline-Elementen anpassen möchten, gibts Flexbox (`display: flex;`) und CSS Grid (`display: grid;`).  
 
 ![Complex Layout Example](./assets/post-subpage.png)
 
 ### Flexbox
 
 * Flexbox kann mit der CSS-Deklaration `display: flex;` genutzt werden
-* `display: flex;` wird auf einem gemeinsamen Eltern-Element
+* `display: flex;` wird auf einem gemeinsamen Eltern-Element gesetzt
 * Dieses Eltern-Element wird dann auch der **Flex-Container** genannt
-* Kinder-Elemente erhalten dadurch einen Flex-Context und werden per default als Inline-Elemente nun nebeneinander dargestellt
+* Kinder-Elemente erhalten dadurch einen Flex-Context und werden nun per default als Inline-Elemente nebeneinander dargestellt
 
 **Beispiele**
 
@@ -65,14 +65,14 @@ Bei einem Normalen Layout mit Block-Elementen sind alle Elemente untereinander, 
 #### Flex Axis
 
 * Ein Flex-Container hat eine **Main Axis** und eine **Cross Axis**
-* Per Default ist die Richtung der Kinder-Elemente horizontal von links nach rechts (`flex-direction: row;`)
+* Per Default verläuft die Richtung der Kinder-Elemente horizontal von links nach rechts (`flex-direction: row;`)
 
 ![Flexbox Axis](./assets/flexbox-axis.png)
 
 #### Flex Direction
 
 * `flex-direction` ermöglicht den Richtungswechsel der **Main Axis**
-* Kann nur auf einem **Flex-Container**
+* Kann nur auf einem **Flex-Container** gesetzt werden
 * Mögliche Werte:
   * `row`
   * `column`
@@ -200,11 +200,11 @@ Hier eine kleine Demo wie die Properties zusammen funktionieren.
 **Caveats**
 
 * Im IE11 werden zu der `flex-basis` immer noch die Paddings dazu gerechnet  
-  &rightarrow; Um dies zu emgehen, kann noch eine `max-width` auf dem Element platziert werden mit dem gleichen Wert der `flex-basis`
+  &rightarrow; Um dies zu umgehen, kann noch eine `max-width` auf dem Element platziert werden, mit dem gleichen Wert der `flex-basis`
 
 #### Browser Support
 
-* Bei IE11 muss man bei `flex-direction: column;` ein bisschen aufpssen, dont kann es zu Bugs kommen, wenn man mit `flex-grow`, `flex-shrink` und einer `flex-basis` welche nicht `auto` ist arbeiten will.
+* Bei IE11 muss bei `flex-direction: column;` aufgepasst werden. Dort kann es zu Bugs kommen, wenn man mit `flex-grow`, `flex-shrink` und einer `flex-basis` welche nicht `auto` ist arbeiten will.
 
 ![Flexbox Browser Support](./assets/flexbox-browser-support.png)
 
@@ -219,23 +219,23 @@ Hier eine kleine Demo wie die Properties zusammen funktionieren.
 
 ### CSS Grid
 
-Mit `display: grid;` kann CSS Grid eingesetzt werden. Ein Grid ist sich wie eine *Tabelle* vorzustellen, wobei man die einzelnen Kinderelemente frei in dieser *Tabelle* platzieren kann.
+Mit `display: grid;` kann CSS Grid eingesetzt werden. Ein Grid ist wie eine *Tabelle*, wobei die einzelnen Kinder-Elemente frei in dieser *Tabelle* plaziert werden können.
 
-Das Element auf dem `display: grid;` deklariert wird, wird dadurch zum **Grid-Container** und die direkten Kinderelemente erhalten einen Grid-Context (wie auch bei Flexbox).
+Das Element, welches auf dem `display: grid;` deklariert wird, wird dadurch zum **Grid-Container** und die direkten Kinder-Elemente erhalten einen Grid-Context (wie auch bei Flexbox).
 
 Vorteile:
 * Mit CSS Grid kann praktisch jedes erdenkliche Layout erstellt werden, da Elemente *frei* vom content Flow platziert werden können.
 
 Nachteile:
 * Komplexe Syntax
-* IE11 Support ist nicht voll unterstützt
+* IE11 Support ist nicht vollständig
 
-Da das Thema sehr gross ist, findet man in diesem Script **nur** die Basics.  
-Für mehr Informationen, bitte die anfolgenden hilfreichen Links beachten
+Da dieses Thema sehr gross ist, sind in diesem Script **nur** die Basics zu finden.  
+Für mehr Informationen, bitte die folgenden hilfreichen Links beachten.
 
 #### Template Columns
 
-Mit `grid-template-columns` können wir deklarieren, wieviele Spalten unser Grid hat und wie Breit diese sind. Mögliche Angaben sind alle normalen Weitenangaben wie `px`, `%`, `auto`, etc. sondern auch eine neue Breitenangabe `fr` &rightarrow; Fraction. Es gibt aber auch spezielle funktionen wie `minmax()` und `repeat()`.
+Mit `grid-template-columns` können wir deklarieren, wieviele Spalten unser Grid hat und wie breit diese sein sollen. Mögliche Angaben sind nicht nur alle normalen Weitenangaben wie `px`, `%`, `auto`, etc., sondern auch eine neue Breitenangabe `fr` &rightarrow; Fraction. Es gibt aber auch spezielle funktionen wie `minmax()` und `repeat()`.
 
 ```css
 .container {
@@ -270,7 +270,7 @@ Mit `grid-template-rows` können wir die Höhen der Rows steuern. Dies funktioni
 
 #### Row / Column Start und Ende
 
-* Bestimmt vo ein Grid-Child anfängt und aufhört (column & row)
+* Bestimmt wo ein Grid-Child beginnt und endet (column & row)
 * Die Position des Grid-Child ist unabhängig von der Reihenfolge im HTML
 
 ```css
@@ -368,8 +368,8 @@ Mit `grid-template-rows` können wir die Höhen der Rows steuern. Dies funktioni
 Öffne diese [**CodeSandbox**](https://codesandbox.io/s/bnydy) als Startpunkt.
 
 - [ ] Verwende **flexbox** oder **CSS Grid** um deine vorhandene ToDo-App zu strukturieren
-  - [ ] Füge zur rechten Seite vom `<main>`-Element noch eine Sidebar (`<aside>`) ein um einen kurzen Text darzustellen
-  - [ ] Strukturiere auch das Formular so, dass es für die User besser zu bedienen ist.
+  - [ ] Füge zur rechten Seite vom `<main>`-Element noch eine Sidebar (`<aside>`) ein, um einen kurzen Text darzustellen
+  - [ ] Strukturiere das Formular so, dass es für die User besser bedienbar ist.
 
 Zeit: ~ 15 min
 
@@ -395,7 +395,7 @@ Custom Fonts werden unter anderem von verschiedenen Anbietern geliefert.
 * [https://www.fonts.com/](https://www.fonts.com/)
 * ...
 
-Sobald die Schriften referenziert sind, kann man diese per `font-family: <font-name>;` verwenden.
+Sobald die Schriften referenziert sind, können diese per `font-family: <font-name>;` verwendet werden.
 
 ### CSS
 
@@ -415,7 +415,7 @@ body {
 }
 ```
 
-Nicht alle Browser funktionieren gleich. Damit wir eine Deklaration haben, die von allen aktuellen Browsern unterstütz wird, müssen wir verschiedene Schriftformate angeben.
+Nicht alle Browser funktionieren gleich. Damit wir eine Deklaration haben, welche von allen aktuellen Browsern unterstütz wird, müssen wir verschiedene Schriftformate angeben.
 
 ```css
 @font-face {
@@ -479,7 +479,7 @@ h2 {
 #### Externe Font (Beispiel fonts.google.com)
 
 Auf [fonts.google.com](https://fonts.google.com/) können beliebige Schriften ausgewählt und importiert werden.  
-Einfach die Schriften auswählen und anschliessend einbetten. Die Schriften können aber auch von heruntergeladen und dann als lokale Schriften eingebunden werden.
+Einfach die Schriften auswählen und anschliessend einbetten. Die Schriften können aber auch heruntergeladen werden und dann als lokale Schriften eingebunden werden.
 
 **fonts.google.com**
 
@@ -500,7 +500,7 @@ Die Schriften können entweder per `<link>` oder per `@import` eingebettet werde
 #### FontFace Web API
 
 Mit der FontFace API gibt es auch die Möglichkeit, Custom Fonts per JavaScipt zu laden.  
-Wie die Schrift angewendet werden kann, bleibt genau geich (per `font-family` CSS-Deklaration)
+Wie die Schrift angewendet werden kann, bleibt genau gleich (per `font-family` CSS-Deklaration)
 
 ```javascript
 const fontFace = new FontFace('MyWebFont', 'url("xy.woff2") format("woff2"), url("xy.woff") format("woff")');
@@ -543,14 +543,14 @@ Zeit: ~ 5 min
 
 > **Das Wichtigste in Kürze**
 >  
-> * Custom Fonts sind sind in allen aktuellen Browsern unterstützt (sogar im IE11)
+> * Custom Fonts werden in allen aktuellen Browsern unterstützt (sogar im IE11)
 > * Es gibt verschiedene Möglichkeiten diese hinzuzufügen, lokale Schriften sind immer zu bevorzugen
 > * ACHTUNG: Wenn der Browser die Schriften anwendet, verursacht dies ein Repaint/Reflow der Website
 
 ## CSS Variablen
 
-Mit CSS Variablen kann man eine Variable definieren und dann wieder und wieder nutzen.  
-Damit kann man repetition im CSS verhindern.
+Mit CSS Variablen kann eine Variable definiert und anschliessend mehrmals genutzt werden.  
+Damit können Redundanzen im CSS verhindert werden.
 
 **CSS Variables** werden auch **Custom Properties** genannt.
 
@@ -575,7 +575,7 @@ Damit kann man repetition im CSS verhindern.
 ### Scope
 
 Variablen können im Root definiert werden, somit sind diese global verfügbar.  
-Sie können aber auch innerhalb eines selektors definiert werden, somit erhaltet die Variabel auch nur innerhalb des selektors den vergebenen Wert.
+Sie können aber auch innerhalb eines Selektors definiert werden, dadurch erhaltet die Variabel auch nur innerhalb des Selektors den vergebenen Wert.
 
 **Beispiele**
 
@@ -622,10 +622,10 @@ p {
 
 - [ ] Erstelle zwei CSS Variablen um eine Farbe für einen Background und eine Color zu speichern
 - [ ] Verwende die Variablen im `body { ... }` damit deine App eine custom `background-color` und eine custom `color` erhalten
-- [ ] Erstelle einen Button, welcher dem `<body>` beim Klick eine neue Klasse `dark-theme` toggelt
-- [ ] Passe dein CSS nun so an, dass wenn diese Klasse auf dem Body ist, sich `background-color` und `color` deiner App anpasst, indem Du die CSS Variablen überschreibst
+- [ ] Erstelle einen Button, welcher dem `<body>` beim Klick eine neue Klasse `dark-theme` hinzufügt, bzw. beim nächsten Klick wieder entfernt
+- [ ] Passe dein CSS nun so an, dass wenn diese Klasse auf dem Body ist, sich `background-color` und `color` deiner App anpassen, indem Du die CSS Variablen überschreibst
 
-Als Hilfestellung kann für die Funktionalität des Buttons dies JavaScript eingefügt werden:
+Als Hilfestellung kann für die Funktionalität des Buttons dieses JavaScript eingefügt werden:
 
 ```js
 const themeButton = document.getElementById('theme-button');
@@ -634,7 +634,7 @@ themeButton.addEventListener('click', () => {
 })
 ```
 
-Damit das JavaScript funktioniert, muss der button die ID `theme-button` haben.
+Damit das JavaScript funktioniert, muss der Button die ID `theme-button` haben.
 
 Zeit: ~ 15 min
 
@@ -646,9 +646,9 @@ Mit Animationen können mehrere Sachen erziehlt werden:
 
 * **Informativ**: Informationen können besser wiedergegeben werden
 * **Fokus**: Der Fokus des Users kann auf ein gezieltes Element gezogen werden
-* **Epxressiv**: Aktionen des Users können unterstrichen werden, damit dieser Feedback erhaltet zu seinen aktionen
+* **Epxressiv**: Aktionen des Users können unterstrichen werden, damit dieser ein Feedback zu seinen Aktionen erhaltet
 
-Im Web gibt es zwei Möglichkeiten wie man Elemente animieren kann:
+Im Web gibt es zwei Möglichkeiten wie Elemente animiert werden können:
 
 * **Transitions** um eine oder mehrere Properties von *x* zu *y* zu animieren
 * **Keyframe-Animations** um komplexe Animationsabläufe zu erstellen
@@ -656,7 +656,7 @@ Im Web gibt es zwei Möglichkeiten wie man Elemente animieren kann:
 ### Transitions
 
 * Transitions sind/sollten state-abhängig sein
-* Haben immer ein bstimmten 'Start' und ein bestimmtes 'Ende'
+* Haben immer einen bestimmten 'Start' und ein bestimmtes 'Ende'
 * Können auch durch JavaScript getriggert werden (z.B. in dem im DOM eine Klasse hinzugefügt wird)
 
 **Beispiele**
@@ -694,20 +694,6 @@ a:hover {
 **Demo** 🤯
 
 - [Transition](https://codesandbox.io/s/3igcl)
-
-### Practice 🔥
-
-Öffne diese [**CodeSandbox**](TODO) als Startpunkt.
-
-- [ ] Die 1. Box sollte beim Hover die Hintergrundfarbe auf Grün wechseln
-- [ ] Die 2. Box sollte 1s nach dem Hover die Breite auf 200px wechseln
-- [ ] Die 3. Box sollte die selbe Transition wie die 2. Box haben, das Easing sollte aber so definiert sein, dass die Transition am Anfang eher schnell, und am Schluss eher langsam ist
-- [ ] Die 4. Box sollte beim Hover die Opacity innerhalb von .3s auf 0 welchseln, sobald man aber mit der Maus das Element varlässt, sollte die Opacity innerhalb von 2s wieder auf 1 wechseln
-- [ ] Bonus: Die 5. Box sollte beim Klick auf den Button anzeigen, und anschliessend die Opacity innerhalb von 1s auf 1 wechseln. (JavaScript benötigt)
-
-Zeit: ~ 15 min
-
-**Solution**: [TODO](TODO)
 
 ### Animations
 
@@ -775,12 +761,7 @@ animation-delay: 2s;
 
 Öffne diese [**CodeSandbox**](TODO) als Startpunkt.
 
-- [ ] Die 1. Box sollte die Hintergrundfarbe wechseln von Rot auf Grün und wieder zurück. Ein kompletter Wechsel dauert 2s.
-- [ ] Die 2. Box sollte 1s die Hintergrundfarbe animieren auf Grün und anschliessend 1s die Breite auf 200px
-- [ ] Die 3. Box sollte die Hintergrundfarbe auf Grün wechseln, wenn der User mit der Maus darüber fahrt, aber erst nach 2s
-- [ ] Die 4. Box sollte sich kontinuierlich im Kreis drehen
-- [ ] Benutze eine timing-function (easing), damit die Animation der 4. Box sich in einer Konstanten Geschwindigkeit dreht
-- [ ] Bonus: Füge einen Button ein, welcher beim Klick die Animation der 1. Box pausiert
+- [ ] TODO
 
 Zeit: ~ 15 min
 
