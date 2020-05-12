@@ -396,7 +396,7 @@ input::placeholder {
 
   Benutze als Hilfestellung diese Liste von einer Übersicht aller [CSS-Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
 
-Zeit: ~ 10 min
+Zeit: ~ 15 min
 
 **Solution:** [https://codesandbox.io/s/ciw8t](https://codesandbox.io/s/ciw8t)
 
@@ -473,7 +473,7 @@ Absolute & Relative Einheiten kennenlernen.
 - [ ] Erstelle auf der Home-Seite ein `<div>` und setzte die Breite und Höhe auf `50vw`, respektive `50vh`, und schaue wie sich das div verändert, wenn Du den Browser kleiner und grösser machst (geb dem div noch eine `background-color: rgba(0, 0, 0, .4)`, damit man es auch sieht)
 - [ ] Erstelle in diesem div ein weiteres `<div>` und setze dort eine Breite und Höhe in `%`, und schau wie sich dieses Verhaltet
 
-Zeit: ~ 5 min
+Zeit: ~ 10 min
 
 **Solution:** [https://codesandbox.io/s/ycdcv](https://codesandbox.io/s/ycdcv)
 
@@ -741,7 +741,7 @@ p {
 - [ ] Setze die Schriftfamilie auf 'Arial'. Die Property soltle für alle Elemente vererbt werden.
 - [ ] Die Textfarbe für alle Elemente sollte per Default auf auf ein sehr dunkles Grau gesetzt werden. Benutze dazu einen RGB-Angabe.
 
-Zeit: ~ 5 min
+Zeit: ~ 10 min
 
 **Solution:** [https://codesandbox.io/s/wsd5z](https://codesandbox.io/s/wsd5z)
 
