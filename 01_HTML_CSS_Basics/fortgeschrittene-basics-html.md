@@ -121,7 +121,7 @@ Spezielle Attribute für Formularfelder:
 
 ### Radio
 
-* `type="checkbox"` ermöglicht Radiofelder
+* `type="radio"` ermöglicht Radiofelder
 * Ermöglicht, dass von mehreren Optionen nur eine ausgewählt werden kann
 * Nur die Value des Radiofeldes, welches beim Senden ausgewählt ist, wird an den Server übermittelt
 * Radiofelder, die eine Gruppe bilden, müssen das gleiche `name`-Attribut besitzen

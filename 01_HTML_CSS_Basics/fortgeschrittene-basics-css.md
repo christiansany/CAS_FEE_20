@@ -373,7 +373,7 @@ Mit `grid-template-rows` können wir die Höhen der Rows steuern. Dies funktioni
 
 Zeit: ~ 15 min
 
-**Solution Flexbox**: [https://codesandbox.io/s/2eylr](https://codesandbox.io/s/2eylr)
+**Solution Flexbox**: [https://codesandbox.io/s/2eylr](https://codesandbox.io/s/2eylr)  
 **Solution CSS Grid**: [https://codesandbox.io/s/pyxnf](https://codesandbox.io/s/pyxnf)
 
 ## Webfonts
