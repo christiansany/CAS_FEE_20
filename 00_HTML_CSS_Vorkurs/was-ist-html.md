@@ -117,7 +117,7 @@ HTML-Dateien haben einen gewissen Grundaufbau, damit der Browser genau weiss, wa
       Lorem ipsum dolor sit amet, consetetur.
     </p>
   </body>
-</html> 
+</html>
 ```
 
 * Der **Doctype** sagt dem Browser, welchen HTML-Standard dieser benutzen soll, um das Dokument anzuzeigen.

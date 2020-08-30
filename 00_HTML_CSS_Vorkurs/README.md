@@ -1,6 +1,6 @@
-# 00_HTML_CSS_Vorkurs
+# HTML & CSS - Theorie (1/2)
 
-Der Unterricht ist unterteilt in zwei Blöcke:
+## Inhalt
 
 * [Getting started with HTML](./was-ist-html.md)
 * [Getting started with CSS](./was-ist-css.md)

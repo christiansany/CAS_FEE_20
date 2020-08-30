@@ -1,6 +1,6 @@
-# 01_HTML_CSS_Basics
+# HTML & CSS - Theorie (2/2)
 
-Der Unterricht ist unterteilt in zwei Blöcke:
+## Inhalt
 
 * [HTML - Forms Basics](./fortgeschrittene-basics-html.md)
 * [CSS - Fortgeschrittene Basics](./fortgeschrittene-basics-css.md)
