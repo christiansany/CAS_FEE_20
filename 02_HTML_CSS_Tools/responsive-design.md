@@ -74,6 +74,8 @@ Dafür gibt es einen `meta`-Tag, den man nutzen kann.
 Mitlerweile haben fast alle mobilen Geräte ein Pixelratio von mehr als 1:1. Das heisst grundsätzlich, dass 1 CSS Pixel 'mehr' ist als nur 1 Device Pixel.  
 Ein iPhone 6 hat eine native Auflösung von `750px` x `1334px`, aber es besitzt ein Pixelratio von 2:1 (retina Display). Im Browser haben wir aber 'nur' `375px` Breite zur Verfügung. Das Betriebsystem gibt dann das Pixelratio vor, welches dann die CSS Pixel berechnet und diese Info an den Browser weitergibt. **Grundsätzlich sind alle Units die eine Weite beschreiben auf die CSS Pixel bezogen, und nicht auf die Device Pixel**.
 
+TODO Liste von hilfreichen links device pixel
+
 ## Media-Queries
 
 ### Vorwort
@@ -281,15 +283,6 @@ _Beispiel: Chrome Dev-Tools_
 - [ ] Schalte ein, dass alle Media-Queries angezeigt werden
 
 Zeit: ~ 5 min
-
-## CSS Frameworks
-
-Viel CSS fürs Responsive Web Design oder andere Utility-Klassen sind oft in den meisten Projekten integriert und diese immer wieder neu zu erfinden wäre ein bisschen Zeitverschwänderisch. Daher gibts es viele sogenannt CSS Frameworks, die dem Developer viel arbeit abnehmen können, indem die Frameworks alle möglichen Utility-Klassen anbieten.
-
-Die bekanntesten:
-* [Bootstrap](https://getbootstrap.com/)
-* [Foundation](https://get.foundation/)
-* [Tailwind](https://tailwindcss.com/) _(neuer)_
 
 ## Weiteres zum Thema
 

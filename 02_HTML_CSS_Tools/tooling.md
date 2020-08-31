@@ -3,32 +3,20 @@
 ## Inhalt
 
 * [Taskrunner & Bundler](#taskrunner--bundler)
-* [Nützliche Tools/Loaders](#nützliche-toolsloaders)
-* [TODO](TODO)
-* [TODO](TODO)
-* [TODO](TODO)
-
-## Setup
-
-Für Übungen nutzen wir die folgende **CodeSandbox** als Startpunkt:
-
-**[https://codesandbox.io/s/TODO](https://codesandbox.io/s/TODO)**
-
-Die Übungen bauen immer aufeinander auf. Aber keine Angst! Für den Fall, dass bei einer Übung etwas nicht klappt, gibts bei jeder Übung einen Link zur CodeSandbox mit dem aktuellen Stand.
+* [Nützliche Tools/Loaders](#nützliche-pluginsloaders--packages)
+* [SASS/SCSS Deepdive](sassscss-deepdive)
 
 ## Taskrunner & Bundler
 
-TODO emphasize
+**Taskrunners** und **Bundlers** sind hier um dem Developer das Leben zu vereinfachen. **Sie sind grundsätzlich für das 'Aufbereiten' von Assets verantwortlich**. Wobei die Assets nicht ausschliesselich Bilder oder ähnliches sind, aber auch CSS oder JavaScript.
 
-Taskrunners und Bundlers sind hier um dem Developer das leben zu vereinfachen. Sie sind Grundsätzlich für das 'Aufbereiten' von Assets verantwortlich. Wobei die Assets nicht ausschliesselich Bilder oder ähnliches sind, aber auch CSS oder JavaScript.
+Taskrunners haben dabei den Ansatz, dass sie mehr Stream-Basiert funktionieren. In einem Task wird ein bestimmtenr Input (Dateien) gegeben, dieser wird dann in verschiedenen Prozessen verarbeitet und ergibt am Schluss wieder einen Output.
 
-Taskrunners haben dabei den Ansatz, dass sie mehr Stream-Basiert funktionieren. In einem Task gibt man einen bestimmten Input (Dateien), diese werden dann in verschiedenen Schritten verarbeitet und ergeben am schluss wieder ein Output.
-
-Bundler haben mehr ein Konfigurativen approach. Man gibt nicht Schritt für Schritt an, was passieren soll, sondern stellt eine kleine bis sehr grosse und komplizierte Konfiguration zusammen, die danach Vorgibt, was der Bundler alles mahcen kann/soll. Am Anfang wurden Bundler 'nur' für das Zusammensetzen von Dateien genutzt, es wurden also mehrere Dateien zu einer Datei zusammengeführt, daher der Name Bundler. Inzwischen sind Bundler sehr viel potenter geworden, sodass Taskrunner fast nicht mehr genutzt werden. Alles was früher der Taskrunner 'besser' konnte wie ein Bundler (z.B. aufbereiten von Bilddateien, generieren von Icon-Sprites oder SVG-Sprite usw.) kann nur ebenfalls in einem Bundler gemacht werden.
+Bundler haben mehr ein konfigurativen approach. Was passieren soll, wird nicht Schritt für Schritt angegeben, sondern man stellt eine kleine bis sehr grosse und komplizierte **Konfiguration** zusammen, die danach vorgibt was der Bundler alles machen kann/soll. Am Anfang wurden Bundler 'nur' für das Zusammensetzen von Dateien genutzt. Dementsprechend wurden mehrere Dateien zu einer Datei zusammengeführt, daher der Name Bundler. Inzwischen sind Bundler sehr viel potenter geworden, sodass Taskrunner fast nicht mehr genutzt werden. Alles was früher der Taskrunner 'besser' konnte wie ein Bundler (z.B. aufbereiten von Bilddateien, generieren von Icon-Sprites oder SVG-Sprite usw.), kann nun ebenfalls in einem Bundler gemacht werden.
 
 ### Taskrunner (Gulp)
 
-Gulp bessitzt einen Stream-Bases Ansatz (Input &rightarrow; Processing &rightarrow; Output). Dabei kann man beliebig viele Prozesse aneinander schalten.
+Gulp besitzt einen Stream-Bases Ansatz (Input &rightarrow; Processing &rightarrow; Output). Dabei kann man beliebig viele Prozesse nacheinander schalten.
 
 #### Quickstart
 
@@ -52,7 +40,7 @@ npm install gulp --save-dev
 
 **Beispieltask**
 
-Im Beispieltask geben wir eine JavaScript-Datei als input (`src/main/js`), anschliesslich werden die Plugins Babel, Unglify und Rename genutzt. Somit erhalten wir dann unser Output, welchen wir in das `output` Directory speichern.
+Im Beispieltask geben wir eine JavaScript-Datei als input (`src/main/js`), anschliesslich werden die Plugins Babel, Unglify und Rename genutzt. Somit erhalten wir unseren Output, welchen wir in das `output` Directory speichern.
 
 ```js
 // gulpfile.js
@@ -78,7 +66,7 @@ exports.default = function() {
 **Ausführen des Tasks**
 
 In dem Verzeichnis wo wir die lokale Version von Gulp installeirt haben und wo unser `gulpfile.js` liegt, können wir anschliessen den Task ausführen.  
-Im Beispielt ist der Task auf dem default export, daher muss der Taskname nicht angegeben werden, sobald man named exports hat, kann man einen Tasknamen angeben, damit man diesen ausführen kann.
+Im Beispiel ist der Task auf dem default export, daher muss der Taskname nicht angegeben werden. Sobald named exports bestehen, kann ein Tasknamen angeben, damit dieser ausgeführt werden kann.
 
 ```sh
 cd my/project/gulp-demo
@@ -101,7 +89,7 @@ gulp <task-name>
 **Installation**
 
 Gegenüber Gulp, muss hier nichts global installiert werden. Wir können `webpack` und `webpack-cli` lokal installieren.
-Mit Webpack version 4.0 muss man keine Konfigurationsdatei angeben
+Mit Webpack version 4.0 muss keine Konfigurationsdatei angegeben werden.
 
 ```sh
 cd my/project/webpack-demo
@@ -113,12 +101,14 @@ npm install webpack webpack-cli --save-dev
 
 **Erstellung der Filestruktur**
 
-webpack-demo
-+-- /dist
-|   +-- index.html
-+-- /src
-|   +-- index.js
-+-- package.json
+```sh
+/webpack-demo
+|-- /dist
+|   |-- index.html
+|-- /src
+|   |-- index.js
+|-- package.json
+```
 
 ```js
 // src/index.js
@@ -157,11 +147,11 @@ cd my/project/webpack-demo
 npx webpack
 ```
 
-Anschliessend kann das `dist/index.html` im Browser geöffnet werden. Wenn alles funktioniert hat, sollte man 'Hello webpack' sehen können.
+Anschliessend kann das `dist/index.html` im Browser geöffnet werden. Wenn alles funktioniert hat, sollte ein 'Hello webpack' ersichtlich sein.
 
 **Konfugirationsdatei**
 
-Die Konfigurationsdatei für Webpack hat normalerweise `webpack.config.js` als Dateiname, es kann aber auch irgend ein Dateiname verwendet werden (falls der Dateiname vom default abweicht, muss man dies beim Ausführen von Webpack noch als Parameter angeben).
+Die Konfigurationsdatei für Webpack hat normalerweise `webpack.config.js` als Dateiname. Es kann aber auch irgend ein Dateiname verwendet werden (falls der Dateiname vom default abweicht, muss dies beim Ausführen von Webpack noch als Parameter angeben werden).
 
 ```js
 // webpack.config.js
@@ -218,14 +208,10 @@ module.exports = {
 };
 ```
 
-**Demo** 🤯
-
-- [TODO](https://codesandbox.io/s/TODO)
-
 > **Das Wichtigste in Kürze**
 >  
-> * Wenn man einen gewissen Dateitypen in Webpack unterstützen will, muss man den dazugehörigen Loader installieren und konfigurieren
-> * Die Webpack Konfiguration muss nicht selbst gemacht werden, wenn man ein Projekt aufsetzt mit Angular CLI oder create-react-app
+> * Wenn ein gewisser Dateitypen in Webpack unterstützt werden soll, muss der dazugehörigen Loader installiert und konfiguriert werden.
+> * Die Webpack Konfiguration muss nicht selbst gemacht werden, bei der Projektaufsetzung mit Angular CLI oder create-react-app.
 
 **Hilfreiche Links**
 
@@ -237,29 +223,71 @@ module.exports = {
 ## Nützliche Plugins/Loaders & Packages
 
 * [SASS/SCSS (CSS Präprozessoren) &rightarrow; CSS Asset Building](#sassscss-css-präprozessoren)
-* [PostCSS &rightarrow; Advanced CSS Asset Building](#postcss)
-* [Babel &rightarrow; JavaScript Asset Building / Transpiling](#TODO)
-* [ESLint &rightarrow; QA (JavaScript Linter)](#TODO)
+* [PostCSS (CSS Postprozessor) &rightarrow; Advanced CSS Asset Building](#postcss)
+* [Babel &rightarrow; JavaScript Asset Building / Transpiling](#babel)
+* [ESLint &rightarrow; QA (JavaScript Linter)](#eslint)
 
 ### SASS/SCSS (CSS Präprozessoren)
 
-SASS/SCSS ist ein CSS Präprozessor, er ermöglich eine vereinfachte Schreibweise vom CSS und bieter viele nützliche Features, die das schreiben von CSS vereinfachen und dieses wartbar machen. SCSS ist eine abstrahierung von SASS, welche eine leicht andere Syntax. SASS und SCSS beiten aber die gleichen Funktionen, und die meisten Developer nutzen die SCSS-Syntax.
+SASS/SCSS ist ein CSS Präprozessor. Er ermöglich eine vereinfachte Schreibweise von CSS und bietet viele nützliche Features an, welche das schreiben von CSS vereinfachen und dieses wartbar machen. SCSS ist eine Abstrahierung von SASS, welche eine leicht andere Syntax hat. SASS und SCSS beiten aber die gleichen Funktionen und die meisten Developer nutzen die SCSS-Syntax.
 
+**Beispiel**
 
-• Superset von CSS, wird zu CSS prozessiert • Ansatzweise vergleichbar mit Typescript
-• Vorteil:
-• Nicht an Limitationen von CSS gebunden
-• Möglichkeit zu effizienterem und besser wartbarem Code
+```scss
+/* SCSS */
+$color-main: #73c92d;
 
-Mehr zu SCSS beim Deepdive später.
+a {
+  color: $color-main;
+}
+
+.highlight {
+  background-color: $color-main;
+}
+```
+
+```scss
+/* CSS */
+a {
+  color: #73c92d;
+}
+
+.highlight {
+  background-color: #73c92d;
+}
+```
 
 Website: https://sass-lang.com/  
 Loader: https://webpack.js.org/loaders/sass-loader/
 
+**Weitere CSS-Präprozessoren**
+
+* [LESS](http://lesscss.org/)
+* [Stylus](http://stylus-lang.com/)
+
 ### PostCSS
 
 PostCSS ist ein Loader der in Kombination mit zusätzlichen Plugins genutzt werden kann.  
-Dieser loader wird sehr oft genutzt, da er anhand seiner Plugins sehr viele Transformationen understützt.
+Dieser loader wird sehr oft genutzt, da er anhand seiner Plugins sehr viele Transformationen unterstützt.
+
+**Beispiel (Autoprefixr)**
+
+```css
+.box {
+  border-radius: 1em;
+}
+```
+
+Wird zu
+
+```css
+.box {
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  -ms-border-radius: 1em;
+  border-radius: 1em;
+}
+```
 
 Oft genutzte Plugins:
 * [Autoprefixr &rightarrow; Legacy Browser support](https://github.com/postcss/autoprefixer)
@@ -279,8 +307,8 @@ Loader: https://webpack.js.org/loaders/eslint-loader/
 
 ### ESLint
 
-ESLint kann fürs linten und automatisches Formatieren von JavaScript genutzt werden.  
-Es is der mit abstand der am häuffigsten genutzte Linter für JavaScript.
+ESLint kann fürs linten und automatische Formatieren von JavaScript genutzt werden.  
+Es ist der mit Abstand am häuffigsten genutzte Linter für JavaScript.
 
 Website: https://eslint.org/  
 Loader: https://webpack.js.org/loaders/eslint-loader/
@@ -291,7 +319,8 @@ Loader: https://webpack.js.org/loaders/eslint-loader/
 
 ## SASS/SCSS Deepdive
 
-SCSS ist ein *Superset* von CSS, uns wird zu CSS transpiliert. Ansatzweise kann man es ein bisschen mit Typescript vergleichen.
+SCSS ist ein *Superset* von CSS und wird zu CSS transpiliert. Ansatzweise kann es ein bisschen mit Typescript verglichen werden.  
+Es ist nicht an die Limiterungen von CSS gebunden und ermöglicht das schreiben von effizienterem und wartbarem CSS.
 
 ### Variablen
 
@@ -321,15 +350,111 @@ a {
 
 ### `@mixin`
 
-TODO
+```scss
+/* SCSS */
+@mixin visuallyhidden() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.skiplink {
+  @include visuallyhidden;
+}
+
+.hidden-title {
+  @include visuallyhidden;
+}
+```
+
+```scss
+/* CSS */
+.skiplink {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.hidden-title {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+```
 
 #### Mit Parameter
 
-TODO
+```scss
+/* SCSS */
+@mixin triangle($direction: "down", $color: #000, $size: 1em, $selector: "after") {
+  &::#{$selector} {
+    height: 0;
+    width: 0;
+    content: "";
+    position: absolute;
+    border: $size solid transparent;
+
+    @if $direction == "up" {
+      border-bottom-color: $color;
+    }
+
+    @if $direction == "down" {
+      border-top-color: $color;
+    }
+  }
+}
+
+.expand {
+  @include triangle;
+}
+
+.collapse {
+  @include triangle("up");
+}
+```
 
 #### Mit Content Block
 
-TODO
+```scss
+/* SCSS */
+@mixin breakpoint($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+.element {
+  background: blue;
+
+  @include breakpoint(1000px) {
+    background: red;
+  }
+}
+```
+
+```scss
+/* CSS */
+@media(min-width: 1000px) {
+  .element {
+    background: red;
+  }
+}
+```
 
 ### `@extend`
 
@@ -379,7 +504,7 @@ TODO
 
 #### Caveats
 
-Position des zu extendenden Selektors relevant für generiertes Resultat.  
+Position des zu extendenden Selektors ist relevant für ein generiertes Resultat.  
 *Jedes vorkommen* wird extended:
 
 ```scss
@@ -408,38 +533,236 @@ Position des zu extendenden Selektors relevant für generiertes Resultat.
 Wichtig: generiertes CSS im Auge behalten
 * `@mixin`:
   * Einfach wartbar, Resultat vorhersehbar
-  * Resultat kann sehr redundant sein. Aber durch die gzip-Komprimierung ist dies nicht so schlimm
+  * Resultat kann sehr redundant sein. Aber durch die gzip-Komprimierung ist dies nicht so schlimm.
 * `@extend` (mit oder ohne %placeholder):
   * Reduktion des generierten Codes
   * Resultat nicht immer vorhersehbar, funktioniert nicht innerhab von Media-Queries
 
-
 ### Strukturierung durch Verschachtelung
 
-TODO
+```scss
+/* SCSS */
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+}
+```
+
+```scss
+/* CSS */
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+}
+```
 
 ### Verschachtelung: "Parent-Selektor"
 
-TODO
+```scss
+/* SCSS */
+a {
+  color: black;
+
+  &:hover,
+  &:focus {
+    color: darkred;
+  }
+}
+
+.headline {
+  margin-top: 5em;
+
+  .sidebar & {
+    margin-top: 2em;
+  }
+}
+```
+
+```scss
+/* CSS */
+a {
+  color: black;
+}
+
+a:hover,
+a:focus {
+  color: darkred;
+}
+
+.headline {
+  margin-top: 5em;
+}
+
+.sidebar .headline {
+  margin-top: 2em;
+}
+```
 
 ### Partials/Imports
 
-TODO
+Durch partials kann eine Modularisierung erziehlt werden. Man kann seine SCSS-Dateien aufsplitten und beliebig importieren.  
+Es ist z.B. überlich, dass man Mixins, Placeholder und Variablen in ein oder mehrere separate Partials schreibt.
 
-### Funktionen & Operationen
+```sh
+/styles
+|-- /modules
+|   |-- _module1.scss
+|   |-- _module2.scss
+|   |-- _module3.scss
+|-- /settings
+|   |-- _variables.scss
+|   |-- _functions.scss
+|   |-- _mixins.scss
+|-- main.scss
+```
 
-TODO
+```scss
+/* main.scss */
+// Settings
+@import "settings/variables";
+@import "settings/functions";
+@import "settings/mixins";
+
+// Modules
+@import "modules/module1";
+@import "modules/module2";
+@import "modules/module3";
+```
+
+### Operationen
+
+```scss
+/* SCSS */
+.demo {
+  width: 100% / 4;
+  height: 20rem + 5rem;
+  background: rgba(#f00, .5);
+}
+```
+
+```scss
+/* CSS */
+.demo {
+  width: 25%;
+  height: 25rem;
+  background: rgba(255,0,0,0.5);
+}
+```
+
+### Funktionen
+
+```scss
+/* SCSS */
+$baseFont: 16px;
+
+@function pxToRem($px, $ref: $baseFont) {
+  @return toRem(toPx($px) / toPx($ref));
+}
+
+@function toRem($val) {
+  @return ($val + 0rem);
+}
+
+@function toPx($val) {
+  @return ($val + 0px);
+}
+
+.example {
+  width: pxToRem(480);
+  height: pxToRem(60);
+}
+```
+
+```scss
+/* CSS */
+.example {
+  width: 30rem;
+  height: 3.75rem;
+}
+```
 
 ### Loops
 
 ```scss
 /* SCSS */
-TODO
+
+// List of all link icons
+$icons: close, rss, document;
+
+.link {
+  border: 1px solid #444;
+
+  // Generate class for each icon
+  @each $icon in $icons {
+    &.var_#{$icon} {
+      /* ... */
+      @if $icon == close {
+        /* ... */
+      }
+    }
+  }
+}
 ```
 
 ```scss
 /* CSS */
-TODO
+.link {
+  border: 1px solid #444;
+}
+
+.link.var_close {
+  /* ... */
+}
+
+.link.var_rss {
+  /* ... */
+}
+
+.link.var_document {
+  /* ... */
+}
+```
+
+### Maps
+
+```scss
+/* SCSS */
+$colors: (primary: red, secondary: blue);
+
+button {
+  color: map-get($colors, primary);
+
+  &:hover,
+  &:focus {
+    color: map-get($colors, secondary);
+  }
+}
+```
+
+```scss
+/* CSS */
+button {
+  color: red;
+}
+
+button:hover,
+button:focus {
+  color: blue;
+}
 ```
 
 ### Interpolation
@@ -458,20 +781,74 @@ $value: red;
 ```scss
 /* CSS */
 .foo {
- color: red;
+  color: red;
 }
 ```
 
-**Demo** 🤯
-
-- [TODO](https://codesandbox.io/s/TODO)
-
 ### Practice 🔥
 
-Öffne diese [**CodeSandbox**](TODO) als Startpunkt.
+Öffne diesen [**SASS/SCSS Playground**](https://www.sassmeister.com/) als Startpunkt.
 
-- [ ] TODO
+- [ ] Schreibe dein SASS/SCSS Code damit Du das folgende CSS erhälst (achte darauf, dass das geschriebene SCSS möglichst Wartbar sein sollte):
+
+```css
+.link.var_error {
+  color: firebrick;
+}
+.link.var_success {
+  color: olivedrab;
+}
+.link.var_info {
+  color: lightblue;
+}
+.link.var_organic {
+  color: tomato;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a.important {
+  color: red;
+  font-weight: 700;
+}
+```
 
 Zeit: ~ 10 min
 
-**Solution**: [TODO](TODO)
+<details>
+  <summary>**Solution**</summary>
+
+```scss
+$link-variants: (
+  error: firebrick,
+  success: olivedrab,
+  info: lightblue,
+  organic: tomato
+);
+
+@each $name, $color in $link-variants {
+  .link.var_#{$name} {
+    color: $color;
+  }
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  &.important {
+    color: red;
+    font-weight: 700;
+  }
+}
+```
+</details>
