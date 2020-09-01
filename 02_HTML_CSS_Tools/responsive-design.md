@@ -23,7 +23,7 @@ TODO Image
 
 ## Der Viewport
 
-Damit eine Website responsive wird, wird vor allem eines benötigt. Dem Browser muss mitgeteilt werden, dass die Website auf die er zugreift auch wirklich responsive ist.
+Damit eine Website responsive wird, wird vor allem eines benötigt. Dem Browser muss mitgeteilt werden, dass die Website, auf die er zugreift, auch wirklich responsive ist.
 Dafür gibt es einen `meta`-Tag, den man nutzen kann.
 
 **Beispiel**
@@ -38,14 +38,14 @@ Dafür gibt es einen `meta`-Tag, den man nutzen kann.
 |---|---|---|
 |`width`|Positiver Integer oder der Wert `device-width`|Definiert die Breite des Viewports in `px`|
 |`height`|Positiver Integer oder der Wert `device-height`|Definiert die Höhe des Viewports in `px`|
-|`initial-scale`|Positiver Nummer zwischen `0.0` und `10.0`|Definiert die initiale Verhältnis zwischen Device und Viewport|
+|`initial-scale`|Positiver Nummer zwischen `0.0` und `10.0`|Definiert das initiale Verhältnis zwischen Device und Viewport|
 |`minimum-scale`|Positiver Nummer zwischen `0.0` und `10.0`|Definiert den minimalen Zoom|
 |`maximum-scale`|Positiver Nummer zwischen `0.0` und `10.0`|Definiert den maximalen Zoom|
 |`user-scalable`|`yes` (default) oder `no`|Bei `no` kann der User die Website nicht zoomen|
 
 **Achtung Antipattern** 🚫
 
-`user-scalable=no` anzugeben gilt als anitpattern, da User mit einer Sehschwäche die Möglichkeit genommen wird, die Website zu zoomen.  
+`user-scalable=no` anzugeben gilt als Antipattern, da Usern mit einer Sehschwäche die Möglichkeit genommen wird, die Website zu zoomen.  
 `maximum-scale` sollte mindestens auf `5.0` (empfohlen von Google) gesetzt werden aus dem gleichen Grund.
 
 **Beispiel mit HTML-Grundgerüst**
@@ -71,7 +71,7 @@ Dafür gibt es einen `meta`-Tag, den man nutzen kann.
 **Einschub: CSS Pixel und Device Pixel** 👀
 
 Mitlerweile haben fast alle mobilen Geräte ein Pixelratio von mehr als 1:1. Das heisst grundsätzlich, dass 1 CSS Pixel 'mehr' ist als nur 1 Device Pixel.  
-Ein iPhone 6 hat eine native Auflösung von `750px` x `1334px`, aber es besitzt ein Pixelratio von 2:1 (retina Display). Im Browser haben wir aber 'nur' `375px` Breite zur Verfügung. Das Betriebsystem gibt dann das Pixelratio vor, welches dann die CSS Pixel berechnet und diese Info an den Browser weitergibt. **Grundsätzlich sind alle Units die eine Weite beschreiben auf die CSS Pixel bezogen, und nicht auf die Device Pixel**.
+Ein iPhone 6 hat eine native Auflösung von `750px` x `1334px`, aber es besitzt ein Pixelratio von 2:1 (retina Display). Im Browser haben wir aber 'nur' `375px` Breite zur Verfügung. Das Betriebsystem gibt dann das Pixelratio vor, welches dann die CSS Pixel berechnet und diese Info an den Browser weitergibt. **Grundsätzlich sind alle Units, die eine Weite beschreiben, auf die CSS Pixel bezogen, nicht auf die Device Pixel**.
 
 **Hilfreiche Links**
 
@@ -126,11 +126,11 @@ TODO
 
 ### Media Features
 
-Fürs Responsive Web Design werden vor allem das *dimension* Feature genutzt.
+Fürs Responsive Web Design wird vor allem das *dimension* Feature genutzt.
 
 #### `width` und `height`
 
-Es können die exakte `width`, `min-width` und `max-width`, und die exakte `height`, `min-height` und `max-height`.  
+Es können die exakte `width`, `min-width` und `max-width`, und die exakte `height`, `min-height` und `max-height` genutzt werden.  
 Am meisten werden jeweils `min-*` und `max-*` genutzt.
 
 **Beispiele**
@@ -148,7 +148,7 @@ Am meisten werden jeweils `min-*` und `max-*` genutzt.
 **Best Practises** ✅
 
 Alle *dimension* Features unterstützen die regulären CSS Units wie `px`, `em`, usw. Es ist jedoch empfohlen, dass man `em` nutzt innerhalb von Media-Queries.
-`em` Values skalieren mit, wenn der User im Borwser zoomt. `rem` hat in einem Mequa Query immer dieselbe Value wie `em`, aber `rem` wird nicht korrekt utnerstützt im Safari
+`em` Values skalieren mit, wenn der User im Borwser zoomt. `rem` hat in einem Media-Query immer dieselbe Value wie `em`, aber `rem` wird [nicht korrekt unterstützt im Safari](https://medium.com/@barrypeng6/why-should-not-use-rem-unit-in-media-query-5645d0163ce5#:~:text=Unit%20rem%20in%20media%20queries,queries%20before%20the%20bug's%20fixed.).
 
 **Hilfreiche Links**
 
@@ -199,7 +199,7 @@ Der oder Operator wird genutzt um mehrere Media-Queries zu deklarieren, die das 
 #### Der `not` Operator
 
 Mit dem `not` Operator kann man einen **ganzen** Media Query negieren. Solange dieser nicht zutrifft, wird das CSS angewendet.
-Mit diesem Operator muss ein `media-type` angegeben werden, damit dieser valid ist
+Mit diesem Operator muss ein `media-type` angegeben werden, damit dieser valid ist.
 
 **Beispiel**
 
@@ -233,7 +233,7 @@ Media-Queries können auch ineinander verschachtelt werden.
 }
 ```
 
-> **Note:** Das verschachteln von Media-Queries wird grundsätzlich nicht genutzt, wird aber von Browsern unterstützt
+> **Note:** Das Verschachteln von Media-Queries wird grundsätzlich nicht genutzt, wird aber von Browsern unterstützt
 
 ### Media-Queries im HTML
 
@@ -265,12 +265,12 @@ Zeit: ~ TODO min
 
 ## Testing
 
-Die einfachste Form vom Testing von Responsive Websites ist den Browser kleiner und grösser zu machen.
+Die einfachste Form vom Testing von Responsive Websites ist, den Browser kleiner und grösser zu machen.
 
 ![Responsive testing](./assets/responsive-testing.png)
 
-Die effektivste Form vom Testing von Responsive Websites ist jedoch mit dem Dev-Tools. Dort kann man den Device-Modus aktivieren um div. Sachen nachzustellen.  
-Custom `width` und `height` sind nur die Oberfläche, man kann damit ein Geräte simulieren, das Pixelratio verändern und noch vieles mehr.
+Die effektivste Form vom Testing von Responsive Websites ist jedoch mit den Dev-Tools. Dort kann man den Device-Modus aktivieren um div. Sachen emulieren.  
+Custom `width` und `height` sind nur die Oberfläche, man kann damit ein Gerät emulieren, das Pixelratio verändern und noch vieles mehr.
 
 ![Responsive testing devtools](./assets/responsive-testing-devtools.png)
 _Beispiel: Chrome Dev-Tools_
@@ -280,7 +280,7 @@ _Beispiel: Chrome Dev-Tools_
 Öffne diese [**CodeSandbox**](https://codesandbox.io/s/TODO) als Startpunkt.
 
 - [ ] Simuliere ein iPhone10
-- [ ] Simuliere mit den Dev-Tools ein Pixelratio von mindestens 3.0, damit der Hintergrund der Website zu Grün wird
+- [ ] Simuliere mit den Dev-Tools ein Pixelratio von mindestens 3.0, damit der Hintergrund der Website grün wird
 - [ ] Schalte ein, dass alle Media-Queries angezeigt werden
 
 Zeit: ~ 5 min
