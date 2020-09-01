@@ -75,7 +75,9 @@ Ein iPhone 6 hat eine native Auflösung von `750px` x `1334px`, aber es besitzt 
 
 **Hilfreiche Links**
 
-* [TODO Liste von hilfreichen links device pixel](TODO)
+* [Understanding the Difference Between CSS Resolution and Device Resolution](https://medium.com/@elad/understanding-the-difference-between-css-resolution-and-device-resolution-28acae23da0b)
+* [Retina Display Media Query](https://css-tricks.com/snippets/css/retina-display-media-query/)
+* [Github Gist examples](https://gist.github.com/garzito/3830434)
 
 ## Media-Queries
 
@@ -122,11 +124,24 @@ Was dies genau heisst ist: "Wenn wir uns auf einem `screen` befinden, und dieser
 
 ### Media Types
 
-TODO
+Der Media Type wird genutzt um Medium zu beschreiben wie die Website konsumiert wird:
+
+* `all` &rightarrow; Default value
+* `screen` &rightarrow; Wird angewendet, wenn das Medium einen Bildschirm hat _(normal)_
+* `print` &rightarrow; Wird angewendet, wenn die Website gedruckt wird
+* `speech` &rightarrow; Wird angewendet wenn man z.B. einen Screenreader/[SpeechRecognition](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) benutzt (leider noch keine Erfahrung hier, und es ist bis jetzt auch noch nirgends implementiert)
+
+Weitere media Types in der offiziellen [Dokumentation](https://www.w3.org/TR/mediaqueries-5/#media-types) (werden aber nie genutzt).
+
+**Einschub: Media Type emulieren** 👀
+
+Der Media Type kann emuliert werden, so könnt ihr anhand der Devtool schauen, wie die Website z.B. beim Druck aussehen würde.
+
+![CSS Emulieren](./assets/emulate-css.png)
 
 ### Media Features
 
-Fürs Responsive Web Design werden vor allem das *dimension* Feature genutzt.
+Fürs Responsive Web Design wird vor allem das *dimension* Feature genutzt.
 
 #### `width` und `height`
 
@@ -148,11 +163,12 @@ Am meisten werden jeweils `min-*` und `max-*` genutzt.
 **Best Practises** ✅
 
 Alle *dimension* Features unterstützen die regulären CSS Units wie `px`, `em`, usw. Es ist jedoch empfohlen, dass man `em` nutzt innerhalb von Media-Queries.
-`em` Values skalieren mit, wenn der User im Borwser zoomt. `rem` hat in einem Mequa Query immer dieselbe Value wie `em`, aber `rem` wird nicht korrekt utnerstützt im Safari
+`em` Values skalieren mit, wenn der User im Borwser zoomt. `rem` hat in einem Mequa Query immer dieselbe Value wie `em`, aber `rem` wird nicht korrekt utnerstützt im Safari.
 
 **Hilfreiche Links**
 
-* [Weitere Media Features](TODO)
+* [`@media` MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
+* [Offizielle Dokumentation W3 Org](https://www.w3.org/TR/mediaqueries-5/#mf-display-quality)
 
 ### Logische Operatoren
 
@@ -248,10 +264,6 @@ In einem `<link>` können Media-Queries ebenfalls verwendet werden.
 **Achtung Antipattern** 🚫
 
 Dies ist zwar möglich, sollte aber trotzdem nicht verwendet werden. Jede verlinkte CSS-Datei wird heruntergeladen, egal ob der Media Query zutrifft oder nicht. Der Media Query wird dabei erst evaluiert, wenn die Datei heruntergeladen ist.
-
-### Usage
-
-TODO
 
 ### Practice 🔥
 
