@@ -20,7 +20,7 @@ Frontend-Frameworks sind **Werkzeugkasten** meist bestehend aus einer Ansammlung
 
 * **Rapid Prototyping** &rightarrow; Viele Frameworks bieten fix fertige Komponenten an
 * **Browser-Support** &rightarrow; Ist meistens sehr gut, da bereits jemand anderes an den Browsersupport gedacht hat
-* **Community** &rightarrow; Viele der Framwroks haben eine eigene Community welche bei Problemen konsultiert werden kann
+* **Community** &rightarrow; Viele der Framewroks haben eine eigene Community welche bei Problemen konsultiert werden kann
 
 ### Nachteile
 
@@ -89,15 +89,15 @@ Angular
 
 ## Wahl eines geeigneten Frontend-Frameworks
 
-* **Architektur** &rightarrow; Passt das gewählt Framework zu eurem Projekt?
-* **Funktionsumfang** &rightarrow; Habt ihr alles was ihr benötigt?
+* **Architektur** &rightarrow; Passt das gewählte Framework zu eurem Projekt?
+* **Funktionsumfang** &rightarrow; Habt ihr alles, was ihr benötigt?
   * **Modularisierung** &rightarrow; Könnt ihr selektiv entscheiden, was in euer Projekt importiert wird?
 
 > **Das Wichtigste in Kürze**
 >  
-> * Frontend-Frameworks sind dazu da, dem Developer das leben zu vereinfachen und einen gewissen kickstart zu geben für ein neues Projekt.
-> * Sie bieten meinst verschiedenste Komponenten die man nutzen kann.
-> * Meist ist das Einbinden eines Frontend-Frameworks eine grosse Entscheidung die auch mit negativem verbunden ist (z.B. festgelegte CSS Naming Convention).
+> * Frontend-Frameworks sind dazu da, dem Developer das Leben zu vereinfachen und einen gewissen Kickstart zu geben für ein neues Projekt.
+> * Sie bieten meist verschiedenste Komponenten, die man nutzen kann.
+> * Meist ist das Einbinden eines Frontend-Frameworks eine grosse Entscheidung, die auch mit Negativem verbunden ist (z.B. festgelegte CSS Naming Convention).
 > * JavaScript Libraries und Frameworks haben öfters ihre eigene spezifische Implementation eines Frontend-Frameworks
 
 ## Practice 🔥

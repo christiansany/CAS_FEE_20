@@ -8,11 +8,11 @@
 
 ## Taskrunner & Bundler
 
-**Taskrunners** und **Bundlers** sind hier um dem Developer das Leben zu vereinfachen. **Sie sind grundsätzlich für das 'Aufbereiten' von Assets verantwortlich**. Wobei die Assets nicht ausschliesselich Bilder oder ähnliches sind, aber auch CSS oder JavaScript.
+**Taskrunners** und **Bundlers** sind hier, um dem Developer das Leben zu vereinfachen. **Sie sind grundsätzlich für das 'Aufbereiten' von Assets verantwortlich**. Wobei die Assets nicht ausschliesslich Bilder oder ähnliches sind, sondern auch CSS oder JavaScript.
 
-Taskrunners haben dabei den Ansatz, dass sie mehr Stream-Basiert funktionieren. In einem Task wird ein bestimmtenr Input (Dateien) gegeben, dieser wird dann in verschiedenen Prozessen verarbeitet und ergibt am Schluss wieder einen Output.
+Taskrunners haben dabei den Ansatz, dass sie mehr Stream-basiert funktionieren. In einem Task wird ein bestimmter Input (Dateien) gegeben, dieser wird dann in verschiedenen Prozessen verarbeitet und ergibt am Schluss wieder einen Output.
 
-Bundler haben mehr ein konfigurativen approach. Was passieren soll, wird nicht Schritt für Schritt angegeben, sondern man stellt eine kleine bis sehr grosse und komplizierte **Konfiguration** zusammen, die danach vorgibt was der Bundler alles machen kann/soll. Am Anfang wurden Bundler 'nur' für das Zusammensetzen von Dateien genutzt. Dementsprechend wurden mehrere Dateien zu einer Datei zusammengeführt, daher der Name Bundler. Inzwischen sind Bundler sehr viel potenter geworden, sodass Taskrunner fast nicht mehr genutzt werden. Alles was früher der Taskrunner 'besser' konnte wie ein Bundler (z.B. aufbereiten von Bilddateien, generieren von Icon-Sprites oder SVG-Sprite usw.), kann nun ebenfalls in einem Bundler gemacht werden.
+Bundler haben eher einen konfigurativen approach. Was passieren soll, wird nicht Schritt für Schritt angegeben, sondern man stellt eine kleine bis sehr grosse und komplizierte **Konfiguration** zusammen, die danach vorgibt, was der Bundler alles machen kann/soll. Am Anfang wurden Bundler 'nur' für das Zusammensetzen von Dateien genutzt. Dementsprechend wurden mehrere Dateien zu einer Datei zusammengeführt, daher der Name Bundler. Inzwischen sind Bundler sehr viel potenter geworden, sodass Taskrunner fast nicht mehr genutzt werden. Alles was früher der Taskrunner 'besser' konnte als ein Bundler (z.B. aufbereiten von Bilddateien, generieren von Icon-Sprites oder SVG-Sprite usw.), kann nun ebenfalls in einem Bundler gemacht werden.
 
 ### Taskrunner (Gulp)
 
@@ -22,13 +22,13 @@ Gulp besitzt einen Stream-Bases Ansatz (Input &rightarrow; Processing &rightarro
 
 **Installation**
 
-Gulp is ein ganz normales NPM-Package, es kann also wie gewohnt übers Terminal installiert werden.  
+Gulp ist ein ganz normales NPM-Package, es kann also wie gewohnt übers Terminal installiert werden.  
 
 ```sh
 npm install --global gulp-cli
 ```
 
-In dem Projekt muss noch eine lokale Version installeirt werden, damit Gulp richtig funktioniert.
+In dem Projekt muss noch eine lokale Version installiert werden, damit Gulp richtig funktioniert.
 
 ```sh
 cd my/project/gulp-demo
@@ -40,7 +40,7 @@ npm install gulp --save-dev
 
 **Beispieltask**
 
-Im Beispieltask geben wir eine JavaScript-Datei als input (`src/main/js`), anschliesslich werden die Plugins Babel, Unglify und Rename genutzt. Somit erhalten wir unseren Output, welchen wir in das `output` Directory speichern.
+Im Beispieltask geben wir eine JavaScript-Datei als input (`src/main/js`), anschliessend werden die Plugins Babel, Uglify und Rename genutzt. Somit erhalten wir unseren Output, welchen wir in das `output` Directory speichern.
 
 ```js
 // gulpfile.js
@@ -65,8 +65,8 @@ exports.default = function() {
 
 **Ausführen des Tasks**
 
-In dem Verzeichnis wo wir die lokale Version von Gulp installeirt haben und wo unser `gulpfile.js` liegt, können wir anschliessen den Task ausführen.  
-Im Beispiel ist der Task auf dem default export, daher muss der Taskname nicht angegeben werden. Sobald named exports bestehen, kann ein Tasknamen angeben, damit dieser ausgeführt werden kann.
+In dem Verzeichnis wo wir die lokale Version von Gulp installiert haben und unser `gulpfile.js` liegt, können wir anschliessen den Task ausführen.  
+Im Beispiel ist der Task auf dem default export, daher muss der Taskname nicht angegeben werden. Sobald named exports bestehen, kann ein Tasknamen angeben werden, damit dieser ausgeführt werden kann.
 
 ```sh
 cd my/project/gulp-demo
@@ -88,7 +88,7 @@ gulp <task-name>
 
 **Installation**
 
-Gegenüber Gulp, muss hier nichts global installiert werden. Wir können `webpack` und `webpack-cli` lokal installieren.
+Im Gegensatz zu Gulp muss hier nichts global installiert werden. Wir können `webpack` und `webpack-cli` lokal installieren.
 Mit Webpack version 4.0 muss keine Konfigurationsdatei angegeben werden.
 
 ```sh
@@ -138,7 +138,7 @@ document.body.appendChild(component());
 
 **Ausführen des Tasks**
 
-Beim Ausführen von Webpack ohne Konfigurationsdatei, wird standardmässig `src/index.js` and Entry (Input) genommen.
+Beim Ausführen von Webpack ohne Konfigurationsdatei wird standardmässig `src/index.js` als Entry (Input) genommen.
 Die Output-Datei wird anschliessend als `dist/main.js` gespeichert.
 
 ```sh
@@ -210,8 +210,8 @@ module.exports = {
 
 > **Das Wichtigste in Kürze**
 >  
-> * Wenn ein gewisser Dateitypen in Webpack unterstützt werden soll, muss der dazugehörigen Loader installiert und konfiguriert werden.
-> * Die Webpack Konfiguration muss nicht selbst gemacht werden, bei der Projektaufsetzung mit Angular CLI oder create-react-app.
+> * Wenn ein gewisser Dateityp in Webpack unterstützt werden soll, muss der dazugehörige Loader installiert und konfiguriert werden.
+> * Die Webpack Konfiguration muss nicht selbst gemacht werden bei der Projektaufsetzung mit Angular CLI oder create-react-app.
 
 **Hilfreiche Links**
 
@@ -229,7 +229,7 @@ module.exports = {
 
 ### SASS/SCSS (CSS Präprozessoren)
 
-SASS/SCSS ist ein CSS Präprozessor. Er ermöglich eine vereinfachte Schreibweise von CSS und bietet viele nützliche Features an, welche das schreiben von CSS vereinfachen und dieses wartbar machen. SCSS ist eine Abstrahierung von SASS, welche eine leicht andere Syntax hat. SASS und SCSS beiten aber die gleichen Funktionen und die meisten Developer nutzen die SCSS-Syntax.
+SASS/SCSS ist ein CSS Präprozessor. Er ermöglich eine vereinfachte Schreibweise von CSS und bietet viele nützliche Features an, welche das Schreiben von CSS vereinfachen und dieses wartbar machen. SCSS ist eine Abstrahierung von SASS, welche eine leicht andere Syntax hat. SASS und SCSS beiten aber die gleichen Funktionen und die meisten Developer nutzen die SCSS-Syntax.
 
 **Beispiel**
 
@@ -267,8 +267,8 @@ Loader: https://webpack.js.org/loaders/sass-loader/
 
 ### PostCSS
 
-PostCSS ist ein Loader der in Kombination mit zusätzlichen Plugins genutzt werden kann.  
-Dieser loader wird sehr oft genutzt, da er anhand seiner Plugins sehr viele Transformationen unterstützt.
+PostCSS ist ein Loader, der in Kombination mit zusätzlichen Plugins genutzt werden kann.  
+Er wird sehr oft genutzt, da er anhand seiner Plugins sehr viele Transformationen unterstützt.
 
 **Beispiel (Autoprefixr)**
 
@@ -299,7 +299,7 @@ Loader: https://webpack.js.org/loaders/postcss-loader/
 
 ### Babel
 
-Babel wird fürs Transpilieren und transformieren von JavaScript genutzt.  
+Babel wird fürs Transpilieren und Transformieren von JavaScript genutzt.  
 Es ermöglich die Nutzung der neusten ECMAScript Standards und "übersetzt" diese auf ältere Standards, damit unser JavaScript in älteren Browsern ebenfalls funktioniert.
 
 Website: https://babeljs.io/  
@@ -307,8 +307,8 @@ Loader: https://webpack.js.org/loaders/eslint-loader/
 
 ### ESLint
 
-ESLint kann fürs linten und automatische Formatieren von JavaScript genutzt werden.  
-Es ist der mit Abstand am häuffigsten genutzte Linter für JavaScript.
+ESLint kann fürs Linten und automatische Formatieren von JavaScript genutzt werden.  
+Es ist der mit Abstand am häufigsten genutzte Linter für JavaScript.
 
 Website: https://eslint.org/  
 Loader: https://webpack.js.org/loaders/eslint-loader/
@@ -320,7 +320,7 @@ Loader: https://webpack.js.org/loaders/eslint-loader/
 ## SASS/SCSS Deepdive
 
 SCSS ist ein *Superset* von CSS und wird zu CSS transpiliert. Ansatzweise kann es ein bisschen mit Typescript verglichen werden.  
-Es ist nicht an die Limiterungen von CSS gebunden und ermöglicht das schreiben von effizienterem und wartbarem CSS.
+Es ist nicht an die Limiterungen von CSS gebunden und ermöglicht das Schreiben von effizienterem und wartbarem CSS.
 
 ### Variablen
 
@@ -536,7 +536,7 @@ Wichtig: generiertes CSS im Auge behalten
   * Resultat kann sehr redundant sein. Aber durch die gzip-Komprimierung ist dies nicht so schlimm.
 * `@extend` (mit oder ohne %placeholder):
   * Reduktion des generierten Codes
-  * Resultat nicht immer vorhersehbar, funktioniert nicht innerhab von Media-Queries
+  * Resultat nicht immer vorhersehbar, funktioniert nicht innerhalb von Media-Queries
 
 ### Strukturierung durch Verschachtelung
 
@@ -614,8 +614,8 @@ a:focus {
 
 ### Partials/Imports
 
-Durch partials kann eine Modularisierung erziehlt werden. Man kann seine SCSS-Dateien aufsplitten und beliebig importieren.  
-Es ist z.B. überlich, dass man Mixins, Placeholder und Variablen in ein oder mehrere separate Partials schreibt.
+Durch partials kann eine Modularisierung erzielt werden. Man kann seine SCSS-Dateien aufsplitten und beliebig importieren.  
+Es ist z.B. üblich, dass man Mixins, Placeholder und Variablen in ein oder mehrere separate Partials schreibt.
 
 ```sh
 /styles
@@ -789,7 +789,7 @@ $value: red;
 
 Öffne diesen [**SASS/SCSS Playground**](https://www.sassmeister.com/) als Startpunkt.
 
-- [ ] Schreibe dein SASS/SCSS Code damit Du das folgende CSS erhälst (achte darauf, dass das geschriebene SCSS möglichst Wartbar sein sollte):
+- [ ] Schreibe einen SASS/SCSS Code, damit du das folgende CSS erhältst (achte darauf, dass das geschriebene SCSS möglichst wartbar sein sollte):
 
 ```css
 .link.var_error {
