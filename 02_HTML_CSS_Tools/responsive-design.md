@@ -19,7 +19,9 @@ Die Übungen bauen immer aufeinander auf. Aber keine Angst! Für den Fall, dass 
 
 Man kann nicht wissen, von welchem Device ein User auf eine Website geht, daher ist es wichtig, dass Websites responsive sind, sodass die Website sich dem Device anpassen kann um dem User immer eine möglichst gute User Experience zu bieten. Dies nennt man Responsive Web Design (RWD).
 
-TODO Image
+![Responsive Devices](https://miro.medium.com/max/1626/1*3hQ4krP-rTql7IK0B4-yZQ.gif)
+
+Source: https://miro.medium.com/max/1626/1*3hQ4krP-rTql7IK0B4-yZQ.gif
 
 ## Der Viewport
 
@@ -66,7 +68,7 @@ Dafür gibt es einen `meta`-Tag, den man nutzen kann.
 
 **Demo** 🤯
 
-- [TODO](https://codesandbox.io/s/TODO)
+- [Viewport Metatag](https://codesandbox.io/s/uqvf1)
 
 **Einschub: CSS Pixel und Device Pixel** 👀
 
