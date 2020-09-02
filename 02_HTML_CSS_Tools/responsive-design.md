@@ -11,7 +11,7 @@
 
 Für Übungen nutzen wir die folgende **CodeSandbox** als Startpunkt:
 
-**[https://codesandbox.io/s/TODO](https://codesandbox.io/s/TODO)**
+**[https://codesandbox.io/s/j611l](https://codesandbox.io/s/j611l)**
 
 Die Übungen bauen immer aufeinander auf. Aber keine Angst! Für den Fall, dass bei einer Übung etwas nicht klappt, gibts bei jeder Übung einen Link zur CodeSandbox mit dem aktuellen Stand.
 
@@ -126,12 +126,12 @@ Was dies genau heisst ist: "Wenn wir uns auf einem `screen` befinden, und dieser
 
 ### Media Types
 
-Der Media Type wird genutzt um Medium zu beschreiben wie die Website konsumiert wird:
+Der Media Type wird genutzt um das Medium zu beschreiben wie die Website konsumiert wird:
 
 * `all` &rightarrow; Default value
 * `screen` &rightarrow; Wird angewendet, wenn das Medium einen Bildschirm hat _(normal)_
 * `print` &rightarrow; Wird angewendet, wenn die Website gedruckt wird
-* `speech` &rightarrow; Wird angewendet wenn man z.B. einen Screenreader/[SpeechRecognition](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) benutzt (leider noch keine Erfahrung hier, und es ist bis jetzt auch noch nirgends implementiert)
+* `speech` &rightarrow; Wird angewendet, wenn z.B. einen Screenreader/[SpeechRecognition](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) benutzt wird (leider selbst noch keine Erfahrung und ist bis aktuell auch noch in keinem Browser integriert).
 
 Weitere media Types in der offiziellen [Dokumentation](https://www.w3.org/TR/mediaqueries-5/#media-types) (werden aber nie genutzt).
 
@@ -164,7 +164,7 @@ Am meisten werden jeweils `min-*` und `max-*` genutzt.
 
 **Best Practises** ✅
 
-Alle *dimension* Features unterstützen die regulären CSS Units wie `px`, `em`, usw. Es ist jedoch empfohlen, dass man `em` nutzt innerhalb von Media-Queries.
+Alle *dimension* Features unterstützen die regulären CSS Units wie `px`, `em`, usw. Es ist jedoch empfohlen, dass innerhalb von Media-Queries `em` genutzt wird.
 `em` Values skalieren mit, wenn der User im Browser zoomt. `rem` hat in einem Media-Query immer dieselbe Value wie `em`, aber `rem` wird [nicht korrekt unterstützt im Safari](https://medium.com/@barrypeng6/why-should-not-use-rem-unit-in-media-query-5645d0163ce5#:~:text=Unit%20rem%20in%20media%20queries,queries%20before%20the%20bug's%20fixed.).
 
 **Hilfreiche Links**
@@ -269,13 +269,17 @@ Dies ist zwar möglich, sollte aber trotzdem nicht verwendet werden. Jede verlin
 
 ### Practice 🔥
 
-Öffne diese [**CodeSandbox**](https://codesandbox.io/s/TODO) als Startpunkt.
+Öffne diese [**CodeSandbox**](https://codesandbox.io/s/j611l) als Startpunkt.
 
-- [ ] TODO
+- [ ] Unter `30em` Breite, sollten alle Container untereinander sein
+- [ ] Ab `30em` und unter `50em` Breite, sollten die Navigation und die Sidebar jeweils `20%` Breite des Elternelements einnehmen
+- [ ] Ab `50em` Breite sollten di Navigation und die Sidebar jeweils `15%` Breite des Elternelementes einnehmen
+- [ ] Der `.wrapper` soltle horizontal zentriert sein, sobald dieser seine `max-width` erreicht hat
+- [ ] Strukturiere dein CSS, sodass nur `(min-width: xxx)` media Queries genutzt werden
+ 
+Zeit: ~ 15 min
 
-Zeit: ~ TODO min
-
-**Solution**: [https://codesandbox.io/s/TODO](https://codesandbox.io/s/TODO)
+**Solution**: [https://codesandbox.io/s/xfy1p](https://codesandbox.io/s/xfy1p)
 
 ## Testing
 
@@ -291,7 +295,7 @@ _Beispiel: Chrome Dev-Tools_
 
 ### Practice 🔥
 
-Öffne diese [**CodeSandbox**](https://codesandbox.io/s/TODO) als Startpunkt.
+Öffne diese [**CodeSandbox**](https://q3i51.csb.app/) als Startpunkt.
 
 - [ ] Simuliere ein iPhone10
 - [ ] Simuliere mit den Dev-Tools ein Pixelratio von mindestens 3.0, damit der Hintergrund der Website grün wird
