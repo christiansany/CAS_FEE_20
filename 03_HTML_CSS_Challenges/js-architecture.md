@@ -1,4 +1,4 @@
-# Problem: JavaScript-Architektur
+# Eine solide JavaScript-Architektur erstellen
 
 ## Inhalt
 
@@ -15,6 +15,7 @@ Es geht zum Teil so weit, dass ein eigenes kleines miniframework aufgebaut wird.
 ### Projekt Setup
 
 Als Beispiel wird der Relaunch von [css.ch](https://www.css.ch) genommen.
+**Das Frontend wird anhand einer Frontend-Preview erstellt und die Frontend Komponenten werden danach von Hand ins CMS eingepflegt, sodass diese als Module verwendet werden können.**
 
 #### Executing Team
 
@@ -657,6 +658,7 @@ Das `main.js` ist erst am ende des body effektiv eingebunden. preload hitns gebe
     <link rel="preload" href="/assetsv2/css/main.min.css?v=297ac2e71010cbc80e225299802e14dd" as="style">
     <link rel="preload" href="/assetsv2/js/head.min.js?v=297ac2e71010cbc80e225299802e14dd" as="script">
     <link rel="preload" href="/assetsv2/js/main.min.js?v=297ac2e71010cbc80e225299802e14dd" as="script">
+    ...
 ```
 
 

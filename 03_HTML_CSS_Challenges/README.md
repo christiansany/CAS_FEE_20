@@ -2,6 +2,6 @@
 
 ## Inhalt
 
-* [Problem: JavaScript Architektur](./js-architecture.md)
-* [Problem: Responsive Images](./images.md)
-* [Problem: Header mit Vuejs slots](./css-header.md)
+* [JavaScript Architektur](./js-architecture.md)
+* [Responsive Images](./images.md)
+* [Header mit Vuejs slots](./css-header.md)
