@@ -8,7 +8,7 @@
 
 ## Intro
 
-In diesem Abschnitt schauen wir die Immplementation von Responsive Images an, welche auf [post.ch](https://post.ch) und [css.ch](https://css.ch) verwendet wird. Bei den Beispielen werden jeweils Codeausschnitte der beiden Projekten verwendet.
+In diesem Abschnitt schauen wir die Implementation von Responsive Images an, welche auf [post.ch](https://post.ch) und [css.ch](https://css.ch) verwendet wird. Bei den Beispielen werden jeweils Codeausschnitte der beiden Projekten verwendet.
 
 ## Responsive Images
 
@@ -18,7 +18,7 @@ Generell geht man davon aus, dass auf kleineren Devices auch kleinere Bilder gel
 
 > “A Pixel is Not a Pixel”
 
-Es gitb einen Unterscheid von **CSS Pixel** zu **Screen Pixel**. CSS Pixel sind für Abmessungen auf unserer Website, und die Screen Pixel sind die physischen Pixel, welche vom device genutzt werden.
+Es gibt einen Unterschied von **CSS Pixel** zu **Screen Pixel**. CSS Pixel sind für Abmessungen auf unserer Website, und die Screen Pixel sind die physischen Pixel, welche vom device genutzt werden.
 
 ![Pixel Density](./assets/pixel-density.jpg)
 
@@ -40,24 +40,24 @@ Was bedeutet dies? Wie gross müssen unsere Bilder sein, damit das Bild auf dies
 | 150px | 150px | 300px | 450px | 600px |
 | 400px | 400px | 800px | 1200px | 1600px |
 
-Bei dieser Tabelle sehen wir, bei einem Pixel Ratio von **3x** oder **4x**, **die Grösse des Bildes nimmt rapide zu**, damit das Bild "scharf" dargestellt werden kann. Dies ist nicht immer optimal, da auf mobilen Geräten meist schwächere Hardware verbaut ist, wie auf Desktop-Geräten. Zudem hat man eventuell sogar noch eine schlechtere Internetverbindung, welches das Problem noch verstärkt.
+Bei dieser Tabelle sehen wir, dass bei einem Pixel Ratio von **3x** oder **4x** **die Grösse des Bildes rapide zunimmt**, damit das Bild "scharf" dargestellt werden kann. Dies ist nicht immer optimal, da auf mobilen Geräten meist schwächere Hardware verbaut ist, als auf Desktop-Geräten. Zudem hat man eventuell sogar noch eine schlechtere Internetverbindung, was das Problem noch verstärkt.
 
 **Speziellere DPR**
 
-Bis jeztt hatten wir immer, dass ein Device ein genaues DPR hatte (2.0, 3.0, etc.). Gibt es auch ein DPR von z.B. 1.5? Die Antwort ist ziemlich einfach: **Ja**, das gibt es.  
+Bis jetzt war es immer so, dass ein Device ein genaues DPR hatte (2.0, 3.0, etc.). Gibt es auch ein DPR von z.B. 1.5? Die Antwort ist ziemlich einfach: **Ja**, das gibt es.  
 
 ![MacBook 16" DPR](./assets/macbook-16-dpr.png)
 
-Als Beispiel kann ein MacBook Pro 16" so eingestellt werden, das der Laptop kein DPR von 2.0 hat, sondern von **1.5**.  
-Diese würde also bedeuten, dass um auf dem Laptop ein Bild in 40px darzustellen, das "perfekte" Bild also 60px Breit sein müsste, und nicht 80px wie bei einer DPR von 2.0.
+Als Beispiel kann ein MacBook Pro 16" so eingestellt werden, dass der Laptop kein DPR von 2.0 hat, sondern von **1.5**.  
+Diese würde also bedeuten, dass, um auf dem Laptop ein Bild in 40px darzustellen, das "perfekte" Bild also 60px breit sein müsste, und nicht 80px wie bei einer DPR von 2.0.
 
 ### Schwierigkeiten erklärt
 
-Bei Responsive images müssen wir generell auf folgene Schwierigkeiten achten:
+Bei Responsive images müssen wir generell auf folgende Schwierigkeiten achten:
 
 - Kleinere Devices sollten generell kleinere Bilder erhalten
-- Das Device Pixel Ratio sollte so genutzt werden, sodass Bidler möglichst scharf sind, aber die Payload des Bildes nicht explodiert
-- Je nach Modul/Use-Case kann es sine, dass das Bildformat von device zu device ändert, sodass 
+- Das Device Pixel Ratio sollte so genutzt werden, dass Bilder möglichst scharf sind, aber die Payload des Bildes nicht explodiert.
+- Je nach Modul/Use-Case kann es sein, dass das Bildformat von device zu device ändert, sodass ...???
 - Verschiedene Browser unterstützen verschiedene Dateiformate, wie können wir das handeln/nutzen?
 
 ### Die Display Density Descriptor Methode
@@ -65,7 +65,7 @@ Bei Responsive images müssen wir generell auf folgene Schwierigkeiten achten:
 Der Density Descriptor kann innerhalb eines `srcset` genutzt werden. Er gibt dem Browser gewisse Metainformationen, damit dieser entscheiden kann, welches Bild er wirklich runterladen will.  
 Im unteren Beispiel würde auf einem iPhone 6 z.B. das Bild `puppy-400px.jpg` geladen werden. Auf einem iPhone X würde das Bild `puppy-600px.jpg` geladen werden.
 
-*Wichtig dabei ist, dass der Descriptor dem Browser nur sagt, welches Bild für welche DPR gedacht ist. Der Descriptor gibt dem Browser keinerlei Informationen wie Breit das Bild ist.*
+*Wichtig dabei ist, dass der Descriptor dem Browser nur sagt, welches Bild für welche DPR gedacht ist. Der Descriptor gibt dem Browser keinerlei Informationen wie breit das Bild ist.*
 
 **Example**
 
@@ -79,11 +79,11 @@ Im unteren Beispiel würde auf einem iPhone 6 z.B. das Bild `puppy-400px.jpg` ge
 
 **Pros**
 
-Dieser descriptor ermöglicht es uns einem Browser ein Bild aufzuzwingen. Somit werden Bilder scharf angezeigt, egal auf welchem Device wir uns befinden.
+Dieser descriptor ermöglicht es uns, einem Browser ein Bild aufzuzwingen. Somit werden Bilder scharf angezeigt, egal auf welchem Device wir uns befinden.
 
 **Cons**
 
-Für ein Device welches eine DPR von z.B. 1.5 hat, wird jeweils das nächst Grössere Bild runtergeladen. Dies würde bedeuten, dass auf unserem MacBook 16" mit einer DPR von 1.5 ein zu grossesn Bild geladen werden muss, damit es scharf angezeigt werden kann.
+Für ein Device, welches eine DPR von z.B. 1.5 hat, wird jeweils das nächst grössere Bild runtergeladen. Dies würde bedeuten, dass auf unserem MacBook 16" mit einer DPR von 1.5 ein zu grossesn Bild geladen werden muss, damit es scharf angezeigt werden kann.
 
 **Demo** 🤯
 
@@ -92,8 +92,8 @@ Für ein Device welches eine DPR von z.B. 1.5 hat, wird jeweils das nächst Grö
 ### Die Width Descriptor Methode mit dem `sizes`-Attribut
 
 Hier nutzen wir eine Kombination des Width Descriptors und des `sizes`-Attributes.  
-Der Width Descriptor gibt uns die Möglichkeit dem Browser die Metainformation zu geben, wie Breit ist das Bild.  
-Diese Methode ist vor allem dann sinnvoll, wenn die Breite eines Bildes sich ändert, je nach der Grösse des Viewports. **Dies ist der meist genutzteste Case bei Responsive Images**.
+Der Width Descriptor gibt uns die Möglichkeit, dem Browser die Metainformation zu geben, wie breit das Bild ist.  
+Diese Methode ist vor allem dann sinnvoll, wenn die Breite eines Bildes sich ändert, je nach der Grösse des Viewports. **Dies ist der meist genutzte Case bei Responsive Images**.
 
 **Example**
 
@@ -105,17 +105,17 @@ Diese Methode ist vor allem dann sinnvoll, wenn die Breite eines Bildes sich än
              cat-800px.jpg 800w">
 ```
 
-Leider nützt diese Information alleine dem Browser nicht all zu viel, da der Browser noch nicht, weiss wie Breit das Bild angezeigt wird. Da die Anzeige des Bildes sich ändert, je nachdem wie Breit unser Viewport ist, kann auch kein `width`-Attribut verwendet werden.
+Leider nützt diese Information alleine dem Browser nicht all zu viel, da der Browser noch nicht weiss, wie breit das Bild angezeigt wird. Da die Anzeige des Bildes sich ändert, je nachdem wie breit unser Viewport ist, kann auch kein `width`-Attribut verwendet werden.
 
 #### `sizes`-Attribut
 
-Der `sizes`-Attribut ermöglicht uns dem Browser mitzuteilen, wie Briet wird ein Bild effektiv dargestellt. Es kann entweder ein Wert mitgegeben werden, oder mehrere separiert mit einem **,** (Komma). In dem Attribut können ebenfalls Media-Queries verwendet werden. Wenn mehrere Werte mitgegeben werden, werden diese von *left to right* evaluiert, sobald ein Media-Query zutrifft, wird die respektable sizes als Anzeigebreite des Bildes genutzt.
+Der `sizes`-Attribut ermöglicht uns, dem Browser mitzuteilen, wie breit ein Bild effektiv dargestellt wird. Es kann entweder ein Wert mitgegeben werden, oder mehrere separiert mit einem **,** (Komma). In dem Attribut können ebenfalls Media-Queries verwendet werden. Wenn mehrere Werte mitgegeben werden, werden diese von *left to right* evaluiert, sobald ein Media-Query zutrifft, wird die respektable size als Anzeigebreite des Bildes genutzt.
 
 ![Sizes Attr](./assets/sizes-attr.png)
 
 **Image Size Condition**
 
-Bei der Breitenangabe, gibt es drei verschiedene Arten wie man diese angeben kann.
+Bei der Breitenangabe gibt es drei verschiedene Arten, wie man diese angeben kann.
 - In `vw`
 - In `px`
 - In einer Kombination von beiden, verpackt in einem `calc()`
@@ -128,7 +128,7 @@ sizes="(max-width: 399px) 50vw,
        100vw"
 ```
 
-Im folgenden Beispielt sieht man ein Bild welches immer einer relative Breite zum Viewport hat, aber ab einer gewissen Grösse des Viewports ist die Breite des Bildes Fix und wird nicht mehr grösser.
+Im folgenden Beispielt sieht man ein Bild, welches immer einer relative Breite zum Viewport hat, aber ab einer gewissen Grösse des Viewports ist die Breite des Bildes fix und wird nicht mehr grösser.
 
 ```html
 <img src="cat.jpg" alt="" 
@@ -141,7 +141,7 @@ Im folgenden Beispielt sieht man ein Bild welches immer einer relative Breite zu
              100vw">
 ```
 
-Mit den Informationen über die **verfügbaren Bilder** und der **Breite** in welcher das Bild angezeigt wird, kann der Browser nun selbst entscheiden, welches Bild er runterlädt, damit ds Bild möglichst scharf ist. Dazu nutzt er ebenfalls die Information, was das **DPR** ist des Device und z.B. auch den connection speed.
+Mit den Informationen über die **verfügbaren Bilder** und der **Breite** in welcher das Bild angezeigt wird, kann der Browser nun selbst entscheiden, welches Bild er runterlädt, damit das Bild möglichst scharf ist. Dazu nutzt er ebenfalls die Information, was das **DPR** des Device ist und z.B. auch den connection speed.
 
 **Avatar Example**
 
@@ -171,7 +171,7 @@ Mit den Informationen über die **verfügbaren Bilder** und der **Breite** in we
 
 ### Das `<picture>`-Element
 
-Das `<picture>`-Element ist ein neueres HTML5-Element, welches uns noch mehr Möglichkeiten gibt für die Art Direction (damit wir z.B. auf Mobile ein Bild im Seitenverhältnis von 1:1 anzeigen können aber auf Desktop sollte das Bild dann in 16:9 dargestellt werden), und es ermöglicht uns ebenfalls, dass wir mehrere Dateitypen unterstützen, damit neuere Browser von den neueren Dateitypen gebrauch machen können, aber ältere Browser noch einen Fallback haben.
+Das `<picture>`-Element ist ein neueres HTML5-Element, welches uns noch mehr Möglichkeiten für die Art Direction gibt. So kann z.B. auf Mobile ein Bild im Seitenverhältnis von 1:1 angezeigt werden, aber auf dem Desktop kann das Bild dann in 16:9 dargestellt werden. Es ermöglicht uns ebenfalls, dass wir mehrere Dateitypen unterstützen, damit neuere Browser von den neueren Dateitypen Gebrauch machen können, aber ältere Browser noch einen Fallback haben.
 
 ### Art Direction mit dem `<picture>`-Element
 Mit dem `<source>`-Element können wir innerhalb des `<picture>`-Elements mehrere verschiedene Bilder angeben, welche wiederum auf verschiedenen Devices zum Zuge kommen können. Es können soviele `<source>`-Elemente genutzt werden wie einem beliebt.
@@ -229,18 +229,18 @@ Wir schauen uns heute die Spezifische Implementation von [css.ch](https://css.ch
 
 ### Modularität
 
-Bei unserer Implementierung wollten wir eine generische Komponente erstellen, sodass wir redundanzen vermeiden können und die Qualität des HTML in bezug auf Bilder möglist immer gewährleistet werden kann.  
-Die Komponente sollte sich wie ein **Atom** verhalten, und sollte in allen anderen Modulen/Komponenten verwendet werden können.
+Bei unserer Implementierung wollen wir eine generische Komponente erstellen, sodass wir Redundanzen vermeiden können und die Qualität des HTML in Bezug auf Bilder möglist immer gewährleistet werden kann.  
+Die Komponente sollte sich wie ein **Atom** verhalten und sollte in allen anderen Modulen/Komponenten verwendet werden können.
 
 ### Art Direction
 
-Zum einten haben wir viele verschiedene Seitenverhältnisse, welche in den div. Modulen vorkommen können.  
+Zum einen haben wir viele verschiedene Seitenverhältnisse, welche in den div. Modulen vorkommen können.  
 
 ![Image-Ratios](./assets/design-ratios.png)
 
 *Screenshot aus dem Design*
 
-Und zum anderen gibt es Module welche auf Breakpoint x ein anderes Seitenverhältnis haben wie auf Breakpoint y.
+Und zum anderen gibt es Module, welche auf Breakpoint x ein anderes Seitenverhältnis haben wie auf Breakpoint y.
 
 ![Design Art Direction](./assets/design-art-direction.png)
 
@@ -251,12 +251,12 @@ Und zum anderen gibt es Module welche auf Breakpoint x ein anderes Seitenverhäl
 #### Arbeiten mit einem Grid
 
 Wenn man ein Grid nutzt, werden Bilder oftmals in x Spalten dargestellt.  
-Im Beispiel hier, ist das 2. Modul auf Tablet 8/8 Spalten Breit, auf kleineren Desktops 6/8 Spalten und dann auf grösseren Desktops schliesslich 8/12 Spalten.
+Im Beispiel hier ist das 2. Modul auf Tablet 8/8 Spalten breit, auf kleineren Desktops 6/8 Spalten und dann auf grösseren Desktops schliesslich 8/12 Spalten breit.
 
 ![Example Grid](./assets/image-ratio-grid.png)
 
-Damit die `sizes` richtig ebrechnet werden können, müssen wir auf div. Parameter Rücksicht nehmen.
-- Die Breite des Container
+Damit die `sizes` richtig errechnet werden können, müssen wir auf div. Parameter Rücksicht nehmen.
+- Die Breite des Containers
 - Die Maximalbreite des Containers
 - Die Spaltenanzahl auf den jeweiligen Breakpoints
 - Der Gutter zwischen den Spalten
@@ -283,7 +283,7 @@ sizes="(min-width: 1441px) calc((1440px - 2 * 128px + 16px) * (3/12) - 16px)"
 
 #### Berechnen der `sizes`
 
-**Innerhalb des Grid, ist eine Berechnung der sizes nicht immer einfach.** Dafür haben wir deshalb einen **Helper** erstellt, womit wir einfach die Spaltenbreite des Bildes angeben können, und der helper gibt uns dann die richtigen `sizes` zurück.  
+**Innerhalb des Grid ist eine Berechnung der sizes nicht immer einfach.** Dafür haben wir deshalb einen **Helper** erstellt, womit wir einfach die Spaltenbreite des Bildes angeben können, und der helper gibt uns dann die richtigen `sizes` zurück.  
 
 Damit das Backend schlussendlich die gleichen `sizes` ins produktive HTML schreiben kann, mussten sie diesen Helper ebenfalls implementieren.
 
@@ -544,9 +544,9 @@ TODO
 ### Layzloading
 
 Lazyloading ermöglich es uns, dass die Bilder nur dann geladen werden, wenn diese auf wirklich benötigt werden.  
-Wenn z.b. ein Bild ausserhalb des Viewports ist, soltle es nicht geladen werden.
+Wenn z.B. ein Bild ausserhalb des Viewports ist, sollte es nicht geladen werden.
 
-Dafür verwenden wir den [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). Beim Pageload registrieren wir die Bildelemente in einer IntersectionObserver Instanz, und dieser lässt uns ein Callback definieren, wenn das Bild in die nähe des Viewports kommt.
+Dafür verwenden wir den [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). Beim Pageload registrieren wir die Bildelemente in einer IntersectionObserver Instanz, und dieser lässt uns ein Callback definieren, wenn das Bild in die Nähe des Viewports kommt.
 
 Damit die Bilder nicht bereits beim pageload geladen werden, setzen wir initial im `src`- & `srcset`-Attribut ein base64 encoded 1x1 transparent gif.
 
@@ -561,7 +561,7 @@ Damit die Bilder nicht bereits beim pageload geladen werden, setzen wir initial 
 
 ### Types
 
-Wir haben uns das Lebel ein bisschen einfacher gemacht, und überlassen das richtige Auswählen des Types dem BE, bzw. dem CDN welcher bei [css.ch](https://css.ch) im Einsatz ist. Wenn Beispielsweise ein .jpg angefordert wird, kann der CDN selbständig anhand des `accept`-Headers erkennen, ob `webp`, `avif` oder andere Dateiformate zugelassen wären. Falls dies der Fall ist, leifert er einfach diese in seiner Response.
+Wir haben uns das Leben ein bisschen einfacher gemacht, und überlassen das richtige Auswählen des Types dem Backend, bzw. dem CDN, welcher bei [css.ch](https://css.ch) im Einsatz ist. Wenn beispielsweise ein .jpg angefordert wird, kann der CDN selbständig anhand des `accept`-Headers erkennen, ob `webp`, `avif` oder andere Dateiformate zugelassen wären. Falls dies der Fall ist, liefert er einfach diese in seiner Response.
 
 Somit müssen wir die verschiedenen Dateitypen im Frontend nicht beachten, und für diese auch keine `<source>` schreiben.
 

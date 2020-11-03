@@ -10,7 +10,7 @@
 ## Intro
 
 Eine JavaScript-Architktur nennt man vor allem den Aufbau und das Organisieren vom eigenen JavaScript.
-Es geht zum Teil so weit, dass ein eigenes kleines miniframework aufgebaut wird. Es sollte den Entwicklern das leben vereinfachen, sodass diese sich nicht um die "basics" kümmern müssen.
+Es geht zum Teil so weit, dass ein eigenes kleines Miniframework aufgebaut wird. Es sollte den Entwicklern das Leben vereinfachen, sodass diese sich nicht um die Basics kümmern müssen.
 
 ### Projekt Setup
 
@@ -26,11 +26,11 @@ Als Beispiel wird der Relaunch von [css.ch](https://www.css.ch) genommen.
 
 ## Challenges
 
-Typische Challenges die bei einer schlechten oder weniger gut optimierten JavaScript architektur auftreten kann sind die folgenden:
+Typische Challenges, die bei einer weniger gut optimierten JavaScript Architektur auftreten kann, sind die folgenden:
 
 ### Render-Blocking
 
-Render blocking Ressourcen verhindern, dass auf der Website eswas gerendert werden kann. Dies geschiet vor allem, wenn JavaScript- & CSS-Dateien im `<head>` verlinkt sind, und diese nicht asyncrhon geladen werden.
+Render blocking Ressourcen verhindern, dass auf der Website etwas gerendert werden kann. Dies geschiet vor allem, wenn JavaScript- & CSS-Dateien im `<head>` verlinkt sind, und diese nicht asynchron geladen werden.
 
 ![Render-Blocking JavaScript sbb.ch](./assets/render-blocking.png)
 
@@ -44,7 +44,7 @@ TODO text
 
 * [Remove unused code](https://web.dev/remove-unused-code)
 
-### Main-Thread muss aussergehöhnlich viel JavaScript ausführen
+### Main-Thread muss aussergewöhnlich viel JavaScript ausführen
 
 TODO text
 
@@ -57,7 +57,7 @@ TODO text
 ### Dateien werden nicht langzeitig gecacht
 
 Grundsätzlich sollten JavaScript-Dateien *versioniert* sein, damit gleichzeitig das Langzeitcaching sowie auch die cacheinvalidierung automatisiert ist.
-Dies ist leider nicht immer der Fall, oftmals werden Dateien die noch valide wären bereits invalidiert, oder Dateien werden gar nicht invalidiert, welches zu grösseren Problemen führen kann.
+Dies ist leider nicht immer der Fall, oftmals werden Dateien, die noch valide wären, bereits invalidiert, oder Dateien werden gar nicht invalidiert, was zu grösseren Problemen führen kann.
 
 > **Disclaimer**
 >  
@@ -75,11 +75,11 @@ Zeit: ~ 10 min
 
 ### Render-Blocking
 
-Grundsätzlich sollte nur das "critical" JavaScript wirklich renderblocking sein. Alles andere, **kann und sollte asynchron nachgeladen werden**.
+Grundsätzlich sollte nur das "critical" JavaScript wirklich renderblocking sein. Alles andere **kann und sollte asynchron nachgeladen werden**.
 
-**Beste Solution**
+**Best Solution**
 
-Nach dem Identifizieren des kritischen JavaScript Codes, sollte dieses als inline `<script>` Tag direkt im HTML eingebettet werden. Somit hat die Seite alles was sie benötigt für die *Core-Funktionalität* der Website.  
+Nach dem Identifizieren des kritischen JavaScript Codes, sollte dieser als inline `<script>` Tag direkt im HTML eingebettet werden. Somit hat die Seite alles was sie benötigt für die *Core-Funktionalität* der Website.  
 Alles andere JavaScript welches nicht direkt beim Pageload benötigt wird, kann weiterhin mit einem `<script src="/path/main.js">` integriert werden, es sollte aber entweder mit dem Attribut `async` oder `defer`
 asynchron geladen werden, damit das rendering nicht blockiert wird.
 
@@ -87,7 +87,7 @@ asynchron geladen werden, damit das rendering nicht blockiert wird.
 
 Unser kritisches JavaScript, welches für die Core-Funktionalität benötigt wird, wird in eine separate JavaScript-Datei ausgelagert `head.js`. Alles was nicht kritisch eingestuft wird, wird ins `main.js` geschrieben, und dieses wird mit `defer` asynchron geladen und nach dem Parsen des HTML ausgeführt.
 
-Zum kritischen JavaScript gehört z.B. **Font-Loading** und **Modernizr**, eventuell **globale Variablen** setzen, etc.
+Zum kritischen JavaScript gehört z.B. **Font-Loading** und **Modernizer**, eventuell **globale Variablen** setzen, etc.
 
 **Begründung**
 
@@ -103,8 +103,8 @@ Falls das JS inlines werden sollte, muss dies vom BE unterstützt werden, und zu
 
 Oftmals wird mit einem JavaScript bundler gearbeitet, dieser bundelt das JavaScript für die ganze Website. Den bundler interessiert es nicht, auf welcher Seite die Module integriert sind, er bundlet einfach alles zu einer grossen Datei zusammen. Mit [`dynamic imports`](https://github.com/tc39/proposal-dynamic-import) können wir aus bestimmten Modulen separate chunks generieren und diese nachladen, nur wenn sie wirklich gebraucht werden.
 
-Unser JavaScript sollte daher bestmöglichst aufgesplittet werden, damit auf einer bestimmten Seite nur das JavaScript genladen wird, welches auf dieser Seite wirklich genutzt wird.  
-Zudem soltle das inkludieren eines externen packages z.B. von `npm` nicht nur aus security sondern auch auf Dateigrösse geprüft werden. Bei einem import von `lodash` kann es z.B. geschehen, dass das komplette lodash package im eigenen Bundle inkludiert wird (300 KB), was wir nicht wollen.
+Unser JavaScript sollte daher bestmöglichst aufgesplittet werden, damit auf einer bestimmten Seite nur das JavaScript geladen wird, welches auf dieser Seite wirklich genutzt wird.  
+Zudem sollte das Inkludieren eines externen packages z.B. von `npm` nicht nur auf security sondern auch auf Dateigrösse geprüft werden. Bei einem Import von `lodash` kann es z.B. geschehen, dass das komplette lodash package im eigenen Bundle inkludiert wird (300 KB), was wir nicht wollen.
 
 
 
@@ -154,7 +154,7 @@ TODO text
 
 TODO
 * Wie würdet ihr diese Lösungsideen umsetzen?
-* Hättet ihr noch eine andere Lösungsidee
+* Hättet ihr noch eine andere Lösungsidee?
 * Wie würdet ihr dies in einer Angular/React SPA angehen
 * Wie würdet ihr dies in einer "traditionellen" Website angehen?
 
@@ -165,12 +165,12 @@ TODO
 Source: [https://media.giphy.com/media/3og0IHyZMxZNkNOWT6/source.gif](https://media.giphy.com/media/3og0IHyZMxZNkNOWT6/source.gif)
 
 
-Vor dem Beginn werden noch kurz die Requirements aufgeschrieben, somit sind wir können wir zum Schluss auch prüfen, ob unsere neue Architektur alles erfüllt, was wir benötigen.
+Vor dem Beginn werden noch kurz die Requirements aufgeschrieben, somit können wir zum Schluss auch prüfen, ob unsere neue Architektur alles erfüllt, was wir benötigen.
 
 ### Helpers
 
 * Globale helper wie resize watcher und scroll watcher sollten als Singleton implementiert werden können
-  * Diese sollten in den Module einfach verwendet werden können
+  * Diese sollten in den Modulen einfach verwendet werden können
 
 ### Module
 
@@ -181,7 +181,7 @@ Vor dem Beginn werden noch kurz die Requirements aufgeschrieben, somit sind wir 
 **Structure/Loading**
 
 * Müssen direkt im main-bundle integriert werden können
-* Müssen als separater chunk geladen erden können (Reduzierung der Payload)
+* Müssen als separater chunk geladen werden können (Reduzierung der Payload)
 * Müssen lazy initialisiert werden (Entlastung des Main-Thread beim Pageload)
 
 **Practicability**
@@ -194,13 +194,13 @@ Vor dem Beginn werden noch kurz die Requirements aufgeschrieben, somit sind wir 
 **Conveniance**
 
 * Müssen eine klare Struktur beinhalten, damit diese einfach erstellt werden können
-* Wenn möglich an die alte Modul-Struktur angelehnt sein, damit der neue Aufbau eines Modules nachvollzogen werden kann
+* Sollte wenn möglich an die alte Modul-Struktur angelehnt sein, damit der neue Aufbau eines Modules nachvollzogen werden kann
 
 ## Umsetzung
 
 TODO: Image/Gif umsetzung
 
-### Grundentschiede
+### Grundentscheide
 
 * Factory Functions > Classes
   TODO
@@ -209,7 +209,7 @@ TODO: Image/Gif umsetzung
 * Polyfills müssen irgendwie gehandhabt werden (möglichst automatisch)
   TODO
 
-### Webpack einstellungen
+### Webpack Einstellungen
 
 TODO Webpackeinstellungen hinschreiben
 TOOD die requirements erklären, und wie wir diese lösen wollen
@@ -647,29 +647,38 @@ TODO Preload hint
 
 ### Preload hints
 
-Preload hints sollten wenn immer möglichst am anfang des `<head>`-Tag stehen, damit die Dateien möglichst schnell geladen werden. Wichtig dabei ist, dass diese Dateien ab dem Zeitpunkt des parsens der `<link>`-Tags zwar heruntergeladen werden, der Browser ist aber dabei nicht blockiert.
+Preload hints sollten wenn immer möglichst am Anfang des `<head>`-Tag stehen, damit die Dateien möglichst schnell geladen werden. Wichtig dabei ist, dass diese Dateien ab dem Zeitpunkt des parsens der `<link>`-Tags zwar heruntergeladen werden, der Browser dabei aber nicht blockiert ist.
 
-Das `main.js` ist erst am ende des body effektiv eingebunden. preload hitns geben die Browser die Möglichkeit die Dateien bereits herunter zu laden, bevor er am schluss des `<body>` ist.
+Das `main.js` ist erst am Ende des body effektiv eingebunden. Preload hints geben dem Browser die Möglichkeit, die Dateien bereits herunter zu laden, bevor er am Schluss des `<body>` ist.
 
 ```html
 <!doctype html>
 <html lang="de" class="no-js">
   <head>
-    <link rel="preload" href="/assetsv2/css/main.min.css?v=297ac2e71010cbc80e225299802e14dd" as="style">
-    <link rel="preload" href="/assetsv2/js/head.min.js?v=297ac2e71010cbc80e225299802e14dd" as="script">
-    <link rel="preload" href="/assetsv2/js/main.min.js?v=297ac2e71010cbc80e225299802e14dd" as="script">
+    <link rel="preload" href="/assetsv2/js/main.78asn9d87ahsd0a8snhdzamgs8dmg.min.js" as="script">
     ...
-```
 
+  </head>
+  <body>
+    <h1>Content</h1>
+    ...
+
+    <script src="/assetsv2/js/main.78asn9d87ahsd0a8snhdzamgs8dmg.min.js"></script>
+  </body>
+</html>
+```
 
 
 
 
 #### Webpack Aufsplitten
 
+Webpack erkennt selbständig, wenn Dependency X in mehreren verschiedenen chunks besteht, und extrahiert diese in einen separaten chunk.  
+Webpack stellt danach sicher, dass der zusätzlich generierte Chunk ebenfalls geladen wird, wenn Dependency X geladen wird.
+
 ![Vendor Chunk jQuery](./assets/vendor-chunk.png)
 
-Webpack erkennt selbständig, wenn Dependency X in mehreren verschiedenen chunks besteht, und extrahiert
+Im Beispiel sehen wir jQuery, welches von div. asynchronen Chunk genutzt wird, webpack extrahiert jQuery in ein separaten Chunk.
 
 
 
@@ -677,4 +686,4 @@ Webpack erkennt selbständig, wenn Dependency X in mehreren verschiedenen chunks
 ## Verbesserungsmöglichkeiten
 
 * Service Worker für besseres Caching
-  * Frage, wie könnte man das am besten/einfachsten umsetzen, wenn webpack dynamische dateinamen generiert?
+  * Frage, wie könnte man das am besten/einfachsten umsetzen, wenn webpack dynamische Dateinamen generiert?
