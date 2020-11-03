@@ -100,11 +100,11 @@ Beim genaueren anschauen vom Design, fiel auf, dass es nicht möglich war das HT
 
 **Design Mobile**
 
-TODO Link design
+![CSS Header Mobile](./assets/css-header-mobile.png)
 
 **Design Desktop**
 
-TODO Link design
+![CSS Header Desktop](./assets/css-header-desktop.png)
 
 ### Slots
 

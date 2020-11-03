@@ -57,7 +57,7 @@ Bei Responsive images müssen wir generell auf folgende Schwierigkeiten achten:
 
 - Kleinere Devices sollten generell kleinere Bilder erhalten
 - Das Device Pixel Ratio sollte so genutzt werden, dass Bilder möglichst scharf sind, aber die Payload des Bildes nicht explodiert.
-- Je nach Modul/Use-Case kann es sein, dass das Bildformat von device zu device ändert, sodass ...???
+- Je nach Modul/Use-Case kann es sein, dass das Bildformat von device zu device ändert
 - Verschiedene Browser unterstützen verschiedene Dateiformate, wie können wir das handeln/nutzen?
 
 ### Die Display Density Descriptor Methode
@@ -194,7 +194,7 @@ Wenn mehrere `<source>`-Elemente angegeben werden, evaluiert der Browser diese v
 
 **Demo** 🤯
 
-- [TODO](TODO)
+- [Picture-Element](TODO)
 
 ### Verschiedene Dateiformate unterstützen
 
@@ -214,14 +214,20 @@ Falls ein Browser den angegebenen `type` nicht unterstützt, wird die ganze Sour
 
 **Demo** 🤯
 
-- [TODO](TODO)
+- [Picture-Element - Dateiformate](TODO)
 
-TODO Hilfreiche Links zu avif https://jakearchibald.com/2020/avif-has-landed/
+**Hilfreiche Links**
+
+* [AVIF has landed](https://jakearchibald.com/2020/avif-has-landed/)
+* [Using WebP Images](https://css-tricks.com/using-webp-images/)
+
+### Practice 🔥
+
+Öffne diese [**CodeSandbox**](LINK) als Startpunkt.
 
 TODO Übung um ein Bild in einem container zuerst 12 cols , dann 6 cols und dann irgendwann 3 cols darzustellen
 
-~20 min
-
+Zeit: ~ 20 min
 
 ## Implementation/Umsetzung
 
@@ -439,13 +445,13 @@ Als Template-Engine für unsere Preview hatten wir Handlebars verwendet. Dies er
 </span>
 ```
 
-Dem Template kann dann folgende Beispielspayload übergeben werden um das darauffolgende Example zu erstellen.
+Dem Template kann dann folgende Beispielspayload übergeben werden um den daruaffolgenden Output zu generieren.
 
 **Config**
 
 ```js
 {
-  classes: ['ppm-hero__image'],
+  classes: ['ppm-hero__image', 'ppm-hero__image--with-eyecatcher'],
   lazy: true,
   src: base64gif,
   dataSrc: 'https://picsum.photos/g/1600/900',
@@ -492,25 +498,54 @@ Dem Template kann dann folgende Beispielspayload übergeben werden um das darauf
 
 **Output**
 ```html
-TODO
+<span class="ppm-image ppm-hero__image ppm-hero__image--with-eyecatcher" data-init="image">
+  <span class="ppm-image__loader"></span>
+  <picture>
+    <!-- Seitenverhältnis 16:9 -->
+    <source
+      srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w" 
+      data-srcset="
+        https://picsum.photos/g/400/225 400w,
+        https://picsum.photos/g/600/338 600w,
+        https://picsum.photos/g/800/450 800w,
+        https://picsum.photos/g/1200/675 1200w,
+        https://picsum.photos/g/1600/900 1600w
+      "
+      type="image/jpeg"
+      media="(min-width: 400px)"
+      sizes="
+        (min-width: 1441px) calc((1440px - 2 * 128px + 16px) * (12/12) - 16px),
+        (min-width: 1280px) calc((100vw - 2 * 128px + 16px) * (12/12) - 16px),
+        (min-width: 1024px) calc((100vw - 2 * 40px + 16px) * (12/12) - 16px),
+        (min-width: 780px) calc((100vw - 2 * 32px + 16px) * (12/12) - 16px),
+        (min-width: 600px) calc((100vw - 2 * 32px + 16px) * (12/12) - 16px),
+        calc((100vw - 2 * 16px + 12px) * (12/12) - 12px)
+      "
+    >
+    <!-- Seitenverhältnis 1:1 -->
+    <source
+      srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w" 
+      data-srcset="https://picsum.photos/g/300 300w,
+        https://picsum.photos/g/400 400w,
+        https://picsum.photos/g/600 600w,
+        https://picsum.photos/g/800 800w
+      "
+      type="image/jpeg"
+      sizes="calc((100vw - 2 * 12px + 12px) * (12/12) - 12px)"
+    >
+    <img class="ppm-image__image" data-image="image" 
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+      data-src="https://picsum.photos/g/1600/900"
+      alt="Custom alt text"
+    >
+  </picture>
+</span>
 ```
-
-<details>
-  <summary>Example: volle Breite bis zum grössen Breakpoint</summary>
-
-**Config**
-```js
-TODO
-```
-
-**Output**
-```html
-TODO
-```
-</details>
 
 <details>
   <summary>Example: Avatar</summary>
+
+Wenn das Aspect-Ratio des Bildes nicht ändert, müssen wir kein `<picture>`-Element benutzen.
 
 **Config**
 ```js
@@ -537,7 +572,23 @@ TODO
 
 **Output**
 ```html
-TODO
+<span class="ppm-image ppm-image--fixed-demo" data-init="image">
+  <span class="ppm-image__loader"></span>
+  <img class="ppm-image__image"
+    data-image="image"
+    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    data-src="https://picsum.photos/g/60"
+    srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+    data-srcset="
+      https://picsum.photos/g/40 40w,
+      https://picsum.photos/g/60 60w,
+      https://picsum.photos/g/80 80w,
+      https://picsum.photos/g/100 100w,
+      https://picsum.photos/g/120 120w
+    "
+    sizes="(min-width: 600px) 60px, 40px"
+    alt="Demo alt-text">
+</span>
 ```
 </details>
 
@@ -550,6 +601,10 @@ Dafür verwenden wir den [`IntersectionObserver`](https://developer.mozilla.org/
 
 Damit die Bilder nicht bereits beim pageload geladen werden, setzen wir initial im `src`- & `srcset`-Attribut ein base64 encoded 1x1 transparent gif.
 
+#### TODO CSS, damit es zu keinem reflow kommt
+
+TODO CSS erklären/zeigen, damit kein re-flow passiert
+
 **Hilfreiche Links**
 
 * [Alternatives Package lazysizes](https://www.npmjs.com/package/lazysizes)
@@ -557,7 +612,7 @@ Damit die Bilder nicht bereits beim pageload geladen werden, setzen wir initial 
 
 **Demo** 🤯
 
-- [TODO](TODO)
+- [Layzloading](TODO)
 
 ### Types
 
