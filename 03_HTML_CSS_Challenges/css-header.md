@@ -9,7 +9,7 @@
 
 ## Intro
 
-Im Header von css.ch wollten wir diesen so implementieren, dass von seitens SEO keine penalties bestehen, aber wir wollten ebenfalls die Power eines Frontend-Frameworks wie React oder [Vue.js](https://vuejs.org/) nutzen. Bei diesem Projekt hatten wir uns bereits für Vue.js entschieden, daher wurde der Heade ebenfalls damit umgesetzt.
+Den Header von css.ch wollten wir so implementieren, dass von seitens SEO keine penalties bestehen, aber wir wollten ebenfalls die Power eines Frontend-Frameworks wie React oder [Vue.js](https://vuejs.org/) nutzen. Bei diesem Projekt hatten wir uns bereits für Vue.js entschieden, daher wurde der Heade ebenfalls damit umgesetzt.
 
 ## Vue.js Miniintro
 
@@ -65,7 +65,7 @@ oder
 
 ### Nutzung per npm
 
-Vue.js kann natürlich auf als npm-package genutzt werden. Einfach `npm install vue` ausführen, danach kann vue importiert werden.
+Vue.js kann auch als npm-package genutzt werden. Dafür muss `npm install vue` ausgeführt werden, danach kann vue importiert werden.
 
 ```js
 // main.js
@@ -92,11 +92,11 @@ TODO Single File Components
 
 ## Vorteile von Vue.js
 
-Der grösste Unterschied zwischen React und Vue.js ist, dass Vue.js auch mit einem Template umgehen kann, welches sich im DOM befindet, und das Template muss nicht in einem Vue-Komponenten integriert werden. **Es ist aber auch möglich in unserem DOM slots zu verwenden**. Wir können also im HTML bereits das Tempalte schreiben, und anschliesslichd arüber unseren Vue-Komponenten mounten, somit kann das Backend den Header bereits mit allen nötigen Strukturen rendern, damit wir für SEO keine penalities haben wenn z.B. die Navigation im Header erst auf dem Client gerendert werden würde. Zudem haben wir die Power von Vue.js zur Verfügung, damit wir die Funktionalität des Headers nicht in *vanilla* schreiben müssen.
+Der grösste Unterschied zwischen React und Vue.js ist, dass Vue.js auch mit einem Template umgehen kann, welches sich im DOM befindet. Dabei muss das Template nicht in einem Vue-Komponenten integriert werden. **Es ist aber auch möglich in unserem DOM slots zu verwenden**. Wir können also im HTML bereits das Template schreiben und anschliesslichd unseren Vue-Komponenten darüber mounten. Somit kann das Backend den Header bereits mit allen nötigen Strukturen rendern, damit wir für SEO keine penalities haben, wenn z.B. die Navigation im Header erst auf dem Client gerendert werden würde. Zudem haben wir die Power von Vue.js zur Verfügung, damit wir die Funktionalität des Headers nicht in *vanilla* schreiben müssen.
 
-### Problem: Markup des Mobilen Headers ist nicht 100% verwendbar für Desktop Header
+### Problem: Das Markup des Mobilen Headers ist nicht zu 100% verwendbar für den Desktop Header
 
-Beim genaueren anschauen vom Design, fiel auf, dass es nicht möglich war das HTML so aufzubereiten, dass das gleiche Markup für die Mobile-Ansicht sowie auch für die Desktop-Ansicht verwendet werden kann. Auf mobile mussten wir es ein bisschen anders strukturieren, damit die Elemente richtig dargestellt werden können.
+Beim genaueren betrachten des Design, fiel auf, dass es nicht möglich war das HTML so aufzubereiten, dass das gleiche Markup für die Mobile-Ansicht, sowie auch für die Desktop-Ansicht verwendet werden kann. Auf mobile mussten wir es anders strukturieren, damit die Elemente richtig dargestellt werden konnten.
 
 **Design Mobile**
 
@@ -169,7 +169,7 @@ Wenn man mehrere Slots verwenden will, kann man named slots verwenden.
 
 #### Scoped Slots
 
-Scoped slots ermöglichen es uns, dass wir Daten/Funktionen, etc. auf dem Childcomponent herausheben und im Parentcomponent verwenden.  
+Scoped slots ermöglichen uns, dass wir Daten/Funktionen, etc. auf dem Childcomponent herausheben und im Parentcomponent verwenden.  
 Im folgenden Beispiel übergeben wir im `base-layout.vue` Komponent
 
 **Example**
@@ -202,11 +202,9 @@ Im folgenden Beispiel übergeben wir im `base-layout.vue` Komponent
 </div>
 ```
 
-Diese Scoped Slots Mechanik ist extremst nützlich für uns. In unserem Childcomponent können wir die komplette Funktionalität sowie den State von dem Header implementieren, und dann diesen per Slotprops an unser vom Backend gerendertes Tempalte übergeben.
-
 ## Nutzung im Header
 
-Diese Scoped Slots Mechanik ist extremst nützlich für uns. In unserem Childcomponent können wir die komplette Funktionalität sowie den State von dem Header implementieren, und dann diesen per Slotprops an unser vom Backend gerendertes Tempalte übergeben.
+Diese Scoped Slots Mechanik ist extremst nützlich für uns. In unserem Childcomponent können wir die komplette Funktionalität sowie den State von dem Header implementieren, und dann diesen per Slotprops an unser vom Backend gerendertes Template übergeben.
 
 **CSS Header Template**
 
@@ -251,9 +249,9 @@ Diese Scoped Slots Mechanik ist extremst nützlich für uns. In unserem Childcom
 </header>
 ```
 
-Im Template verwenden wir den `responsive-switch` Komponent, er ermöglicht es uns, dass wir verschiedene Vue-Komponenten rendern können, abhängig vom Breakpoint.
+Im Template verwenden wir den `responsive-switch` Komponent. Er ermöglicht uns, dass wir verschiedene Vue-Komponenten rendern können, abhängig vom Breakpoint auf dem wir uns aktuell gerade befinden.
 
-Dadurch haben wir die Möglichkeit, dass wir einen `header-mobile.vue` haben, und ein `header-desktop.vue`. Die geteilten Funktionalitäten werden ausgelagert, sodass diese in beiden Komponenten verwendet werden können. Wir schauen uns heute die Templates der beiden Komponenten an.
+Dadurch haben wir die Möglichkeit, dass wir einen `HeaderMobile.vue` haben und ein `HeaderDesktop.vue`. Die geteilten Funktionalitäten werden ausgelagert, sodass diese in beiden Komponenten verwendet werden können. Wir schauen uns heute die Templates der beiden Komponenten an.
 
 **HeaderDesktop.vue Template**
 
@@ -334,4 +332,4 @@ Dadurch haben wir die Möglichkeit, dass wir einen `header-mobile.vue` haben, un
 </template>
 ```
 
-Im Template des HeaderMobile.vue ist die Grundstruktur des Tempaltes anders, damit wir die Navifation ins Overlay verschieben können. Dies ist nur machbar durch die Funktionalität der Scoped Slots in Vue.js.
+Im Template des HeaderMobile.vue ist die Grundstruktur des Templates anders, damit wir die Navigation ins Overlay verschieben können. Dies ist nur machbar durch die Funktionalität der Scoped Slots in Vue.js.

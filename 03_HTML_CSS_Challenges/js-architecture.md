@@ -3,21 +3,22 @@
 ## Inhalt
 
 * [Intro](#intro)
-* [Something1](#something1)
-* [Something2](#something2)
-* [Something3](#something3)
+* [Challenges](#challenges)
+* [Vorbereitung / Requirements definieren](#vorbereitung-requirements--definieren)
+* [Umsetzung](#umsetzung)
+* [Weiteres](#weiteres)
 
 ## Intro
 
 Eine JavaScript-Architktur nennt man vor allem den Aufbau und das Organisieren vom eigenen JavaScript.
 Es geht zum Teil so weit, dass ein eigenes kleines Miniframework aufgebaut wird. Es sollte den Entwicklern das Leben vereinfachen, sodass diese sich nicht um die Basics kümmern müssen.
 
-### Projekt Setup
+### Projekt Infos
 
 Als Beispiel wird der Relaunch von [css.ch](https://www.css.ch) genommen.
 **Das Frontend wird anhand einer Frontend-Preview erstellt und die Frontend Komponenten werden danach von Hand ins CMS eingepflegt, sodass diese als Module verwendet werden können.**
 
-#### Executing Team
+**Team**
 
 * 1 UX Architect / IA
 * 2 UX Designer
@@ -67,11 +68,12 @@ Dies ist leider nicht immer der Fall, oftmals werden Dateien, die noch valide w�
 
 ### Practice 🔥
 
-Diskutiert in einer 3er oder 4er Gruppe, wie ihr diese Probleme möglichst minimieren könntet.
+Diskutiert in einer 3er oder 4er Gruppe, wie ihr diese Probleme möglichst minimieren könntet.  
+Anschliessend kann jede Gruppe kurz etwas dazu sagen, was eure Ansätze/Ideen wären.
 
 Zeit: ~ 10 min
 
-## Lösungsideen-/Ansätze
+## Lösungsansätze/Ideen
 
 ### Render-Blocking
 
@@ -91,8 +93,8 @@ Zum kritischen JavaScript gehört z.B. **Font-Loading** und **Modernizer**, even
 
 **Begründung**
 
-Eine separate `head.js`-Datei ermöglicht erstens caching, aber noch wichtiger ist, dass es fürs BE keine Rolle spielt, was in der Datei drin steht.  
-Falls das JS inlines werden sollte, muss dies vom BE unterstützt werden, und zudem muss im Cache vom BE jede Seite invalidiert werden, wenn etwas im `head.js` ändern würde.
+Eine separate `head.js`-Datei ermöglicht erstens caching, aber noch wichtiger ist, dass es fürs Backend keine Rolle spielt, was in der Datei drin steht.  
+Falls das JavaScript inlined werden sollte, muss dies vom Backend unterstützt werden, und zudem muss im Cache vom Backend jede Seite invalidiert werden, wenn etwas im `head.js` ändern würde.
 
 **Hilfreiche Links**
 
@@ -106,15 +108,10 @@ Oftmals wird mit einem JavaScript bundler gearbeitet, dieser bundelt das JavaScr
 Unser JavaScript sollte daher bestmöglichst aufgesplittet werden, damit auf einer bestimmten Seite nur das JavaScript geladen wird, welches auf dieser Seite wirklich genutzt wird.  
 Zudem sollte das Inkludieren eines externen packages z.B. von `npm` nicht nur auf security sondern auch auf Dateigrösse geprüft werden. Bei einem Import von `lodash` kann es z.B. geschehen, dass das komplette lodash package im eigenen Bundle inkludiert wird (300 KB), was wir nicht wollen.
 
-
-
-
-
 ### Main-Thread muss aussergehöhnlich viel JavaScript ausführen
 
-TODO text
-
-![Main-Thread workload sbb.ch](./assets/main-thread-workload.png)
+Die Idee war, dass ein JavaScript-Modul erst initialisiert wird, wenn es wirklich genutzt wird. Wir hatten dafür einen IntersectionObserver TODO LINK, genutzt.  
+Beim pageload tracken wir Elemente, welche ein `data-module="<module-name>"` haben, diese Attribute sind unsere Elemente, über welche wir unser Modul mounten werden. Wenn wir jetzt also, die Initialisierung des Moduls verzögern wollen, damit der Main-Thread beim Pageload weniger arbeiten muss, können wir auch einfach dieses Element nach dem Pageload einer IntersectionObserver Instanz hinzufügen, und dieser sagt und wenn das Element in die Nähe des Viewports kommt, und dann können wir dieses initialisieren.
 
 **Hilfreiche Links**
 
@@ -122,48 +119,13 @@ TODO text
 
 ### Dateien werden nicht langzeitig gecacht
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Render-Blocking
-
-
-
-## Umfrage/Übung
-
-TODO
-* Wie würdet ihr diese Lösungsideen umsetzen?
-* Hättet ihr noch eine andere Lösungsidee?
-* Wie würdet ihr dies in einer Angular/React SPA angehen
-* Wie würdet ihr dies in einer "traditionellen" Website angehen?
+TODO text
 
 ## Vorbereitung / Requirements definieren
 
 ![GoT prepare](https://media.giphy.com/media/3og0IHyZMxZNkNOWT6/source.gif)
 
 Source: [https://media.giphy.com/media/3og0IHyZMxZNkNOWT6/source.gif](https://media.giphy.com/media/3og0IHyZMxZNkNOWT6/source.gif)
-
 
 Vor dem Beginn werden noch kurz die Requirements aufgeschrieben, somit können wir zum Schluss auch prüfen, ob unsere neue Architektur alles erfüllt, was wir benötigen.
 
@@ -211,22 +173,34 @@ TODO: Image/Gif umsetzung
 
 ### Webpack Einstellungen
 
-TODO Webpackeinstellungen hinschreiben
-TOOD die requirements erklären, und wie wir diese lösen wollen
+Damit wir das Caching richtig angehen können, muss webpack richtig konfiguriert werden. Wir hatten uns mit dem Backend abgesprochen und konnten festlegen, dass die Dateien mit dem Contenthash versehen werden.  
+Der Contenthash ist ein hash, der anhand der Dateigrösse ermittelt wird. Das heisst, sobald sich etwas in der Datei ändert, wird beim nächsten Build ein anderer Contenthash generiert, ergo invalidiert es den Cache automatisch.
 
-**Caching**
+![Content Hash](./assets/contenthash.png)
 
-* Wie funktioniert das Browser Caching
-  * etag anschauen
-  * Anschauen, wann der Browser die Files im cache wieder löscht
-* Cachinvalidierung, wie wirds gemacht?
-  * Verschiedene Ansätze erklären
-    * Vor- & Nachteile
-* Webpack
-  * Dynamic names
-  * Webpack report artefakt
-  * webpack einstellung
+Zudem hat es gegenüber anderen Methoden wie z.B. dem Dateinamen noch eine versionsnummer hintendranhängen den Vorteil, dass der Cache wirklich nur dann invalidiert wird, sollte sich die der Inhalt der Datei ändern. Wenn sich der Inhalt der Datei nicht ändert, wird beim Build jedes mal aufs neue der gleiche Contenthash generiert.
 
+**webpack.config.js**
+
+```js
+{
+  // ...
+  output: {
+    path: path.join(__dirname, './dist'),
+    filename: 'assets/scripts/[name].[contenthash].js',
+    chunkFilename: 'assets/scripts/async/[name].[contenthash].js',
+  }
+}
+```
+
+**Härteres Caching**
+
+Leider reicht dies alleine meistens nicht, damit der Browser die Dateien wirklich lange Zeit cacht. Der Browser ist trotzdem noch der ultimative Gatekeeper, was im Cache bleibt und was wieder aus dem Cache entfernt wird. Wenn man dies wirklich selbst kontrollieren will, müsste man mit einem **ServiceWorker** den Cache selbst kontrollieren.
+
+**Hilfreiche Links**
+
+* [Service Workers: an Introduction](https://developers.google.com/web/fundamentals/primers/service-workers)
+* [The Offline Cookbook (Jake Archibald)](https://web.dev/offline-cookbook/)
 
 ### Filestruktur
 
@@ -543,7 +517,6 @@ window.apps.main = createApp({
     },
   },
 });
-
 ```
 
 #### module.js
@@ -617,33 +590,11 @@ export default createModule({
 });
 ```
 
-#### webpack.config.js
+**Demo** 🤯
 
-```js
-{
-  // ...
-  output: {
-    path: path.join(__dirname, './dist'),
-    filename: 'assets/scripts/[name].js',
-    chunkFilename: 'assets/scripts/async/[name].[contenthash].js',
-  }
-}
-```
+- [JavaScript Architektur Demo](https://codesandbox.io/s/o04l7) 🦄
 
-[Codesandbox Demo](https://codesandbox.io/s/o04l7) 🦄
-
-
-
-
-TODO Creating a new module
-
-TODO: Registering a new module
-
-TODO Preload hint
-
-
-### Zusätzliches
-
+## Weiteres
 
 ### Preload hints
 
@@ -668,10 +619,7 @@ Das `main.js` ist erst am Ende des body effektiv eingebunden. Preload hints gebe
 </html>
 ```
 
-
-
-
-#### Webpack Aufsplitten
+#### Webpack Common Chunks
 
 Webpack erkennt selbständig, wenn Dependency X in mehreren verschiedenen chunks besteht, und extrahiert diese in einen separaten chunk.  
 Webpack stellt danach sicher, dass der zusätzlich generierte Chunk ebenfalls geladen wird, wenn Dependency X geladen wird.
@@ -679,11 +627,3 @@ Webpack stellt danach sicher, dass der zusätzlich generierte Chunk ebenfalls ge
 ![Vendor Chunk jQuery](./assets/vendor-chunk.png)
 
 Im Beispiel sehen wir jQuery, welches von div. asynchronen Chunk genutzt wird, webpack extrahiert jQuery in ein separaten Chunk.
-
-
-
-
-## Verbesserungsmöglichkeiten
-
-* Service Worker für besseres Caching
-  * Frage, wie könnte man das am besten/einfachsten umsetzen, wenn webpack dynamische Dateinamen generiert?
