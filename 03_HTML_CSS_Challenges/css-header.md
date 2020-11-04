@@ -19,7 +19,7 @@ Den Header von css.ch wollten wir so implementieren, dass von seitens SEO keine 
 
 ### Quickstart
 
-Der einfachste Weg zum starten ist, einfach Vue.js vom CDN einbinden, und man kann es verwenden.
+Der einfachste Weg zum starten ist, Vue.js vom CDN einbinden, und man kann es verwenden. -> komischer Satz
 
 ```html
 <!-- development version, includes helpful console warnings -->
@@ -81,14 +81,37 @@ const app = new Vue({
 
 ### Components
 
-TODO Components register
-TODO components usage
-TODO Single File Components
-  TODO Explain that this needs a webpack loader vor vue files
+Vue.js ist gleich wie andere MV*-Frameworks so aufgebaut, dass man sein Widget/Webapp oder ähnliches in verschiedenen Komponenten aufsplitten kann. Diese kann man ebenfalls ineinander verschachteln. Damit man diese im Template nutzen kann, müssen diese bei Vue registriert werden.
+
+![Vue.js Komponenten](https://vuejs.org/images/components.png)
+
+*Source: https://vuejs.org/images/components.png*
+
+Einene Komponenten **global** registrien:
+
+```js
+// Definiert einen neuen Komponent todo-item
+Vue.component('todo-item', {
+  template: '<li>This is a todo</li>'
+})
+
+var app = new Vue(...)
+```
+
+Sobald dieser registriert ist, können wir von irgendeiner Vue-Instanz diesem im Tempalte nutzen:
+
+```html
+<ol>
+  <!-- Erstellt eine Instanz unseres todo-item Komponenten -->
+  <todo-item></todo-item>
+</ol>
+```
 
 **Hilfreiche Links**
 
 * [Getting started Guide](https://vuejs.org/v2/guide/)
+* [Composing with Components](https://vuejs.org/v2/guide/index.html#Composing-with-Components)
+* [Single File Components](https://vuejs.org/v2/guide/single-file-components.html)
 
 ## Vorteile von Vue.js
 
@@ -108,7 +131,7 @@ Beim genaueren betrachten des Design, fiel auf, dass es nicht möglich war das H
 
 ### Slots
 
-Wir hatten also die Anforderung, dass alles SEO-relevante vom Backend gerendert werden muss, aber auch, dass das Markup so aufgebaut ist, dass es auf Mobile und Desktop verwendet werden kann. Die Lösung für das Problem waren [`slots`](https://vuejs.org/v2/guide/components-slots.html). Wir schauen uns die Slots genauer an.
+Wir hatten also die Anforderung, dass alles SEO-relevante vom Backend gerendert werden muss (komicshcer Satz!), aber auch, dass das Markup so aufgebaut ist, dass es auf Mobile und Desktop verwendet werden kann. Die Lösung für das Problem waren [`slots`](https://vuejs.org/v2/guide/components-slots.html). Wir schauen uns die Slots genauer an.
 
 Hier können wir einen Komponenten nutzen und einen Content mitgeben.  
 Der Inhalt / Children in dem Komponenten werden innerhalb des Komponenten an dem Ort gerendert, wo `<slot/>`

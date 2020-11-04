@@ -27,19 +27,23 @@ Als Beispiel wird der Relaunch von [css.ch](https://www.css.ch) genommen.
 
 ## Challenges
 
-Typische Challenges, die bei einer weniger gut optimierten JavaScript Architektur auftreten kann, sind die folgenden:
+Typische Challenges, die bei einer weniger gut optimierten JavaScript Architektur auftreten können, sind die folgenden:
 
 ### Render-Blocking
 
-Render blocking Ressourcen verhindern, dass auf der Website etwas gerendert werden kann. Dies geschiet vor allem, wenn JavaScript- & CSS-Dateien im `<head>` verlinkt sind, und diese nicht asynchron geladen werden.
+Render-Blocking Ressourcen verhindern, dass auf der Website etwas gerendert werden kann. Dies geschiet vor allem, wenn JavaScript- & CSS-Dateien im `<head>` verlinkt sind und diese nicht asynchron geladen werden.
 
 ![Render-Blocking JavaScript sbb.ch](./assets/render-blocking.png)
 
 ### Nicht genutztes JavaScript wird an den Client ausgeliefert
 
-TODO text
+Wenn nicht genutzten JavaScript an den Client ausgeliefert wird, heisst das grundsätzlich, dass der Browser dies 1. Runterladen muss, aber auch das decodieren und parsen der JavaScriptdatei hat seine Zeit. Das Heisst, wenn man dies verhindern könnte, würde der Browser in dieser Hinsicht entlastet werden.
 
 ![Unused JavaScript sbb.ch](./assets/unused-javascript.png)
+
+**Caveat**
+Wenn der Browser etwas als "unused" erkennt, heisst das nicht automatisch, dass man dies um jeden Preis aus seinem JavaScript entfernen muss, es ist lediglich ein Hinweis, dass ein Teil dieses JavaScripts bei der Messung nicht ausgeführt wurde.
+Ergo, wenn z.B. steht, dass **10%** unused ist, ist es generell nicht umbedingt ein Problem. Wenn jedoch z.B. **50%** nicht genutzt wurden, ist dies sicherlich ein Problem und sollte genauer angeschaut werden.
 
 **Hilfreiche Links**
 
@@ -47,7 +51,7 @@ TODO text
 
 ### Main-Thread muss aussergewöhnlich viel JavaScript ausführen
 
-TODO text
+Es werden oftmals direkt nach dem Pageload div. JavaScript-Module initialisiert. Oft aber, bräuchte es diese gar noch nicht *above the fold*. Zudem bei Nutzung von Anti-Patterns welche den Main-Thread unnötig beschäftigen, oder diesen gar blockiert (z.B. Layout-Thrashing) kann es massive Verzögerungen geben, bis eine Website responsive ist für Userinput.
 
 ![Main-Thread workload sbb.ch](./assets/main-thread-workload.png)
 
@@ -57,19 +61,19 @@ TODO text
 
 ### Dateien werden nicht langzeitig gecacht
 
-Grundsätzlich sollten JavaScript-Dateien *versioniert* sein, damit gleichzeitig das Langzeitcaching sowie auch die cacheinvalidierung automatisiert ist.
-Dies ist leider nicht immer der Fall, oftmals werden Dateien, die noch valide wären, bereits invalidiert, oder Dateien werden gar nicht invalidiert, was zu grösseren Problemen führen kann.
+Grundsätzlich sollten JavaScript-Dateien *versioniert* sein, damit gleichzeitig das Langzeitcaching, sowie auch die cacheinvalidierung automatisiert ist.
+Dies ist leider nicht immer der Fall. Oftmals werden Dateien, die noch valide wären, bereits invalidiert oder Dateien werden gar nicht invalidiert, was zu grösseren Problemen führen kann.
 
 > **Disclaimer**
 >  
-> * Meist ist es nicht möglich diese Problemstellen komplett zu eliminieren, man kann aber mit gewissen Massnahmen diese Probleme möglichst minimieren.
+> * Meist ist es nicht möglich diese Problemstellen komplett zu eliminieren. Mit gewissen Massnahmen können diese Probleme jedoch möglichst minimiert werden.
 
 *Die Screenshots sind vom Lighthouse audit von sbb.ch*
 
 ### Practice 🔥
 
-Diskutiert in einer 3er oder 4er Gruppe, wie ihr diese Probleme möglichst minimieren könntet.  
-Anschliessend kann jede Gruppe kurz etwas dazu sagen, was eure Ansätze/Ideen wären.
+- [ ] Diskutiert in einer 3er oder 4er Gruppe, wie ihr diese Probleme möglichst minimieren könntet.  
+      Probiert zu überlegen wie ihr dies in einer SPA angehen könnt, aber auch wie ihr dies in einer Traditionellen Website angehen könntet.
 
 Zeit: ~ 10 min
 
@@ -81,13 +85,13 @@ Grundsätzlich sollte nur das "critical" JavaScript wirklich renderblocking sein
 
 **Best Solution**
 
-Nach dem Identifizieren des kritischen JavaScript Codes, sollte dieser als inline `<script>` Tag direkt im HTML eingebettet werden. Somit hat die Seite alles was sie benötigt für die *Core-Funktionalität* der Website.  
-Alles andere JavaScript welches nicht direkt beim Pageload benötigt wird, kann weiterhin mit einem `<script src="/path/main.js">` integriert werden, es sollte aber entweder mit dem Attribut `async` oder `defer`
+Nach dem Identifizieren des kritischen JavaScript Codes, sollte dieser als inline `<script>` Tag direkt im HTML eingebettet werden. Somit hat die Seite alles was sie benötigt, für die *Core-Funktionalität* der Website.  
+Alles andere JavaScript, welches nicht direkt beim Pageload benötigt wird, kann weiterhin mit einem `<script src="/path/main.js">` integriert werden. Es sollte aber entweder mit dem Attribut `async` oder `defer`
 asynchron geladen werden, damit das rendering nicht blockiert wird.
 
 **Unsere Solution**
 
-Unser kritisches JavaScript, welches für die Core-Funktionalität benötigt wird, wird in eine separate JavaScript-Datei ausgelagert `head.js`. Alles was nicht kritisch eingestuft wird, wird ins `main.js` geschrieben, und dieses wird mit `defer` asynchron geladen und nach dem Parsen des HTML ausgeführt.
+Unser kritisches JavaScript, welches für die Core-Funktionalität benötigt wird, wird in eine separate JavaScript-Datei ausgelagert `head.js`. Alles was nicht kritisch eingestuft wird, wird ins `main.js` geschrieben und dieses wird mit `defer` asynchron geladen und nach dem Parsen des HTML ausgeführt.
 
 Zum kritischen JavaScript gehört z.B. **Font-Loading** und **Modernizer**, eventuell **globale Variablen** setzen, etc.
 
@@ -106,12 +110,12 @@ Falls das JavaScript inlined werden sollte, muss dies vom Backend unterstützt w
 Oftmals wird mit einem JavaScript bundler gearbeitet, dieser bundelt das JavaScript für die ganze Website. Den bundler interessiert es nicht, auf welcher Seite die Module integriert sind, er bundlet einfach alles zu einer grossen Datei zusammen. Mit [`dynamic imports`](https://github.com/tc39/proposal-dynamic-import) können wir aus bestimmten Modulen separate chunks generieren und diese nachladen, nur wenn sie wirklich gebraucht werden.
 
 Unser JavaScript sollte daher bestmöglichst aufgesplittet werden, damit auf einer bestimmten Seite nur das JavaScript geladen wird, welches auf dieser Seite wirklich genutzt wird.  
-Zudem sollte das Inkludieren eines externen packages z.B. von `npm` nicht nur auf security sondern auch auf Dateigrösse geprüft werden. Bei einem Import von `lodash` kann es z.B. geschehen, dass das komplette lodash package im eigenen Bundle inkludiert wird (300 KB), was wir nicht wollen.
+Zudem sollte das Inkludieren eines externen packages z.B. von `npm` nicht nur auf security, sondern auch auf Dateigrösse geprüft werden. Bei einem Import von `lodash` kann es z.B. geschehen, dass das komplette lodash package im eigenen Bundle inkludiert wird (300 KB), was wir nicht wollen.
 
-### Main-Thread muss aussergehöhnlich viel JavaScript ausführen
+### Main-Thread muss aussergewöhnlich viel JavaScript ausführen
 
-Die Idee war, dass ein JavaScript-Modul erst initialisiert wird, wenn es wirklich genutzt wird. Wir hatten dafür einen IntersectionObserver TODO LINK, genutzt.  
-Beim pageload tracken wir Elemente, welche ein `data-module="<module-name>"` haben, diese Attribute sind unsere Elemente, über welche wir unser Modul mounten werden. Wenn wir jetzt also, die Initialisierung des Moduls verzögern wollen, damit der Main-Thread beim Pageload weniger arbeiten muss, können wir auch einfach dieses Element nach dem Pageload einer IntersectionObserver Instanz hinzufügen, und dieser sagt und wenn das Element in die Nähe des Viewports kommt, und dann können wir dieses initialisieren.
+Die Idee war, dass ein JavaScript-Modul erst initialisiert wird, wenn es wirklich genutzt wird. Wir hatten dafür einen [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), genutzt.  
+Beim pageload tracken wir Elemente, welche ein `data-module="<module-name>"` haben. Diese Attribute sind unsere Elemente, über welche wir unser Modul mounten werden. Wenn wir jetzt also, die Initialisierung des Moduls verzögern wollen, damit der Main-Thread beim Pageload weniger arbeiten muss, können wir auch einfach dieses Element nach dem Pageload einer IntersectionObserver Instanz hinzufügen und dieser sagt uns wenn das Element in die Nähe des Viewports kommt. Dann können wir dieses initialisieren.
 
 **Hilfreiche Links**
 
@@ -119,15 +123,17 @@ Beim pageload tracken wir Elemente, welche ein `data-module="<module-name>"` hab
 
 ### Dateien werden nicht langzeitig gecacht
 
-TODO text
+Beim Cashing wollten wir in erster Linie darauf achten, dass unsere Dateien fürs Langzeitcaching genutzt werden können. Dies kann mit dem Contentash gemacht werden. Bei der Webpack-Konfiguration kann der Output so eingestellt werden, dass ein Hash in den Dateiname geschrieben wird anhand des Inhalts der Datei. Wenn der Inhalt sich ändert, ändert sich auf der Hash, wenn aber der Inhalt sich nicht ändert, ändert sich auch der Hash nicht.
+
+**Example**
+
+```
+ellipsis.60e2d4bc995a1c34cbd4.min.js
+```
 
 ## Vorbereitung / Requirements definieren
 
-![GoT prepare](https://media.giphy.com/media/3og0IHyZMxZNkNOWT6/source.gif)
-
-Source: [https://media.giphy.com/media/3og0IHyZMxZNkNOWT6/source.gif](https://media.giphy.com/media/3og0IHyZMxZNkNOWT6/source.gif)
-
-Vor dem Beginn werden noch kurz die Requirements aufgeschrieben, somit können wir zum Schluss auch prüfen, ob unsere neue Architektur alles erfüllt, was wir benötigen.
+Vor dem Beginn werden noch die Requirements aufgeschrieben. Somit können wir zum Schluss prüfen, ob unsere neue Architektur alles erfüllt was wir benötigen.
 
 ### Helpers
 
@@ -160,16 +166,20 @@ Vor dem Beginn werden noch kurz die Requirements aufgeschrieben, somit können w
 
 ## Umsetzung
 
-TODO: Image/Gif umsetzung
-
 ### Grundentscheide
 
-* Factory Functions > Classes
-  TODO
-* Dynamic Imports werden genutzt (ES7 Feature)
-  TODO
-* Polyfills müssen irgendwie gehandhabt werden (möglichst automatisch)
-  TODO
+#### Factories > Classes
+
+Wir hatten uns im Tean für Factories entschieden anstatt Classes. Es ermöglicht uns besser mit mixins zu arbeiten, also Logik auszulagern welche von mehreren Modulen genutzt wird. Wir dachten, dass dies schwärer werden würde, wenn man sich mit Class-Inheritance auseinander setzen muss. Zudem kann man bei Factories private Variablen nutzen und bei Classes konnte man dies zu dem Zeitpunk noch nicht ([aktuell ist die Proposal in stage 3](https://github.com/tc39/proposal-class-fields#private-fields))
+
+#### Dynamic Imports
+
+Es wird mit dynamic imports gearbeiten um das JavaScript aufzusplitten. Damit dies auf auf IE11 funktioniert, muss Babel richtig eingestellt werden.
+
+#### Polyfills
+
+Polyfills müssen so gut wies geht automatisch integriert werden durch [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env).
+Polyfills für `IntersectionObserver` und `fetch`, werden manuell installiert, aber auch diese sollten nur dann geladen werden, wenn diese benötigt werden.
 
 ### Webpack Einstellungen
 
@@ -178,7 +188,7 @@ Der Contenthash ist ein hash, der anhand der Dateigrösse ermittelt wird. Das he
 
 ![Content Hash](./assets/contenthash.png)
 
-Zudem hat es gegenüber anderen Methoden wie z.B. dem Dateinamen noch eine versionsnummer hintendranhängen den Vorteil, dass der Cache wirklich nur dann invalidiert wird, sollte sich die der Inhalt der Datei ändern. Wenn sich der Inhalt der Datei nicht ändert, wird beim Build jedes mal aufs neue der gleiche Contenthash generiert.
+Zudem hat es gegenüber anderen Methoden wie z.B. dem Dateinamen eine Versionsnummer anzuhängen, den Vorteil, dass der Cache wirklich nur dann invalidiert wird, sollte sich der Inhalt der Datei ändern. Wenn sich der Inhalt der Datei nicht ändert, wird beim Build jedes mal aufs neue der gleiche Contenthash generiert.
 
 **webpack.config.js**
 
@@ -196,6 +206,15 @@ Zudem hat es gegenüber anderen Methoden wie z.B. dem Dateinamen noch eine versi
 **Härteres Caching**
 
 Leider reicht dies alleine meistens nicht, damit der Browser die Dateien wirklich lange Zeit cacht. Der Browser ist trotzdem noch der ultimative Gatekeeper, was im Cache bleibt und was wieder aus dem Cache entfernt wird. Wenn man dies wirklich selbst kontrollieren will, müsste man mit einem **ServiceWorker** den Cache selbst kontrollieren.
+
+**Caveat**
+
+Es sollte immer mit dem Backend abgesprochen werden, da das Backend eventuell keine dynamischen Filenamen zulässt!  
+Webpack kann auch einen Report generieren, welcher nach dem Build zur Verfügung steht. Eventuell kann das Backend anhand dieses Reports die Dateinamen in deren Templates dynamisch einfügen.
+
+Bei post.ch wurde dies z.B. nicht gemacht, daher ist ein Unterschied zu sehen bei den Dateien die direkt im Template verlinkt sind, und die Dateien die als asynchrone Chunks von webpack gemanaged werden.
+
+![JavaScript versioning](./assets/contenthas-two.png)
 
 **Hilfreiche Links**
 
@@ -626,4 +645,4 @@ Webpack stellt danach sicher, dass der zusätzlich generierte Chunk ebenfalls ge
 
 ![Vendor Chunk jQuery](./assets/vendor-chunk.png)
 
-Im Beispiel sehen wir jQuery, welches von div. asynchronen Chunk genutzt wird, webpack extrahiert jQuery in ein separaten Chunk.
+Im Beispiel sehen wir jQuery, welches von div. asynchronen Chunk genutzt wird. Webpack extrahiert jQuery in einem separaten Chunk. Webpack stellt auch sicher, dass es automatisch geladen wird, wenn ein asynchroner Chunk geladen wird, welcher jQuery importiert.

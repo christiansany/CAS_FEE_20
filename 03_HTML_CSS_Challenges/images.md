@@ -87,7 +87,11 @@ Für ein Device, welches eine DPR von z.B. 1.5 hat, wird jeweils das nächst gr�
 
 **Demo** 🤯
 
-- [Display Density Descriptor](TODO)
+- [Display Density Descriptor](https://codesandbox.io/s/yb5t4)
+
+**Hilfreiche Links**
+
+* [Use density descriptors](https://web.dev/codelab-density-descriptors/)
 
 ### Die Width Descriptor Methode mit dem `sizes`-Attribut
 
@@ -167,7 +171,7 @@ Mit den Informationen über die **verfügbaren Bilder** und der **Breite** in we
 
 **Demo** 🤯
 
-- [Width Descriptor](TODO)
+- [Width Descriptor](https://codesandbox.io/s/0erxg)
 
 ### Das `<picture>`-Element
 
@@ -192,10 +196,6 @@ Wenn mehrere `<source>`-Elemente angegeben werden, evaluiert der Browser diese v
 </picture>
 ```
 
-**Demo** 🤯
-
-- [Picture-Element](TODO)
-
 ### Verschiedene Dateiformate unterstützen
 
 Eine `<source>` ermöglicht uns ebenfalls, dass wir das gleiche Bild in verschiedenen Dateiformaten angeben können.  
@@ -212,10 +212,6 @@ Falls ein Browser den angegebenen `type` nicht unterstützt, wird die ganze Sour
 </picture>
 ```
 
-**Demo** 🤯
-
-- [Picture-Element - Dateiformate](TODO)
-
 **Hilfreiche Links**
 
 * [AVIF has landed](https://jakearchibald.com/2020/avif-has-landed/)
@@ -223,11 +219,16 @@ Falls ein Browser den angegebenen `type` nicht unterstützt, wird die ganze Sour
 
 ### Practice 🔥
 
-Öffne diese [**CodeSandbox**](LINK) als Startpunkt.
+Öffne diese [**CodeSandbox**](https://codesandbox.io/s/xc76o) als Startpunkt.
 
-TODO Übung um ein Bild in einem container zuerst 12 cols , dann 6 cols und dann irgendwann 3 cols darzustellen
+Die Übung hat bereits das Grid-System von Bootstrap integriert.
 
-Zeit: ~ 20 min
+- [ ] Füge ein Responsive Image ein, nehme dafür die Bilddateien unter `./images/`
+  - [ ] Das Bild sollte auf xs 12 Spalten Breit sein, auf rg 6 Spalten, und ab lg
+  - [ ] Berechnet die sizes richtig, sodass die size auf jedem Breakpoint richtig angegeben wird.  
+  Schaut euch dazu auch das CSS an, um zu schauen wieviel padding der Container, wieviel die Row und wieviel die Col hat. Bedenkt diese Werte beim berechnen der Size.
+
+Zeit: ~ 15 min
 
 ## Implementation/Umsetzung
 
@@ -599,11 +600,7 @@ Wenn z.B. ein Bild ausserhalb des Viewports ist, sollte es nicht geladen werden.
 
 Dafür verwenden wir den [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). Beim Pageload registrieren wir die Bildelemente in einer IntersectionObserver Instanz, und dieser lässt uns ein Callback definieren, wenn das Bild in die Nähe des Viewports kommt.
 
-Damit die Bilder nicht bereits beim pageload geladen werden, setzen wir initial im `src`- & `srcset`-Attribut ein base64 encoded 1x1 transparent gif.
-
-#### TODO CSS, damit es zu keinem reflow kommt
-
-TODO CSS erklären/zeigen, damit kein re-flow passiert
+Damit die Bilder nicht bereits beim pageload geladen werden, setzen wir initial im `src`- & `srcset`-Attribut ein base64 encoded 1x1 transparent gif. Die richtigen `src`- & `srcset`-Attribut schreiben wir zuerst auf `data-src` & `data-srcset`, und erst wenn die Bilder geladen werden sollen, schreiben wir diese auf die `src`- & `srcset`-Attribute.
 
 **Hilfreiche Links**
 
@@ -612,7 +609,8 @@ TODO CSS erklären/zeigen, damit kein re-flow passiert
 
 **Demo** 🤯
 
-- [Layzloading](TODO)
+- [Live Demo post.ch](https://www.post.ch)
+- [Live Demo css.ch](https://www.css.ch)
 
 ### Types
 
