@@ -4,4 +4,4 @@
 
 * [JavaScript Architektur](./js-architecture.md)
 * [Responsive Images](./images.md)
-* [Header mit Vuejs slots](./css-header.md)
+* [Header mit Vue.js slots](./css-header.md)
