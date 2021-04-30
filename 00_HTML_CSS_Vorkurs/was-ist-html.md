@@ -13,7 +13,7 @@
 
 Für Übungen nutzen wir die folgende **CodeSandbox** als Startpunkt:
 
-**[https://codesandbox.io/s/eemf9](https://codesandbox.io/s/eemf9)**
+**[https://codesandbox.io/s/rrcjw](https://codesandbox.io/s/rrcjw)**
 
 Die Übungen bauen immer aufeinander auf. Aber keine Angst! Für den Fall, dass bei einer Übung etwas nicht klappen sollte, gibts bei jeder Übung einen Link zur CodeSandbox mit dem aktuellen Stand.
 
@@ -27,16 +27,16 @@ Die Übungen bauen immer aufeinander auf. Aber keine Angst! Für den Fall, dass 
 ### Eigenheiten einer HTML-Datei
 
 * HTML benötigt keinen Server
-* Dateien müssen mit .html enden
+* Dateien müssen mit `.html` enden
 * Aufrufbar in jedem Webbrowser
-* index.html ist der Root / Home Page einer Website
+* `index.html` ist der Root / die Startseite einer Website
   * http://www.something.com  
     &rightarrow; http://www.something.com/index.html  
-    Die index.html-Datei wird automatisch angezeigt
+    Die `index.html`-Datei wird automatisch angezeigt
   * http://www.something.com/about.html  
     &rightarrow; http://www.something.com/about.html  
-    Hier verweisen wir explizit auf eine Seite, diese wird angezeigt wenn wir diese Seite aufrufen
-  * Das Verhalten kann in den Servereinstellungen angepasst werden
+    Hier verweisen wir explizit auf eine Seite
+  * *Dieses Standardverhalten kann mit div. Servereinstellungen überschrieben werden.*
 
 ### Syntax
 
@@ -341,7 +341,7 @@ Die aktuelle Browserlandschaft der meistbenutzten Browser sieht so aus:
 * iOS
   * Safari
 
-> **Note:** Dies ist keine vollständige Liste, sondern beinhaltet nur die meist genutzten
+> **Note:** Dies ist keine vollständige Liste, sondern beinhaltet nur die meist genutzten Browser
 
 <details>
   <summary>Browserentwicklung der letzten 10 Jahre</summary>
@@ -357,6 +357,8 @@ Source: [https://gs.statcounter.com/browser-market-share#monthly-200901-202003](
 
 ### HTML(5(.3)): Aktueller Standard
 
+TODO: Nach neuerungen prüfen
+
 [W3C](https://www.w3.org/) als offizielle Organisation zur Standardisierung.
 
 > **Quote**
@@ -367,6 +369,8 @@ Source: [https://gs.statcounter.com/browser-market-share#monthly-200901-202003](
 Die W3C übernimmt die Spezifikation der WHATWG grösstenteils in die offizielle Spezifikation.
 
 **Geschichte**
+
+TODO Diesen Abshcnitt auf aktuallität prüfen
 
 * Einführung der HTML5-Spezifikation als «W3C Recommendation» im Oktober 2014
 * Version "HTML 5.1" seit Oktober 2017 im Status «W3C Recommendation»
@@ -388,7 +392,7 @@ Die W3C übernimmt die Spezifikation der WHATWG grösstenteils in die offizielle
   * https://html.spec.whatwg.org/
   * https://github.com/whatwg/html
 
-### Testing von Pages
+### Testing einer Website
 
 Da Browser alle ein bisschen anders funktionieren, oder zum Teil gar sehr alt sind aber trotzdem noch benutzt werden (z.B. IE11), müssen unsere Kreationen auch ausgiebig getestet werden.
 
@@ -473,7 +477,7 @@ HTML-Elemente unterscheiden sich grundsätzlich in zwei Typen: in Block- und Inl
 
 **Demo** 🤯 
 
-- [Block-Elemente](https://codesandbox.io/s/demo-block-element-mywz6)
+- [Block-Elemente](https://codesandbox.io/s/mywz6)
 
 ### Inline Element
 
@@ -493,7 +497,7 @@ HTML-Elemente unterscheiden sich grundsätzlich in zwei Typen: in Block- und Inl
 
 **Demo** 🤯 
 
-- [Inline-Elemente](https://codesandbox.io/s/demo-inline-elements-k63zy)
+- [Inline-Elemente](https://codesandbox.io/s/k63zy)
 
 ### Weitere Infos
 
@@ -502,7 +506,7 @@ HTML-Elemente unterscheiden sich grundsätzlich in zwei Typen: in Block- und Inl
 
 ### Practice 🔥
 
-Öffne diese [**CodeSandbox**](https://codesandbox.io/s/html-und-css-basics-eemf9) als Startpunkt.
+Öffne diese [**CodeSandbox**](https://codesandbox.io/s/eemf9) als Startpunkt.
 
 - [ ] Erstelle als erstes eine zweite Seite `about.html`
 - [ ] Füge auf der `index.html` einen Link ein auf `about.html`
@@ -631,6 +635,18 @@ Zeit: ~ 20 min
     <!-- Footer -->
   </div>
 </div>
+```
+</details>
+
+<details>
+  <summary>Spans</summary>
+
+* TODO
+
+**Beispiel**
+
+```html
+TODO
 ```
 </details>
 

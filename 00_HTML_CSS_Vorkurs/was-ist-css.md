@@ -53,9 +53,9 @@ Source: [http://vetbossel.in/beginner-tutorial-website/css/css_syntax.html](http
 ### Inline CSS
 
 * Styles werden direkt aufs Element geschrieben, ein Selektor wird daher nicht benötigt
-* Sehr mühsame Maintenance
-* Unterstützen keine Queries (`@media`/`@supports`)
-* Können von _aussen_ nur mit `!important` überschrieben werden
+* Sehr mühsame Maintenance TODO: icon einfügen
+* Unterstützen keine Queries (`@media`/`@supports`) TODO: icon einfügen
+* Können von _aussen_ nur mit `!important` überschrieben werden TODO: icon einfügen
 
 **Beispiel**
 
@@ -72,7 +72,7 @@ Source: [http://vetbossel.in/beginner-tutorial-website/css/css_syntax.html](http
 ### Embedded CSS
 
 * Styles werden in einem `<style>`-Element im `<head>` definiert
-* Styles werden mit jedem HTML-Dokument ausgeliefert
+* Styles werden mit jedem HTML-Dokument ausgeliefert TODO: icon einfügen
 
 **Beispiel**
 
@@ -143,7 +143,7 @@ Der **Typenselektor** wählt alle Elemente aus, die auf den angegebenen _Tag_ ma
 **Beispiel**
 
 ```css
-p { /* ... */ }
+p { /* ...declarations... */ }
 ```
 
 #### Klassenselektor
@@ -153,7 +153,7 @@ Der **Klassenselektor** wählt alle Elemente aus, welche auf die angegebene _Kla
 **Beispiel**
 
 ```css
-.foo { /* ... */ }
+.foo { /* ...declarations... */ }
 ```
 
 #### ID-Selektor
@@ -164,7 +164,7 @@ Zu beachten ist, dass IDs innerhalb eines HTML-Dokuments nur einmal vorkommen d�
 **Beispiel**
 
 ```css
-#bar { /* ... */ }
+#bar { /* ...declarations... */ }
 ```
 
 #### Universalselektor
@@ -175,7 +175,7 @@ Dieser Selektor ist grundsätzlich so wenig wie nötig zu gebrauchen. Da dieser 
 **Beispiel**
 
 ```css
-* { /* ... */ }
+* { /* ...declarations... */ }
 ```
 
 #### Attributselektor
@@ -185,12 +185,12 @@ Der **Attributselektor** wählt Elemente aufgrund deren Attribute und auch deren
 **Beispiele**
 
 ```css
-[attribute=“value”] { /* ... */ }
+[attribute=“value”] { /* ...declarations... */ }
 
-[attribute] { /* ... */ }
+[attribute] { /* ...declarations... */ }
 ```
 
-> **Note:** Dieser Selektor ist sehr mächtig, bitte schaut euch noch die zusätzlichen Informationen auf MDN an: https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors
+> **Note:** Dieser Selektor ist sehr mächtig, bitte schaut euch noch die [zusätzlichen Informationen auf MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) an.
 
 **Demo** 🤯
 
@@ -269,10 +269,8 @@ Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a` dir
 
 ```html
 <!-- HTML -->
-<div>
-  <p class="a">Dieser Text ist ganz normal</p>
-  <p class="b">Grüüüner Text, WOW!</p>
-</div>
+<p class="a">Dieser Text ist ganz normal</p>
+<p class="b">Grüüüner Text, WOW!</p>
 ```
 
 > **Note:** Die Deklarationen werden nur auf das Element mit der Klasse `b` angewendet.
@@ -297,17 +295,15 @@ Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a` ein
 
 ```html
 <!-- HTML -->
-<div>
-  <p class="b">Dieser Text ist trotz der Klasse b, ganz normal</p>
-  <p>Ganz normaler Text</p>
-  <p class="a">Dieser Text ist ganz normal</p>
-  <p class="b">Grüüüner Text, WOW!</p>
-  <p>Ganz normaler Text</p>
-  <p class="b">Grüüüner Text, WOW!</p>
-  <p>Ganz normaler Text</p>
-  <p>Ganz normaler Text</p>
-  <p class="b">Grüüüner Text, WOW!</p>
-</div>
+<p class="b">Dieser Text ist trotz der Klasse b, ganz normal</p>
+<p>Ganz normaler Text</p>
+<p class="a">Dieser Text ist ganz normal</p>
+<p class="b">Grüüüner Text, WOW!</p>
+<p>Ganz normaler Text</p>
+<p class="b">Grüüüner Text, WOW!</p>
+<p>Ganz normaler Text</p>
+<p>Ganz normaler Text</p>
+<p class="b">Grüüüner Text, WOW!</p>
 ```
 
 > **Note:** Die Deklarationen werden nur auf das Element mit der Klasse `b` angewendet.
@@ -318,8 +314,7 @@ Die Deklarationen werden angewendet, wenn auf ein Element mit der Klasse `a` ein
 
 ### Pseudoklassen
 
-Pseudoklassen in CSS sind Schlüsselbegriffe, welche hinter einen Selektor gestellt werden, um einen besonderen Zustand abzufragen. Selektor und Pseudoklassen sind durch einen Doppelpunkt getrennt.  
-Liste aller Pseudoklassen: https://developer.mozilla.org/de/docs/Web/CSS/Pseudo-classes
+Pseudoklassen in CSS sind Schlüsselbegriffe, welche hinter einen Selektor gestellt werden, um einen besonderen Zustand abzufragen. Selektor und Pseudoklassen sind durch **einen** Doppelpunkt getrennt.
 
 **Beispiele**
 
@@ -349,13 +344,17 @@ li:not(:last-child) {
 }
 ```
 
+**Hilfreiche Links**
+
+* [Pseudo-classes - MDN](https://developer.mozilla.org/de/docs/Web/CSS/Pseudo-classes)
+
 **Demo** 🤯
 
 - [Pseudoklassen](https://codesandbox.io/s/77lo9)
 
 ### Pseudoelemente
 
-Wie auch Pseudoklassen können Pseudoelemente einem Selektor hinzugefügt werden. Selektor und Pseudoelement werden durch zwei Doppelpunkte getrennt.
+Wie auch Pseudoklassen können Pseudoelemente einem Selektor hinzugefügt werden. Selektor und Pseudoelement werden durch **zwei** Doppelpunkte getrennt.
 
 **Beispiele**
 
@@ -378,6 +377,10 @@ input::placeholder {
 }
 ```
 
+**Hilfreiche Links**
+
+* [Pseudo-elements - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+
 **Demo** 🤯
 
 - [Pseudoelemente](https://codesandbox.io/s/dqorb)
@@ -394,13 +397,15 @@ input::placeholder {
 - [ ] Die Naviagtionslinks sollten jeweils vor ihrem einen Text noch ein `>` haben.
 - [ ] Setze die Breite des Bildes (auf der About-Seite) auf _maximal_ 200px
 
-  Benutze als Hilfestellung diese Liste von einer Übersicht aller [CSS-Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
+Benutze als Hilfestellung diese Liste von einer Übersicht aller [CSS-Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
 
 Zeit: ~ 15 min
 
 **Solution:** [https://codesandbox.io/s/ciw8t](https://codesandbox.io/s/ciw8t)
 
 ## CSS Einheiten
+
+In CSS unterscheiden wir grundsätzlich von **absoluten** Einheiten und **relativen** Einheiten.
 
 ### Absolute Einheiten
 
@@ -421,7 +426,7 @@ p {
 > **Note:** Mehr zu [absoluten CSS Einheiten](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units#Absolute_length_units)
 
 <details>
-  <summary>Weitere absolute Einheiten (nicht empfohlen!)</summary>
+  <summary>Weitere absolute Einheiten (nicht empfohlen!) TODO: icon einfügen</summary>
 
 `cm` &rightarrow; Centimeter  
 `mm` &rightarrow; Millimeter  
@@ -436,7 +441,7 @@ Relative Einheiten sind immer abhängig von einem Wert, der auf einem anderen El
 
 **Einheiten**
 
-`%` &rightarrow; Relativ zum Eltern-Element
+`%` &rightarrow; Relativ zum Eltern-Element  
 `em` &rightarrow; Relativ zur eigenen `font-size`, oder zur `font-size` vom Eltern-Element  
 `rem` &rightarrow; Relativ zur `font-size` vom Root-Element `<html>` <sup>[1](#foot-relative-values-rem)</sup>  
 `vw` &rightarrow; Relativ zur Viewport-Breite <sup>[2](#foot-relative-values-viewport)</sup>  
@@ -467,7 +472,7 @@ div {
 Absolute & Relative Einheiten kennenlernen.
 Öffne diese [**CodeSandbox**](https://codesandbox.io/s/ciw8t) als Startpunkt.
 
-- [ ] Passe die Schriftgrösse der `h1` an, sodass diese gleichgross sind, aber in `rem` angegeben sind
+- [ ] Passe die Schriftgrösse der `h1` an, sodass diese gleichgross sind wie bisher, aber in `rem` angegeben sind
 - [ ] Setze die `magin-bottom` der `h1` auf `1.4em`, und finde mit den Dev-Tools heraus, wie gross diese jetzt sind
 - [ ] Setze die Breite des Avatars auf `50vw` &rightarrow; Wie verhält sich das Bild wenn du das Browserfenster kleiner und grösser machst?
 - [ ] Erstelle auf der Home-Seite ein `<div>` und setzte die Breite und Höhe auf `50vw`, respektive `50vh`, und schaue wie sich das div verändert, wenn Du den Browser kleiner und grösser machst (geb dem div noch eine `background-color: rgba(0, 0, 0, .4)`, damit man es auch sieht)
@@ -493,7 +498,7 @@ Dabei gibt es vor allem drei Kriterien:
 Reihenfolge der angewandten Deklarationen:
 
 1. **User-Agent CSS** &rightarrow; Default Stylesheet des Browsers
-2. **User CSS** &rightarrow; Browser-Einstellungen des Users
+2. **User CSS** &rightarrow; Browser-Einstellungen des Users (z.B. über eine [Chrome Extensions](https://chrome.google.com/webstore/detail/user-css/okpjlejfhacmgjkmknjhadmkdbcldfcb))
 3. **Author CSS** &rightarrow; Von der Website geliefertes CSS
 
 Zusätzlich gibt es aber noch `!important`.  
@@ -649,7 +654,7 @@ p {
 ```html
 <!-- HTML -->
 <div>
-  <!-- Der Paragraph erbt das padding, auch wenn dies normalerweise nciht vererbt würde -->
+  <!-- Der Paragraph erbt das padding, auch wenn dies normalerweise nicht vererbt würde -->
   <p>Hier wird die Schriftfamilie angewendet, und hier auch, da diese vererbt wird.</p>
 </div>
 ```
@@ -719,7 +724,7 @@ p {
 ### Hexadezimal
 
 * Ein `#` gefolgt von 3 bzw. 6 Zeichen
-* 3 Zeichen für Shorthand, bei welchem jedes Zeichen für zwei Zeichen steht (F &rightarrow; FF)
+* 3 Zeichen für Shorthand, bei welchem jedes Zeichen für zwei Zeichen steht (`F` &rightarrow; `FF`)
 * Die ersten zwei Zeichen repräsentieren "Rot", die zweiten zwei "Grün" und die letzen "Blau"
 
 **Beispiele**
