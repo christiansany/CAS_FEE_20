@@ -552,7 +552,7 @@ Zeit: ~ 20 min
 <a href="/contact.html">Contact</a>
 
 <!-- Externes Ziel -->
-<a href=https://www.hsr.ch target="_blank" rel="noopener">HSR</a>
+<a href=https://www.ost.ch target="_blank" rel="noopener">OST</a>
 ```
 </details>
 
@@ -560,7 +560,7 @@ Zeit: ~ 20 min
   <summary>Bilder</summary>
 
 * Bilder haben zwei Attribute welche benötigt werden `src` und `alt`
-* Der `src`-Attribut beinhaltet den Pfad zur anzuzeigenden Bilddatei. Diese kann sowohl relativ (vom HTML-Dokument aus), oder mit einem absoluten Pfad referenziert werden (z.B. https://www.hsr.ch/someimage.jpg)
+* Der `src`-Attribut beinhaltet den Pfad zur anzuzeigenden Bilddatei. Diese kann sowohl relativ (vom HTML-Dokument aus), oder mit einem absoluten Pfad referenziert werden (z.B. https://www.ost.ch/someimage.jpg)
 * Der `alt`-Attribut wird dem User gezeigt, wenn das Bild nicht geladen werden kann. Dieser dient ebenfalls als Informationen für Suchmaschinen und Screenreader
 
 **Beispiel**
